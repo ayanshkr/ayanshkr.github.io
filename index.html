@@ -1,14 +1,617 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>
-      Fatherless: The Series
-    </title>
-  </head>
-  <body>
-    <h1>Fatherless: The Series</h1>
-    <h2>Synopsis</h2>
-    <p>When Awarama receives a suspicious internship from UP Mindanao and enters another world, will he emerge a hero, or will the world break him.</p>
-    <a href = "https://docs.google.com/document/d/1scyLJzRxYwtQvTJ8n5OyoyumaB2V4z3MSYERay_m_1s/edit?usp=sharing">Click for TTL timeline</a>
-  </body>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OGAS-C Interface — Confederation Build 4.7</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&family=Caveat:wght@400;600&display=swap');
+
+  :root {
+    --amber:     #D4832A;
+    --amber-dim: #A8621A;
+    --cream:     #F5EDD8;
+    --warm-bg:   #1C1409;
+    --node-bg:   #2A1E0A;
+    --node-rim:  #6B4A1C;
+    --pulse:     #E8A24A;
+    --green-acc: #5E9E6A;
+    --red-acc:   #C0584A;
+    --text-main: #EBD8B0;
+    --text-dim:  #8A7055;
+    --link-line: rgba(180,120,40,0.35);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--warm-bg);
+    font-family: 'Nunito', sans-serif;
+    color: var(--text-main);
+    height: 100vh;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  /* ── TOPBAR ─────────────────────────────────────── */
+  #topbar {
+    position: fixed; top:0; left:0; right:0; height:36px;
+    background: rgba(28,20,9,0.92);
+    border-bottom: 1px solid var(--node-rim);
+    display: flex; align-items: center; gap:18px;
+    padding: 0 18px;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+  .tb-logo {
+    font-family: 'Caveat', cursive;
+    font-size: 17px;
+    color: var(--amber);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .tb-sep { width:1px; height:18px; background:var(--node-rim); }
+  .tb-item {
+    font-size: 12px; color: var(--text-dim);
+    cursor: pointer; padding: 2px 6px; border-radius:8px;
+    transition: color 0.2s, background 0.2s;
+  }
+  .tb-item:hover { color: var(--text-main); background: rgba(180,120,40,0.12); }
+  .tb-right { margin-left:auto; display:flex; gap:12px; align-items:center; }
+  .tb-clock {
+    font-size: 12px; color: var(--amber);
+    font-family: 'Caveat', cursive; font-size:15px;
+  }
+  .tb-indicator {
+    width:7px; height:7px; border-radius:50%;
+    background: var(--green-acc);
+    box-shadow: 0 0 6px var(--green-acc);
+    animation: breathe 3s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%,100% { opacity:1; } 50% { opacity:0.4; }
+  }
+
+  /* ── CANVAS ─────────────────────────────────────── */
+  #canvas {
+    position: absolute;
+    top:36px; left:0; right:0; bottom:28px;
+    overflow: hidden;
+  }
+
+  svg#net {
+    position:absolute; top:0; left:0;
+    width:100%; height:100%;
+    pointer-events:none;
+  }
+
+  /* ── NODES ──────────────────────────────────────── */
+  .node {
+    position: absolute;
+    display: flex; flex-direction:column; align-items:center;
+    cursor: pointer;
+    transition: transform 0.25s;
+  }
+  .node:hover { transform: scale(1.08); }
+  .node:hover .n-core { box-shadow: 0 0 22px var(--pulse), 0 0 8px rgba(230,160,60,0.5); }
+  .node:hover .n-label { color: var(--text-main); }
+
+  .n-core {
+    border-radius: 50%;
+    border: 1.5px solid var(--node-rim);
+    background: radial-gradient(circle at 35% 30%, #3D2B0F, #1E1408);
+    box-shadow: 0 0 12px rgba(120,70,10,0.4), inset 0 1px 0 rgba(255,200,100,0.1);
+    display:flex; align-items:center; justify-content:center;
+    transition: box-shadow 0.3s;
+    position: relative;
+  }
+  .n-core::after {
+    content:'';
+    position:absolute; inset:3px;
+    border-radius:50%;
+    border:1px solid rgba(200,150,60,0.15);
+  }
+  .n-icon { font-size: 18px; }
+  .n-label {
+    margin-top: 7px;
+    font-size: 11px; color: var(--text-dim);
+    text-align:center; white-space:nowrap;
+    transition: color 0.2s;
+    letter-spacing:0.03em;
+  }
+  .n-sublabel {
+    font-size: 9px; color: #5A4530;
+    margin-top:2px; text-align:center;
+  }
+
+  /* size variants */
+  .sz-lg .n-core { width:72px; height:72px; }
+  .sz-md .n-core { width:52px; height:52px; }
+  .sz-sm .n-core { width:38px; height:38px; }
+  .sz-sm .n-icon { font-size:14px; }
+
+  /* open/active state */
+  .node.active .n-core {
+    border-color: var(--amber);
+    box-shadow: 0 0 24px rgba(212,131,42,0.6), 0 0 8px rgba(230,160,60,0.4);
+  }
+  .node.active .n-label { color: var(--amber); }
+
+  /* pulse ring on primary node */
+  .node.hub .n-core::before {
+    content:'';
+    position:absolute; inset:-8px;
+    border-radius:50%;
+    border:1px solid rgba(212,131,42,0.25);
+    animation: ring-pulse 4s ease-out infinite;
+  }
+  @keyframes ring-pulse {
+    0%   { transform:scale(1);   opacity:0.6; }
+    100% { transform:scale(1.5); opacity:0; }
+  }
+
+  /* ── PANEL (right side) ─────────────────────────── */
+  #panel {
+    position:absolute; right:0; top:0; bottom:0; width:280px;
+    background: rgba(22,14,4,0.85);
+    border-left: 1px solid var(--node-rim);
+    backdrop-filter: blur(10px);
+    display:flex; flex-direction:column;
+    padding:20px 0;
+    gap:0;
+  }
+  .panel-title {
+    padding: 0 20px 14px;
+    font-family:'Caveat', cursive;
+    font-size:18px; color:var(--amber);
+    border-bottom:1px solid rgba(107,74,28,0.4);
+    letter-spacing:0.04em;
+  }
+  .panel-section {
+    padding: 14px 20px;
+    border-bottom:1px solid rgba(107,74,28,0.2);
+  }
+  .ps-head {
+    font-size:10px; text-transform:uppercase;
+    letter-spacing:0.15em; color:var(--text-dim);
+    margin-bottom:10px;
+  }
+  .ps-entry {
+    display:flex; align-items:center; gap:10px;
+    padding: 7px 10px; border-radius:12px;
+    cursor:pointer;
+    transition: background 0.2s;
+    margin-bottom:3px;
+  }
+  .ps-entry:hover { background: rgba(180,120,40,0.1); }
+  .ps-dot {
+    width:8px; height:8px; border-radius:50%; flex-shrink:0;
+  }
+  .ps-label { font-size:12px; color:var(--text-main); }
+  .ps-sub   { font-size:10px; color:var(--text-dim); margin-top:1px; }
+  .ps-badge {
+    margin-left:auto; font-size:9px;
+    background: rgba(90,160,100,0.2);
+    color:var(--green-acc); border-radius:8px;
+    padding:1px 7px;
+  }
+  .ps-badge.warn {
+    background:rgba(192,88,74,0.2); color:var(--red-acc);
+  }
+
+  /* flow meter */
+  .flow-bar {
+    height:3px; border-radius:3px;
+    background: rgba(107,74,28,0.3);
+    margin-top:6px; overflow:hidden;
+  }
+  .flow-fill {
+    height:100%; border-radius:3px;
+    background: linear-gradient(90deg, var(--amber-dim), var(--pulse));
+    animation: flow-anim 3s ease-in-out infinite alternate;
+  }
+  @keyframes flow-anim {
+    from { width:38%; } to { width:72%; }
+  }
+
+  /* search strip */
+  #search-strip {
+    margin-top:auto; padding:14px 20px;
+    border-top:1px solid rgba(107,74,28,0.4);
+  }
+  .search-box {
+    width:100%; background:rgba(40,28,10,0.9);
+    border:1px solid var(--node-rim);
+    border-radius:20px; padding:7px 14px;
+    color:var(--text-main); font-family:'Nunito',sans-serif;
+    font-size:12px; outline:none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .search-box::placeholder { color:var(--text-dim); }
+  .search-box:focus {
+    border-color:var(--amber);
+    box-shadow: 0 0 0 2px rgba(212,131,42,0.18);
+  }
+
+  /* ── FLOATING INFO CARD ─────────────────────────── */
+  #info-card {
+    position:absolute; left:20px; bottom:50px;
+    width:230px;
+    background:rgba(26,17,6,0.93);
+    border:1px solid var(--node-rim);
+    border-radius:18px; padding:16px;
+    backdrop-filter:blur(12px);
+    opacity:0; transform:translateY(10px);
+    transition:opacity 0.3s, transform 0.3s;
+    pointer-events:none;
+    z-index:50;
+  }
+  #info-card.show { opacity:1; transform:translateY(0); pointer-events:all; }
+  .ic-title { font-family:'Caveat',cursive; font-size:16px; color:var(--amber); margin-bottom:6px; }
+  .ic-body  { font-size:11px; color:var(--text-dim); line-height:1.7; }
+  .ic-tag   {
+    display:inline-block; margin-top:8px;
+    font-size:9px; text-transform:uppercase; letter-spacing:0.12em;
+    background:rgba(180,120,40,0.12); color:var(--amber);
+    border-radius:8px; padding:2px 8px;
+  }
+  .ic-close {
+    position:absolute; top:10px; right:12px;
+    font-size:14px; color:var(--text-dim); cursor:pointer;
+    transition:color 0.2s;
+  }
+  .ic-close:hover { color:var(--text-main); }
+
+  /* ── NOTIFICATION TOAST ─────────────────────────── */
+  #toast {
+    position:absolute; top:54px; left:50%; transform:translateX(-50%) translateY(-10px);
+    background:rgba(30,22,8,0.95); border:1px solid var(--amber);
+    border-radius:14px; padding:9px 18px;
+    font-size:12px; color:var(--text-main);
+    opacity:0; transition:opacity 0.3s, transform 0.3s;
+    pointer-events:none; z-index:200; white-space:nowrap;
+    box-shadow: 0 0 16px rgba(212,131,42,0.25);
+  }
+  #toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+  /* ── TASKBAR ─────────────────────────────────────── */
+  #taskbar {
+    position:fixed; bottom:0; left:0; right:0; height:28px;
+    background:rgba(18,12,4,0.95);
+    border-top:1px solid var(--node-rim);
+    display:flex; align-items:center; padding:0 16px; gap:16px;
+    font-size:10px; color:var(--text-dim);
+    z-index:100;
+  }
+  .task-node {
+    display:flex; align-items:center; gap:5px;
+    cursor:pointer; padding:2px 8px; border-radius:8px;
+    transition:background 0.2s, color 0.2s;
+  }
+  .task-node:hover { background:rgba(180,120,40,0.1); color:var(--text-main); }
+  .task-node.running::before {
+    content:''; width:4px; height:4px; border-radius:50%;
+    background:var(--green-acc);
+    box-shadow:0 0 4px var(--green-acc);
+  }
+  .taskbar-right { margin-left:auto; display:flex; gap:14px; align-items:center; }
+  .net-stat { color:var(--amber); font-family:'Caveat',cursive; font-size:13px; }
+
+  /* ── DECORATIVE GRAIN ───────────────────────────── */
+  #grain {
+    position:fixed; inset:0; pointer-events:none; z-index:999;
+    opacity:0.025;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+</style>
+</head>
+<body>
+
+<div id="grain"></div>
+
+<!-- TOPBAR -->
+<div id="topbar">
+  <span class="tb-logo">ОГАС-К  ·  Confederation Build 4.7</span>
+  <div class="tb-sep"></div>
+  <span class="tb-item">Сеть</span>
+  <span class="tb-item">Узлы</span>
+  <span class="tb-item">Поток</span>
+  <span class="tb-item">Справка</span>
+  <div class="tb-right">
+    <div class="tb-indicator"></div>
+    <span class="tb-clock" id="clock">—</span>
+  </div>
+</div>
+
+<!-- MAIN CANVAS -->
+<div id="canvas">
+
+  <!-- SVG connection lines -->
+  <svg id="net">
+    <defs>
+      <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+        <circle cx="3" cy="3" r="1.5" fill="rgba(180,120,40,0.5)"/>
+      </marker>
+    </defs>
+  </svg>
+
+  <!-- NODES: defined in JS, rendered here -->
+
+  <!-- PANEL -->
+  <div id="panel">
+    <div class="panel-title">Активные потоки</div>
+
+    <div class="panel-section">
+      <div class="ps-head">Узлы сети</div>
+      <div class="ps-entry" onclick="showToast('Соединение с Союзным ядром установлено')">
+        <div class="ps-dot" style="background:#5E9E6A;box-shadow:0 0 5px #5E9E6A"></div>
+        <div><div class="ps-label">Союзное ядро</div><div class="ps-sub">Москва — 4.2 мс</div></div>
+        <div class="ps-badge">онлайн</div>
+      </div>
+      <div class="ps-entry" onclick="showToast('Соединение с Геистским узлом установлено')">
+        <div class="ps-dot" style="background:#5E9E6A;box-shadow:0 0 5px #5E9E6A"></div>
+        <div><div class="ps-label">Геистский узел</div><div class="ps-sub">Берлин — 11.8 мс</div></div>
+        <div class="ps-badge">онлайн</div>
+      </div>
+      <div class="ps-entry" onclick="showToast('Соединение с Тихоокеанским ретрансл. ограничено')">
+        <div class="ps-dot" style="background:#D4832A;box-shadow:0 0 5px #D4832A"></div>
+        <div><div class="ps-label">Тихоокеанский ретрансл.</div><div class="ps-sub">Манила — 38.1 мс</div></div>
+        <div class="ps-badge warn">слабый</div>
+      </div>
+    </div>
+
+    <div class="panel-section">
+      <div class="ps-head">Поток данных</div>
+      <div class="ps-label" style="font-size:11px;color:var(--text-dim);margin-bottom:6px">
+        Входящий / Исходящий
+      </div>
+      <div class="flow-bar"><div class="flow-fill"></div></div>
+      <div style="display:flex;justify-content:space-between;margin-top:5px">
+        <span style="font-size:10px;color:var(--text-dim)">▼ 2.4 Кб/с</span>
+        <span style="font-size:10px;color:var(--text-dim)">▲ 0.8 Кб/с</span>
+      </div>
+    </div>
+
+    <div class="panel-section">
+      <div class="ps-head">Субстрат-мониторинг</div>
+      <div class="ps-entry">
+        <div class="ps-dot" style="background:#A888CC;box-shadow:0 0 5px #A888CC"></div>
+        <div><div class="ps-label">Зонд МС-7 активен</div><div class="ps-sub">Сигнал стабилен</div></div>
+      </div>
+      <div class="ps-entry" onclick="showToast('Аномалия зафиксирована. Классификация: закрыто.')">
+        <div class="ps-dot" style="background:var(--red-acc);box-shadow:0 0 5px var(--red-acc)"></div>
+        <div><div class="ps-label">Аномалия: ЮЗ-объект</div><div class="ps-sub">Координаты: засекречено</div></div>
+        <div class="ps-badge warn">!!</div>
+      </div>
+    </div>
+
+    <div id="search-strip">
+      <input class="search-box" type="text" placeholder="🔍  Поиск в сети…">
+    </div>
+  </div>
+
+  <!-- INFO CARD -->
+  <div id="info-card">
+    <span class="ic-close" onclick="closeCard()">✕</span>
+    <div class="ic-title" id="ic-title">—</div>
+    <div class="ic-body"  id="ic-body">—</div>
+    <span class="ic-tag"  id="ic-tag">—</span>
+  </div>
+
+  <div id="toast"></div>
+</div>
+
+<!-- TASKBAR -->
+<div id="taskbar">
+  <div class="task-node running">Сеть</div>
+  <div class="task-node running">Проводник</div>
+  <div class="task-node">Редактор</div>
+  <div class="task-node">Архив</div>
+  <div class="taskbar-right">
+    <span class="net-stat" id="net-stat">●●○  ОГАС-К</span>
+    <span style="font-size:10px;color:var(--text-dim)">Сеанс: nawiramu</span>
+  </div>
+</div>
+
+<script>
+// ── clock ─────────────────────────────────────────────
+function tick() {
+  const now = new Date();
+  const h = String(now.getHours()).padStart(2,'0');
+  const m = String(now.getMinutes()).padStart(2,'0');
+  const s = String(now.getSeconds()).padStart(2,'0');
+  document.getElementById('clock').textContent = h + ':' + m + ':' + s;
+}
+tick(); setInterval(tick, 1000);
+
+// ── node data ─────────────────────────────────────────
+const nodes = [
+  {
+    id:'home', icon:'🏠', label:'Домашний узел', sub:'личный',
+    x:0.22, y:0.38, size:'lg', hub:true,
+    info:'Личное рабочее пространство. Все потоки исходят отсюда.',
+    tag:'корневой узел'
+  },
+  {
+    id:'docs', icon:'📄', label:'Документы', sub:'локальные',
+    x:0.10, y:0.22, size:'md',
+    info:'Локальное хранилище. Файлы организованы по потокам, не по папкам.',
+    tag:'хранилище'
+  },
+  {
+    id:'net', icon:'🌐', label:'Общая сеть', sub:'ОГАС-К',
+    x:0.38, y:0.18, size:'md',
+    info:'Доступ к Конфедеративной сети. Тёплый интерфейс, не прямолинейный.',
+    tag:'сеть'
+  },
+  {
+    id:'media', icon:'🎞️', label:'Медиа', sub:'анимация',
+    x:0.10, y:0.58, size:'md',
+    info:'Проект "ИТИМ". Папки эпизодов, субстратные глифы-референсы, черновики.',
+    tag:'активный проект', active:true
+  },
+  {
+    id:'research', icon:'🔬', label:'Исследования', sub:'закрыто',
+    x:0.35, y:0.62, size:'md',
+    info:'Связано с субстрат-архивом. Доступ ограничен — требуется ключ узла.',
+    tag:'ограниченный доступ'
+  },
+  {
+    id:'msg', icon:'✉️', label:'Сообщения', sub:'входящие: 3',
+    x:0.52, y:0.30, size:'sm',
+    info:'3 непрочитанных. Одно от: "заинтересованная сторона". Непрочитано.',
+    tag:'входящие'
+  },
+  {
+    id:'music', icon:'🎵', label:'Звук', sub:'проект',
+    x:0.18, y:0.78, size:'sm',
+    info:'Саундтрек к эп. 7. Не завершён. Последнее изменение: вчера, 02:47.',
+    tag:'в работе'
+  },
+  {
+    id:'ext1', icon:'🔗', label:'Союзный узел', sub:'Москва',
+    x:0.58, y:0.55, size:'sm',
+    info:'Внешний узел. Субстрат-данные синхронизируются каждые 6 часов.',
+    tag:'внешний'
+  },
+  {
+    id:'ext2', icon:'🔗', label:'Геистский узел', sub:'Берлин',
+    x:0.65, y:0.38, size:'sm',
+    info:'Геистский анимационный коллектив. Сервер «natuklasan» отслеживается.',
+    tag:'внешний'
+  },
+  {
+    id:'trash', icon:'🌿', label:'Архив', sub:'неактивно',
+    x:0.48, y:0.75, size:'sm',
+    info:'Архивированные узлы. ОГАС не "удаляет" — только архивирует потоки.',
+    tag:'архив'
+  },
+];
+
+// connections: pairs of node IDs
+const edges = [
+  ['home','docs'],['home','net'],['home','media'],
+  ['home','research'],['home','msg'],
+  ['media','music'],['media','research'],
+  ['net','ext1'],['net','ext2'],['net','msg'],
+  ['research','ext1'],
+  ['home','trash'],
+];
+
+// ── render nodes ──────────────────────────────────────
+const canvas = document.getElementById('canvas');
+const panel  = document.getElementById('panel');
+const panelW = 280;
+
+function posX(rx) {
+  const w = canvas.offsetWidth - panelW;
+  return Math.round(rx * w);
+}
+function posY(ry) {
+  const h = canvas.offsetHeight;
+  return Math.round(ry * h);
+}
+
+const nodeEls = {};
+
+nodes.forEach(n => {
+  const el = document.createElement('div');
+  el.className = 'node sz-' + n.size + (n.hub ? ' hub' : '') + (n.active ? ' active' : '');
+  el.id = 'node-' + n.id;
+  el.style.left = posX(n.x) + 'px';
+  el.style.top  = posY(n.y) + 'px';
+  el.style.transform = 'translate(-50%,-50%)';
+  el.innerHTML = `
+    <div class="n-core"><span class="n-icon">${n.icon}</span></div>
+    <div class="n-label">${n.label}</div>
+    ${n.sub ? `<div class="n-sublabel">${n.sub}</div>` : ''}
+  `;
+  el.addEventListener('click', () => openCard(n));
+  canvas.appendChild(el);
+  nodeEls[n.id] = el;
+});
+
+// ── draw SVG edges ────────────────────────────────────
+function drawEdges() {
+  const svg = document.getElementById('net');
+  svg.innerHTML = `<defs>
+    <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <circle cx="3" cy="3" r="1.5" fill="rgba(180,120,40,0.4)"/>
+    </marker>
+  </defs>`;
+
+  edges.forEach(([a,b]) => {
+    const ea = nodeEls[a], eb = nodeEls[b];
+    if (!ea || !eb) return;
+    const ax = parseFloat(ea.style.left);
+    const ay = parseFloat(ea.style.top);
+    const bx = parseFloat(eb.style.left);
+    const by = parseFloat(eb.style.top);
+
+    // organic cubic bezier
+    const mx = (ax+bx)/2 + (Math.random()-0.5)*40;
+    const my = (ay+by)/2 + (Math.random()-0.5)*40;
+
+    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d', `M${ax},${ay} Q${mx},${my} ${bx},${by}`);
+    path.setAttribute('stroke', 'rgba(180,120,40,0.28)');
+    path.setAttribute('stroke-width', '1.2');
+    path.setAttribute('fill', 'none');
+    path.setAttribute('marker-end', 'url(#arr)');
+    svg.appendChild(path);
+  });
+}
+
+drawEdges();
+window.addEventListener('resize', () => {
+  nodes.forEach(n => {
+    const el = nodeEls[n.id];
+    el.style.left = posX(n.x) + 'px';
+    el.style.top  = posY(n.y) + 'px';
+  });
+  drawEdges();
+});
+
+// ── info card ─────────────────────────────────────────
+function openCard(n) {
+  document.getElementById('ic-title').textContent = n.label;
+  document.getElementById('ic-body').textContent  = n.info;
+  document.getElementById('ic-tag').textContent   = n.tag;
+  document.getElementById('info-card').classList.add('show');
+}
+function closeCard() {
+  document.getElementById('info-card').classList.remove('show');
+}
+
+// ── toast ─────────────────────────────────────────────
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// ── net stat flicker ──────────────────────────────────
+const stats = ['●●○  ОГАС-К','●●●  ОГАС-К','●●○  ОГАС-К'];
+let si = 0;
+setInterval(() => {
+  si = (si+1) % stats.length;
+  document.getElementById('net-stat').textContent = stats[si];
+}, 3700);
+
+// ── ambient: random edge glow ─────────────────────────
+setInterval(() => {
+  const paths = document.querySelectorAll('#net path');
+  if (!paths.length) return;
+  const p = paths[Math.floor(Math.random()*paths.length)];
+  p.style.stroke = 'rgba(212,131,42,0.65)';
+  p.style.transition = 'stroke 0.3s';
+  setTimeout(() => {
+    p.style.stroke = 'rgba(180,120,40,0.28)';
+  }, 600);
+}, 1400);
+</script>
+</body>
 </html>
