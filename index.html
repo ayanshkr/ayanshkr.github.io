@@ -33,7 +33,6 @@
     user-select: none;
   }
 
-  /* ── TOPBAR ─────────────────────────────────────── */
   #topbar {
     position: fixed; top:0; left:0; right:0; height:36px;
     background: rgba(28,20,9,0.92);
@@ -59,8 +58,8 @@
   .tb-item:hover { color: var(--text-main); background: rgba(180,120,40,0.12); }
   .tb-right { margin-left:auto; display:flex; gap:12px; align-items:center; }
   .tb-clock {
-    font-size: 12px; color: var(--amber);
     font-family: 'Caveat', cursive; font-size:15px;
+    color: var(--amber);
   }
   .tb-indicator {
     width:7px; height:7px; border-radius:50%;
@@ -72,7 +71,6 @@
     0%,100% { opacity:1; } 50% { opacity:0.4; }
   }
 
-  /* ── CANVAS ─────────────────────────────────────── */
   #canvas {
     position: absolute;
     top:36px; left:0; right:0; bottom:28px;
@@ -85,7 +83,6 @@
     pointer-events:none;
   }
 
-  /* ── NODES ──────────────────────────────────────── */
   .node {
     position: absolute;
     display: flex; flex-direction:column; align-items:center;
@@ -124,20 +121,17 @@
     margin-top:2px; text-align:center;
   }
 
-  /* size variants */
   .sz-lg .n-core { width:72px; height:72px; }
   .sz-md .n-core { width:52px; height:52px; }
   .sz-sm .n-core { width:38px; height:38px; }
   .sz-sm .n-icon { font-size:14px; }
 
-  /* open/active state */
   .node.active .n-core {
     border-color: var(--amber);
     box-shadow: 0 0 24px rgba(212,131,42,0.6), 0 0 8px rgba(230,160,60,0.4);
   }
   .node.active .n-label { color: var(--amber); }
 
-  /* pulse ring on primary node */
   .node.hub .n-core::before {
     content:'';
     position:absolute; inset:-8px;
@@ -150,7 +144,6 @@
     100% { transform:scale(1.5); opacity:0; }
   }
 
-  /* ── PANEL (right side) ─────────────────────────── */
   #panel {
     position:absolute; right:0; top:0; bottom:0; width:280px;
     background: rgba(22,14,4,0.85);
@@ -158,7 +151,6 @@
     backdrop-filter: blur(10px);
     display:flex; flex-direction:column;
     padding:20px 0;
-    gap:0;
   }
   .panel-title {
     padding: 0 20px 14px;
@@ -199,7 +191,6 @@
     background:rgba(192,88,74,0.2); color:var(--red-acc);
   }
 
-  /* flow meter */
   .flow-bar {
     height:3px; border-radius:3px;
     background: rgba(107,74,28,0.3);
@@ -214,7 +205,6 @@
     from { width:38%; } to { width:72%; }
   }
 
-  /* search strip */
   #search-strip {
     margin-top:auto; padding:14px 20px;
     border-top:1px solid rgba(107,74,28,0.4);
@@ -233,7 +223,6 @@
     box-shadow: 0 0 0 2px rgba(212,131,42,0.18);
   }
 
-  /* ── FLOATING INFO CARD ─────────────────────────── */
   #info-card {
     position:absolute; left:20px; bottom:50px;
     width:230px;
@@ -262,7 +251,6 @@
   }
   .ic-close:hover { color:var(--text-main); }
 
-  /* ── NOTIFICATION TOAST ─────────────────────────── */
   #toast {
     position:absolute; top:54px; left:50%; transform:translateX(-50%) translateY(-10px);
     background:rgba(30,22,8,0.95); border:1px solid var(--amber);
@@ -274,7 +262,6 @@
   }
   #toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
 
-  /* ── TASKBAR ─────────────────────────────────────── */
   #taskbar {
     position:fixed; bottom:0; left:0; right:0; height:28px;
     background:rgba(18,12,4,0.95);
@@ -297,7 +284,6 @@
   .taskbar-right { margin-left:auto; display:flex; gap:14px; align-items:center; }
   .net-stat { color:var(--amber); font-family:'Caveat',cursive; font-size:13px; }
 
-  /* ── DECORATIVE GRAIN ───────────────────────────── */
   #grain {
     position:fixed; inset:0; pointer-events:none; z-index:999;
     opacity:0.025;
@@ -306,91 +292,76 @@
 </style>
 </head>
 <body>
-
 <div id="grain"></div>
 
-<!-- TOPBAR -->
 <div id="topbar">
-  <span class="tb-logo">ОГАС-К  ·  Confederation Build 4.7</span>
+  <span class="tb-logo">OGAS-C  ·  Confederation Build 4.7</span>
   <div class="tb-sep"></div>
-  <span class="tb-item">Сеть</span>
-  <span class="tb-item">Узлы</span>
-  <span class="tb-item">Поток</span>
-  <span class="tb-item">Справка</span>
+  <span class="tb-item">Network</span>
+  <span class="tb-item">Nodes</span>
+  <span class="tb-item">Flow</span>
+  <span class="tb-item">Help</span>
   <div class="tb-right">
     <div class="tb-indicator"></div>
     <span class="tb-clock" id="clock">—</span>
   </div>
 </div>
 
-<!-- MAIN CANVAS -->
 <div id="canvas">
+  <svg id="net"></svg>
 
-  <!-- SVG connection lines -->
-  <svg id="net">
-    <defs>
-      <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
-        <circle cx="3" cy="3" r="1.5" fill="rgba(180,120,40,0.5)"/>
-      </marker>
-    </defs>
-  </svg>
-
-  <!-- NODES: defined in JS, rendered here -->
-
-  <!-- PANEL -->
   <div id="panel">
-    <div class="panel-title">Активные потоки</div>
+    <div class="panel-title">Active Flows</div>
 
     <div class="panel-section">
-      <div class="ps-head">Узлы сети</div>
-      <div class="ps-entry" onclick="showToast('Соединение с Союзным ядром установлено')">
+      <div class="ps-head">Network Nodes</div>
+      <div class="ps-entry" onclick="showToast('Connection to Alliance Core established')">
         <div class="ps-dot" style="background:#5E9E6A;box-shadow:0 0 5px #5E9E6A"></div>
-        <div><div class="ps-label">Союзное ядро</div><div class="ps-sub">Москва — 4.2 мс</div></div>
-        <div class="ps-badge">онлайн</div>
+        <div><div class="ps-label">Alliance Core</div><div class="ps-sub">Moscow — 4.2 ms</div></div>
+        <div class="ps-badge">online</div>
       </div>
-      <div class="ps-entry" onclick="showToast('Соединение с Геистским узлом установлено')">
+      <div class="ps-entry" onclick="showToast('Connection to Geoist Node established')">
         <div class="ps-dot" style="background:#5E9E6A;box-shadow:0 0 5px #5E9E6A"></div>
-        <div><div class="ps-label">Геистский узел</div><div class="ps-sub">Берлин — 11.8 мс</div></div>
-        <div class="ps-badge">онлайн</div>
+        <div><div class="ps-label">Geoist Node</div><div class="ps-sub">Berlin — 11.8 ms</div></div>
+        <div class="ps-badge">online</div>
       </div>
-      <div class="ps-entry" onclick="showToast('Соединение с Тихоокеанским ретрансл. ограничено')">
+      <div class="ps-entry" onclick="showToast('Pacific relay connection is limited')">
         <div class="ps-dot" style="background:#D4832A;box-shadow:0 0 5px #D4832A"></div>
-        <div><div class="ps-label">Тихоокеанский ретрансл.</div><div class="ps-sub">Манила — 38.1 мс</div></div>
-        <div class="ps-badge warn">слабый</div>
+        <div><div class="ps-label">Pacific Relay</div><div class="ps-sub">Manila — 38.1 ms</div></div>
+        <div class="ps-badge warn">weak</div>
       </div>
     </div>
 
     <div class="panel-section">
-      <div class="ps-head">Поток данных</div>
+      <div class="ps-head">Data Flow</div>
       <div class="ps-label" style="font-size:11px;color:var(--text-dim);margin-bottom:6px">
-        Входящий / Исходящий
+        Inbound / Outbound
       </div>
       <div class="flow-bar"><div class="flow-fill"></div></div>
       <div style="display:flex;justify-content:space-between;margin-top:5px">
-        <span style="font-size:10px;color:var(--text-dim)">▼ 2.4 Кб/с</span>
-        <span style="font-size:10px;color:var(--text-dim)">▲ 0.8 Кб/с</span>
+        <span style="font-size:10px;color:var(--text-dim)">▼ 2.4 Kb/s</span>
+        <span style="font-size:10px;color:var(--text-dim)">▲ 0.8 Kb/s</span>
       </div>
     </div>
 
     <div class="panel-section">
-      <div class="ps-head">Субстрат-мониторинг</div>
+      <div class="ps-head">Substrate Monitoring</div>
       <div class="ps-entry">
         <div class="ps-dot" style="background:#A888CC;box-shadow:0 0 5px #A888CC"></div>
-        <div><div class="ps-label">Зонд МС-7 активен</div><div class="ps-sub">Сигнал стабилен</div></div>
+        <div><div class="ps-label">Probe MS-7 active</div><div class="ps-sub">Signal stable</div></div>
       </div>
-      <div class="ps-entry" onclick="showToast('Аномалия зафиксирована. Классификация: закрыто.')">
+      <div class="ps-entry" onclick="showToast('Anomaly logged. Classification: closed.')">
         <div class="ps-dot" style="background:var(--red-acc);box-shadow:0 0 5px var(--red-acc)"></div>
-        <div><div class="ps-label">Аномалия: ЮЗ-объект</div><div class="ps-sub">Координаты: засекречено</div></div>
+        <div><div class="ps-label">Anomaly: SW-Object</div><div class="ps-sub">Coordinates: classified</div></div>
         <div class="ps-badge warn">!!</div>
       </div>
     </div>
 
     <div id="search-strip">
-      <input class="search-box" type="text" placeholder="🔍  Поиск в сети…">
+      <input class="search-box" type="text" placeholder="🔍  Search network…">
     </div>
   </div>
 
-  <!-- INFO CARD -->
   <div id="info-card">
     <span class="ic-close" onclick="closeCard()">✕</span>
     <div class="ic-title" id="ic-title">—</div>
@@ -401,20 +372,18 @@
   <div id="toast"></div>
 </div>
 
-<!-- TASKBAR -->
 <div id="taskbar">
-  <div class="task-node running">Сеть</div>
-  <div class="task-node running">Проводник</div>
-  <div class="task-node">Редактор</div>
-  <div class="task-node">Архив</div>
+  <div class="task-node running">Network</div>
+  <div class="task-node running">Explorer</div>
+  <div class="task-node">Editor</div>
+  <div class="task-node">Archive</div>
   <div class="taskbar-right">
-    <span class="net-stat" id="net-stat">●●○  ОГАС-К</span>
-    <span style="font-size:10px;color:var(--text-dim)">Сеанс: nawiramu</span>
+    <span class="net-stat" id="net-stat">●●○  OGAS-C</span>
+    <span style="font-size:10px;color:var(--text-dim)">Session: nawiramu</span>
   </div>
 </div>
 
 <script>
-// ── clock ─────────────────────────────────────────────
 function tick() {
   const now = new Date();
   const h = String(now.getHours()).padStart(2,'0');
@@ -424,96 +393,54 @@ function tick() {
 }
 tick(); setInterval(tick, 1000);
 
-// ── node data ─────────────────────────────────────────
 const nodes = [
-  {
-    id:'home', icon:'🏠', label:'Домашний узел', sub:'личный',
+  { id:'home', icon:'🏠', label:'Home Node', sub:'personal',
     x:0.22, y:0.38, size:'lg', hub:true,
-    info:'Личное рабочее пространство. Все потоки исходят отсюда.',
-    tag:'корневой узел'
-  },
-  {
-    id:'docs', icon:'📄', label:'Документы', sub:'локальные',
+    info:'Personal workspace. All flows originate here.', tag:'root node' },
+  { id:'docs', icon:'📄', label:'Documents', sub:'local',
     x:0.10, y:0.22, size:'md',
-    info:'Локальное хранилище. Файлы организованы по потокам, не по папкам.',
-    tag:'хранилище'
-  },
-  {
-    id:'net', icon:'🌐', label:'Общая сеть', sub:'ОГАС-К',
+    info:'Local storage. Files organised by flow, not by folder.', tag:'storage' },
+  { id:'net', icon:'🌐', label:'Common Network', sub:'OGAS-C',
     x:0.38, y:0.18, size:'md',
-    info:'Доступ к Конфедеративной сети. Тёплый интерфейс, не прямолинейный.',
-    tag:'сеть'
-  },
-  {
-    id:'media', icon:'🎞️', label:'Медиа', sub:'анимация',
+    info:'Access to the Confederation network. Warm interface — non-hierarchical.', tag:'network' },
+  { id:'media', icon:'🎞️', label:'Media', sub:'animation',
     x:0.10, y:0.58, size:'md',
-    info:'Проект "ИТИМ". Папки эпизодов, субстратные глифы-референсы, черновики.',
-    tag:'активный проект', active:true
-  },
-  {
-    id:'research', icon:'🔬', label:'Исследования', sub:'закрыто',
+    info:'Project "ITIM". Episode folders, substrate glyph references, drafts.', tag:'active project', active:true },
+  { id:'research', icon:'🔬', label:'Research', sub:'restricted',
     x:0.35, y:0.62, size:'md',
-    info:'Связано с субстрат-архивом. Доступ ограничен — требуется ключ узла.',
-    tag:'ограниченный доступ'
-  },
-  {
-    id:'msg', icon:'✉️', label:'Сообщения', sub:'входящие: 3',
+    info:'Linked to substrate archive. Access restricted — node key required.', tag:'restricted access' },
+  { id:'msg', icon:'✉️', label:'Messages', sub:'unread: 3',
     x:0.52, y:0.30, size:'sm',
-    info:'3 непрочитанных. Одно от: "заинтересованная сторона". Непрочитано.',
-    tag:'входящие'
-  },
-  {
-    id:'music', icon:'🎵', label:'Звук', sub:'проект',
+    info:'3 unread. One from: "interested party". Unopened.', tag:'inbox' },
+  { id:'music', icon:'🎵', label:'Sound', sub:'in progress',
     x:0.18, y:0.78, size:'sm',
-    info:'Саундтрек к эп. 7. Не завершён. Последнее изменение: вчера, 02:47.',
-    tag:'в работе'
-  },
-  {
-    id:'ext1', icon:'🔗', label:'Союзный узел', sub:'Москва',
+    info:'Episode 7 soundtrack. Unfinished. Last modified: yesterday, 02:47.', tag:'in progress' },
+  { id:'ext1', icon:'🔗', label:'Alliance Node', sub:'Moscow',
     x:0.58, y:0.55, size:'sm',
-    info:'Внешний узел. Субстрат-данные синхронизируются каждые 6 часов.',
-    tag:'внешний'
-  },
-  {
-    id:'ext2', icon:'🔗', label:'Геистский узел', sub:'Берлин',
+    info:'External node. Substrate data syncs every 6 hours.', tag:'external' },
+  { id:'ext2', icon:'🔗', label:'Geoist Node', sub:'Berlin',
     x:0.65, y:0.38, size:'sm',
-    info:'Геистский анимационный коллектив. Сервер «natuklasan» отслеживается.',
-    tag:'внешний'
-  },
-  {
-    id:'trash', icon:'🌿', label:'Архив', sub:'неактивно',
+    info:'Geoist Animation Collective. "natuklasan" server being monitored.', tag:'external' },
+  { id:'trash', icon:'🌿', label:'Archive', sub:'inactive',
     x:0.48, y:0.75, size:'sm',
-    info:'Архивированные узлы. ОГАС не "удаляет" — только архивирует потоки.',
-    tag:'архив'
-  },
+    info:'Archived nodes. OGAS does not "delete" — it only archives flows.', tag:'archive' },
 ];
 
-// connections: pairs of node IDs
 const edges = [
   ['home','docs'],['home','net'],['home','media'],
   ['home','research'],['home','msg'],
   ['media','music'],['media','research'],
   ['net','ext1'],['net','ext2'],['net','msg'],
-  ['research','ext1'],
-  ['home','trash'],
+  ['research','ext1'],['home','trash'],
 ];
 
-// ── render nodes ──────────────────────────────────────
 const canvas = document.getElementById('canvas');
-const panel  = document.getElementById('panel');
 const panelW = 280;
 
-function posX(rx) {
-  const w = canvas.offsetWidth - panelW;
-  return Math.round(rx * w);
-}
-function posY(ry) {
-  const h = canvas.offsetHeight;
-  return Math.round(ry * h);
-}
+function posX(rx) { return Math.round(rx * (canvas.offsetWidth - panelW)); }
+function posY(ry) { return Math.round(ry * canvas.offsetHeight); }
 
 const nodeEls = {};
-
 nodes.forEach(n => {
   const el = document.createElement('div');
   el.className = 'node sz-' + n.size + (n.hub ? ' hub' : '') + (n.active ? ' active' : '');
@@ -521,96 +448,72 @@ nodes.forEach(n => {
   el.style.left = posX(n.x) + 'px';
   el.style.top  = posY(n.y) + 'px';
   el.style.transform = 'translate(-50%,-50%)';
-  el.innerHTML = `
-    <div class="n-core"><span class="n-icon">${n.icon}</span></div>
+  el.innerHTML = `<div class="n-core"><span class="n-icon">${n.icon}</span></div>
     <div class="n-label">${n.label}</div>
-    ${n.sub ? `<div class="n-sublabel">${n.sub}</div>` : ''}
-  `;
+    ${n.sub ? `<div class="n-sublabel">${n.sub}</div>` : ''}`;
   el.addEventListener('click', () => openCard(n));
   canvas.appendChild(el);
   nodeEls[n.id] = el;
 });
 
-// ── draw SVG edges ────────────────────────────────────
 function drawEdges() {
   const svg = document.getElementById('net');
-  svg.innerHTML = `<defs>
-    <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
-      <circle cx="3" cy="3" r="1.5" fill="rgba(180,120,40,0.4)"/>
-    </marker>
-  </defs>`;
-
+  svg.innerHTML = `<defs><marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+    <circle cx="3" cy="3" r="1.5" fill="rgba(180,120,40,0.4)"/></marker></defs>`;
   edges.forEach(([a,b]) => {
-    const ea = nodeEls[a], eb = nodeEls[b];
-    if (!ea || !eb) return;
-    const ax = parseFloat(ea.style.left);
-    const ay = parseFloat(ea.style.top);
-    const bx = parseFloat(eb.style.left);
-    const by = parseFloat(eb.style.top);
-
-    // organic cubic bezier
+    const ea = nodeEls[a], eb = nodeEls[b]; if (!ea || !eb) return;
+    const ax = parseFloat(ea.style.left), ay = parseFloat(ea.style.top);
+    const bx = parseFloat(eb.style.left), by = parseFloat(eb.style.top);
     const mx = (ax+bx)/2 + (Math.random()-0.5)*40;
     const my = (ay+by)/2 + (Math.random()-0.5)*40;
-
     const path = document.createElementNS('http://www.w3.org/2000/svg','path');
     path.setAttribute('d', `M${ax},${ay} Q${mx},${my} ${bx},${by}`);
-    path.setAttribute('stroke', 'rgba(180,120,40,0.28)');
-    path.setAttribute('stroke-width', '1.2');
-    path.setAttribute('fill', 'none');
-    path.setAttribute('marker-end', 'url(#arr)');
+    path.setAttribute('stroke','rgba(180,120,40,0.28)');
+    path.setAttribute('stroke-width','1.2');
+    path.setAttribute('fill','none');
+    path.setAttribute('marker-end','url(#arr)');
     svg.appendChild(path);
   });
 }
-
 drawEdges();
 window.addEventListener('resize', () => {
   nodes.forEach(n => {
-    const el = nodeEls[n.id];
-    el.style.left = posX(n.x) + 'px';
-    el.style.top  = posY(n.y) + 'px';
+    nodeEls[n.id].style.left = posX(n.x) + 'px';
+    nodeEls[n.id].style.top  = posY(n.y) + 'px';
   });
   drawEdges();
 });
 
-// ── info card ─────────────────────────────────────────
 function openCard(n) {
   document.getElementById('ic-title').textContent = n.label;
   document.getElementById('ic-body').textContent  = n.info;
   document.getElementById('ic-tag').textContent   = n.tag;
   document.getElementById('info-card').classList.add('show');
 }
-function closeCard() {
-  document.getElementById('info-card').classList.remove('show');
-}
+function closeCard() { document.getElementById('info-card').classList.remove('show'); }
 
-// ── toast ─────────────────────────────────────────────
 let toastTimer;
 function showToast(msg) {
   const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
+  t.textContent = msg; t.classList.add('show');
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
 }
 
-// ── net stat flicker ──────────────────────────────────
-const stats = ['●●○  ОГАС-К','●●●  ОГАС-К','●●○  ОГАС-К'];
+const stats = ['●●○  OGAS-C','●●●  OGAS-C','●●○  OGAS-C'];
 let si = 0;
 setInterval(() => {
   si = (si+1) % stats.length;
   document.getElementById('net-stat').textContent = stats[si];
 }, 3700);
 
-// ── ambient: random edge glow ─────────────────────────
 setInterval(() => {
   const paths = document.querySelectorAll('#net path');
   if (!paths.length) return;
   const p = paths[Math.floor(Math.random()*paths.length)];
   p.style.stroke = 'rgba(212,131,42,0.65)';
   p.style.transition = 'stroke 0.3s';
-  setTimeout(() => {
-    p.style.stroke = 'rgba(180,120,40,0.28)';
-  }, 600);
+  setTimeout(() => { p.style.stroke = 'rgba(180,120,40,0.28)'; }, 600);
 }, 1400);
 </script>
 </body>
