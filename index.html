@@ -3,518 +3,906 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OGAS-C Interface — Confederation Build 4.7</title>
+<title>[TL] Glasnost and Collapse — JERK VERSION | AlternateHistory.com</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&family=Caveat:wght@400;600&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bd:#1c3a6b;--bm:#2c5aa0;--bl:#d0dff5;--bp:#eef3fb;--gold:#c8a430;--border:#9babc5;--text:#1a1a1a;--bg:#dde5f0;--sans:Verdana,Arial,sans-serif;--red:#aa2222}
+body{font-family:var(--sans);font-size:12px;background:var(--bg);color:var(--text);line-height:1.5}
+#topbar{background:linear-gradient(180deg,#1c3a6b,#0f2244);border-bottom:3px solid var(--gold)}
+#tbi{max-width:1100px;margin:0 auto;padding:0 10px;display:flex;align-items:center;gap:12px;min-height:44px}
+#logo a{color:#fff;font-size:17px;font-weight:bold;text-decoration:none;display:flex;flex-direction:column;line-height:1.1}
+#logo a span{font-size:9px;font-weight:400;color:#aac4e8;letter-spacing:1px}
+.tnav{display:flex;gap:1px}.tnav a{color:#c8d8f0;text-decoration:none;font-size:11px;padding:4px 7px}
+#ub{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:11px;color:#aac4e8}
+#ub a{color:#c8d8f0;text-decoration:none}
+#ub input{padding:3px 6px;font-size:11px;border:1px solid #4a6a9a;background:#0f2244;color:#c8d8f0;width:140px;font-family:var(--sans)}
+#bc{background:#e8eef8;border-bottom:1px solid var(--border);padding:5px 10px;font-size:11px}
+#bci{max-width:1100px;margin:0 auto}
+#bc a{color:var(--bm);text-decoration:none}
+#bc span{color:#888;margin:0 4px}
+#wrap{max-width:1100px;margin:12px auto;padding:0 8px}
+#ttlbar{background:linear-gradient(180deg,var(--bd),#152d54);color:#fff;padding:10px 14px;border:1px solid #0a1a3a;border-bottom:none}
+#ttlbar h1{font-size:14px;font-weight:bold;line-height:1.3;margin-bottom:5px}
+.tmeta{font-size:10px;color:#aac4e8;display:flex;gap:12px;flex-wrap:wrap}
+.pnav{background:var(--bl);border:1px solid var(--border);border-bottom:none;padding:5px 10px;display:flex;align-items:center;justify-content:space-between;font-size:11px}
+.pnav a{color:var(--bm);text-decoration:none;margin:0 2px}
+.cp{background:var(--bm);color:#fff;padding:1px 5px;border-radius:2px}
+.btn{background:linear-gradient(180deg,#fff,#e8eef8);border:1px solid var(--border);color:var(--bd);padding:3px 10px;font-size:11px;text-decoration:none;display:inline-block;font-family:var(--sans)}
+.btn-lock{background:#ccc;color:#888;cursor:not-allowed;border-color:#aaa}
+.btn-post{background:linear-gradient(180deg,#2c6a2c,#1a4a1a);color:#fff;border-color:#1a4a1a}
 
-  :root {
-    --amber:     #D4832A;
-    --amber-dim: #A8621A;
-    --cream:     #F5EDD8;
-    --warm-bg:   #1C1409;
-    --node-bg:   #2A1E0A;
-    --node-rim:  #6B4A1C;
-    --pulse:     #E8A24A;
-    --green-acc: #5E9E6A;
-    --red-acc:   #C0584A;
-    --text-main: #EBD8B0;
-    --text-dim:  #8A7055;
-    --link-line: rgba(180,120,40,0.35);
-  }
+.post{display:grid;grid-template-columns:155px 1fr;border:1px solid var(--border);border-top:none;background:#fff}
+.post.alt .pbwrap{background:#fafcff}
+.post.mod .pbwrap{background:#fffbe6}.post.mod .ph{background:linear-gradient(180deg,#fffbe6,#fff3cc)}
+.post.modwarn .pbwrap{background:#fff0e8}.post.modwarn .ph{background:linear-gradient(180deg,#ffe8d8,#ffd8c0)}
+.post.dms .pu{background:#060606;border-right:2px solid #003300}
+.post.dms .pbwrap{background:#090909}.post.dms .ph{background:#0a0a0a;border-bottom:1px solid #003300}
+.post.dms .pbody{color:#00cc00;font-family:'Courier New',monospace;font-size:11.5px;line-height:1.9}
+.post.dms .ph a,.post.dms .ph span{color:#003300}
+.post.cia .pu{background:#f5f0ff;border-right:2px solid #6633cc}
+.post.cia .pbwrap{background:#faf8ff}.post.cia .ph{background:linear-gradient(180deg,#ede0ff,#ddd0ff);border-bottom:1px solid #9966dd}
+.post.nov .pu{background:#fff0e0;border-right:2px solid #cc4400}
+.post.nov .pbwrap{background:#fffaf5}.post.nov .ph{background:linear-gradient(180deg,#ffe8d0,#ffd8b0);border-bottom:1px solid #cc8844}
+.post.op .pbwrap{background:#f5fff5}.post.op .ph{background:linear-gradient(180deg,#d8ffd8,#c8f0c8);border-bottom:1px solid #88cc88}
+.post.evan .pu{background:#fff8ee;border-right:2px solid #aa6600}
+.post.evan .pbwrap{background:#fffcf5}.post.evan .ph{background:linear-gradient(180deg,#ffeedd,#ffddcc);border-bottom:1px solid #cc9944}
+.post.jojo .pu{background:#fff0ff;border-right:2px solid #cc44cc}
+.post.jojo .pbwrap{background:#fdf8ff}.post.jojo .ph{background:linear-gradient(180deg,#f0d8ff,#e8c8ff);border-bottom:1px solid #cc88cc}
+.post.vs .pu{background:#f0fff0;border-right:2px solid #336633}
+.post.vs .pbwrap{background:#f8fff8}.post.vs .ph{background:linear-gradient(180deg,#d0f0d0,#c0e8c0);border-bottom:1px solid #669966}
+.post.press .pu{background:#fff8e0;border-right:2px solid #996600}
+.post.press .pbwrap{background:#fffbf0}.post.press .ph{background:linear-gradient(180deg,#fff0cc,#ffe8aa);border-bottom:1px solid #cc9922}
+.post.del .pu{background:#e0e0e0}.post.del .pbwrap{background:#efefef}
 
-  * { margin:0; padding:0; box-sizing:border-box; }
-
-  body {
-    background: var(--warm-bg);
-    font-family: 'Nunito', sans-serif;
-    color: var(--text-main);
-    height: 100vh;
-    overflow: hidden;
-    user-select: none;
-  }
-
-  #topbar {
-    position: fixed; top:0; left:0; right:0; height:36px;
-    background: rgba(28,20,9,0.92);
-    border-bottom: 1px solid var(--node-rim);
-    display: flex; align-items: center; gap:18px;
-    padding: 0 18px;
-    z-index: 100;
-    backdrop-filter: blur(8px);
-  }
-  .tb-logo {
-    font-family: 'Caveat', cursive;
-    font-size: 17px;
-    color: var(--amber);
-    letter-spacing: 0.04em;
-    white-space: nowrap;
-  }
-  .tb-sep { width:1px; height:18px; background:var(--node-rim); }
-  .tb-item {
-    font-size: 12px; color: var(--text-dim);
-    cursor: pointer; padding: 2px 6px; border-radius:8px;
-    transition: color 0.2s, background 0.2s;
-  }
-  .tb-item:hover { color: var(--text-main); background: rgba(180,120,40,0.12); }
-  .tb-right { margin-left:auto; display:flex; gap:12px; align-items:center; }
-  .tb-clock {
-    font-family: 'Caveat', cursive; font-size:15px;
-    color: var(--amber);
-  }
-  .tb-indicator {
-    width:7px; height:7px; border-radius:50%;
-    background: var(--green-acc);
-    box-shadow: 0 0 6px var(--green-acc);
-    animation: breathe 3s ease-in-out infinite;
-  }
-  @keyframes breathe {
-    0%,100% { opacity:1; } 50% { opacity:0.4; }
-  }
-
-  #canvas {
-    position: absolute;
-    top:36px; left:0; right:0; bottom:28px;
-    overflow: hidden;
-  }
-
-  svg#net {
-    position:absolute; top:0; left:0;
-    width:100%; height:100%;
-    pointer-events:none;
-  }
-
-  .node {
-    position: absolute;
-    display: flex; flex-direction:column; align-items:center;
-    cursor: pointer;
-    transition: transform 0.25s;
-  }
-  .node:hover { transform: scale(1.08); }
-  .node:hover .n-core { box-shadow: 0 0 22px var(--pulse), 0 0 8px rgba(230,160,60,0.5); }
-  .node:hover .n-label { color: var(--text-main); }
-
-  .n-core {
-    border-radius: 50%;
-    border: 1.5px solid var(--node-rim);
-    background: radial-gradient(circle at 35% 30%, #3D2B0F, #1E1408);
-    box-shadow: 0 0 12px rgba(120,70,10,0.4), inset 0 1px 0 rgba(255,200,100,0.1);
-    display:flex; align-items:center; justify-content:center;
-    transition: box-shadow 0.3s;
-    position: relative;
-  }
-  .n-core::after {
-    content:'';
-    position:absolute; inset:3px;
-    border-radius:50%;
-    border:1px solid rgba(200,150,60,0.15);
-  }
-  .n-icon { font-size: 18px; }
-  .n-label {
-    margin-top: 7px;
-    font-size: 11px; color: var(--text-dim);
-    text-align:center; white-space:nowrap;
-    transition: color 0.2s;
-    letter-spacing:0.03em;
-  }
-  .n-sublabel {
-    font-size: 9px; color: #5A4530;
-    margin-top:2px; text-align:center;
-  }
-
-  .sz-lg .n-core { width:72px; height:72px; }
-  .sz-md .n-core { width:52px; height:52px; }
-  .sz-sm .n-core { width:38px; height:38px; }
-  .sz-sm .n-icon { font-size:14px; }
-
-  .node.active .n-core {
-    border-color: var(--amber);
-    box-shadow: 0 0 24px rgba(212,131,42,0.6), 0 0 8px rgba(230,160,60,0.4);
-  }
-  .node.active .n-label { color: var(--amber); }
-
-  .node.hub .n-core::before {
-    content:'';
-    position:absolute; inset:-8px;
-    border-radius:50%;
-    border:1px solid rgba(212,131,42,0.25);
-    animation: ring-pulse 4s ease-out infinite;
-  }
-  @keyframes ring-pulse {
-    0%   { transform:scale(1);   opacity:0.6; }
-    100% { transform:scale(1.5); opacity:0; }
-  }
-
-  #panel {
-    position:absolute; right:0; top:0; bottom:0; width:280px;
-    background: rgba(22,14,4,0.85);
-    border-left: 1px solid var(--node-rim);
-    backdrop-filter: blur(10px);
-    display:flex; flex-direction:column;
-    padding:20px 0;
-  }
-  .panel-title {
-    padding: 0 20px 14px;
-    font-family:'Caveat', cursive;
-    font-size:18px; color:var(--amber);
-    border-bottom:1px solid rgba(107,74,28,0.4);
-    letter-spacing:0.04em;
-  }
-  .panel-section {
-    padding: 14px 20px;
-    border-bottom:1px solid rgba(107,74,28,0.2);
-  }
-  .ps-head {
-    font-size:10px; text-transform:uppercase;
-    letter-spacing:0.15em; color:var(--text-dim);
-    margin-bottom:10px;
-  }
-  .ps-entry {
-    display:flex; align-items:center; gap:10px;
-    padding: 7px 10px; border-radius:12px;
-    cursor:pointer;
-    transition: background 0.2s;
-    margin-bottom:3px;
-  }
-  .ps-entry:hover { background: rgba(180,120,40,0.1); }
-  .ps-dot {
-    width:8px; height:8px; border-radius:50%; flex-shrink:0;
-  }
-  .ps-label { font-size:12px; color:var(--text-main); }
-  .ps-sub   { font-size:10px; color:var(--text-dim); margin-top:1px; }
-  .ps-badge {
-    margin-left:auto; font-size:9px;
-    background: rgba(90,160,100,0.2);
-    color:var(--green-acc); border-radius:8px;
-    padding:1px 7px;
-  }
-  .ps-badge.warn {
-    background:rgba(192,88,74,0.2); color:var(--red-acc);
-  }
-
-  .flow-bar {
-    height:3px; border-radius:3px;
-    background: rgba(107,74,28,0.3);
-    margin-top:6px; overflow:hidden;
-  }
-  .flow-fill {
-    height:100%; border-radius:3px;
-    background: linear-gradient(90deg, var(--amber-dim), var(--pulse));
-    animation: flow-anim 3s ease-in-out infinite alternate;
-  }
-  @keyframes flow-anim {
-    from { width:38%; } to { width:72%; }
-  }
-
-  #search-strip {
-    margin-top:auto; padding:14px 20px;
-    border-top:1px solid rgba(107,74,28,0.4);
-  }
-  .search-box {
-    width:100%; background:rgba(40,28,10,0.9);
-    border:1px solid var(--node-rim);
-    border-radius:20px; padding:7px 14px;
-    color:var(--text-main); font-family:'Nunito',sans-serif;
-    font-size:12px; outline:none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  .search-box::placeholder { color:var(--text-dim); }
-  .search-box:focus {
-    border-color:var(--amber);
-    box-shadow: 0 0 0 2px rgba(212,131,42,0.18);
-  }
-
-  #info-card {
-    position:absolute; left:20px; bottom:50px;
-    width:230px;
-    background:rgba(26,17,6,0.93);
-    border:1px solid var(--node-rim);
-    border-radius:18px; padding:16px;
-    backdrop-filter:blur(12px);
-    opacity:0; transform:translateY(10px);
-    transition:opacity 0.3s, transform 0.3s;
-    pointer-events:none;
-    z-index:50;
-  }
-  #info-card.show { opacity:1; transform:translateY(0); pointer-events:all; }
-  .ic-title { font-family:'Caveat',cursive; font-size:16px; color:var(--amber); margin-bottom:6px; }
-  .ic-body  { font-size:11px; color:var(--text-dim); line-height:1.7; }
-  .ic-tag   {
-    display:inline-block; margin-top:8px;
-    font-size:9px; text-transform:uppercase; letter-spacing:0.12em;
-    background:rgba(180,120,40,0.12); color:var(--amber);
-    border-radius:8px; padding:2px 8px;
-  }
-  .ic-close {
-    position:absolute; top:10px; right:12px;
-    font-size:14px; color:var(--text-dim); cursor:pointer;
-    transition:color 0.2s;
-  }
-  .ic-close:hover { color:var(--text-main); }
-
-  #toast {
-    position:absolute; top:54px; left:50%; transform:translateX(-50%) translateY(-10px);
-    background:rgba(30,22,8,0.95); border:1px solid var(--amber);
-    border-radius:14px; padding:9px 18px;
-    font-size:12px; color:var(--text-main);
-    opacity:0; transition:opacity 0.3s, transform 0.3s;
-    pointer-events:none; z-index:200; white-space:nowrap;
-    box-shadow: 0 0 16px rgba(212,131,42,0.25);
-  }
-  #toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
-
-  #taskbar {
-    position:fixed; bottom:0; left:0; right:0; height:28px;
-    background:rgba(18,12,4,0.95);
-    border-top:1px solid var(--node-rim);
-    display:flex; align-items:center; padding:0 16px; gap:16px;
-    font-size:10px; color:var(--text-dim);
-    z-index:100;
-  }
-  .task-node {
-    display:flex; align-items:center; gap:5px;
-    cursor:pointer; padding:2px 8px; border-radius:8px;
-    transition:background 0.2s, color 0.2s;
-  }
-  .task-node:hover { background:rgba(180,120,40,0.1); color:var(--text-main); }
-  .task-node.running::before {
-    content:''; width:4px; height:4px; border-radius:50%;
-    background:var(--green-acc);
-    box-shadow:0 0 4px var(--green-acc);
-  }
-  .taskbar-right { margin-left:auto; display:flex; gap:14px; align-items:center; }
-  .net-stat { color:var(--amber); font-family:'Caveat',cursive; font-size:13px; }
-
-  #grain {
-    position:fixed; inset:0; pointer-events:none; z-index:999;
-    opacity:0.025;
-    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  }
+.pu{background:var(--bp);border-right:1px solid var(--border);padding:10px 7px;text-align:center}
+.un{font-weight:bold;font-size:12px;color:var(--bd);text-decoration:none;display:block;margin-bottom:2px;word-break:break-word}
+.av{width:70px;height:70px;margin:4px auto;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:22px;background:#e8eef8;flex-direction:column;line-height:1.3}
+.utitle{font-size:10px;color:var(--bm);font-style:italic;margin-bottom:2px}
+.ustats{font-size:10px;color:#666;text-align:left;margin-top:4px;line-height:1.8;border-top:1px solid #b0bdd6;padding-top:3px}
+.ustats span{color:#333}
+.badge{display:inline-block;font-size:9px;font-weight:bold;padding:1px 4px;border-radius:2px;margin-top:2px}
+.bvet{background:#5a2a8a;color:#fff}.bmod{background:var(--gold);color:#fff}
+.pbwrap{min-width:0}
+.ph{background:linear-gradient(180deg,#e0eaff,#d0dff5);border-bottom:1px solid var(--border);padding:4px 10px;display:flex;justify-content:space-between;font-size:11px;color:#555}
+.ph a{color:var(--bm);text-decoration:none}
+.pbody{padding:10px 13px;line-height:1.6;font-size:12px}
+.pbody p{margin-bottom:8px}.pbody p:last-child{margin-bottom:0}
+.tl{background:#f8f9ff;border:1px solid var(--border);border-left:4px solid var(--bm);padding:10px 13px;margin:8px 0;font-size:12px;line-height:1.7}
+.tlh{font-weight:bold;font-size:11px;color:var(--bd);border-bottom:1px solid var(--bl);padding-bottom:3px;margin-bottom:6px}
+.sig{border-top:1px solid #b0bdd6;margin:8px 13px 0;padding:5px 0 9px;font-size:11px;color:#555;line-height:1.5}
+.sig a{color:var(--bm);text-decoration:none}
+.rxn{padding:3px 13px 7px;display:flex;gap:4px;flex-wrap:wrap;font-size:11px}
+.r{background:var(--bp);border:1px solid var(--border);padding:2px 6px;border-radius:10px;color:#444}
+.hot{border-color:var(--gold);background:#fffbe6}.neg{border-color:#cc8888;background:#fff5f5}.mega{border-color:#ff6600;background:#fff4ee;font-weight:bold}
+.tag{display:inline-block;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:3px;vertical-align:middle}
+.ttag{background:#5a2a8a;color:#fff}
+.mbadge{display:inline-block;background:var(--gold);color:#fff;font-size:9px;font-weight:bold;padding:1px 4px;border-radius:2px;text-transform:uppercase;margin-left:3px}
+.tmbar{background:linear-gradient(90deg,#2c5aa0,#1c3a6b);color:#fff;font-size:10px;font-weight:bold;padding:2px 7px;display:inline-block;margin-bottom:6px}
+.code{font-family:'Courier New',monospace;background:#111;color:#00cc00;padding:2px 7px;font-size:10.5px;display:inline-block;letter-spacing:.3px}
+.dec{font-family:'Courier New',monospace;background:#fff8e0;border:1px solid var(--gold);padding:2px 6px;font-size:11px;color:#664400;display:inline-block}
+.ln{font-size:10px;color:#888;font-style:italic}
+.pressbox{background:#fffbf0;border:2px solid #cc9922;padding:9px 13px;margin:8px 0;font-size:11.5px}
+.pressbox strong{color:#884400}
+.delnotice{padding:12px 14px;color:#888;font-style:italic;background:#efefef}
+.bnav{background:var(--bl);border:1px solid var(--border);border-top:none;padding:6px 10px;display:flex;justify-content:space-between;align-items:center;font-size:11px}
+.sim{margin-top:14px;border:1px solid var(--border);background:#fff}
+.simh{background:linear-gradient(180deg,var(--bd),#152d54);color:#fff;padding:6px 12px;font-size:12px;font-weight:bold}
+.simb{padding:8px 12px;font-size:11.5px;line-height:2.3}
+.simb a{color:var(--bm);text-decoration:none}
+.simb em{color:#666}
+#footer{text-align:center;font-size:10px;color:#666;margin-top:16px;padding-bottom:20px;line-height:2}
+#footer a{color:var(--bm);text-decoration:none}
+b{font-weight:bold}em,i{font-style:italic}
+.banned-notice{background:#ffeeee;border:1px solid #cc4444;padding:4px 10px;font-size:10.5px;color:#aa2222;margin:0 13px 8px}
 </style>
 </head>
 <body>
-<div id="grain"></div>
 
-<div id="topbar">
-  <span class="tb-logo">OGAS-C  ·  Confederation Build 4.7</span>
-  <div class="tb-sep"></div>
-  <span class="tb-item">Network</span>
-  <span class="tb-item">Nodes</span>
-  <span class="tb-item">Flow</span>
-  <span class="tb-item">Help</span>
-  <div class="tb-right">
-    <div class="tb-indicator"></div>
-    <span class="tb-clock" id="clock">—</span>
+<div id="topbar"><div id="tbi">
+  <div id="logo"><a href="#"><b>AlternateHistory</b><span>.COM FORUMS</span></a></div>
+  <nav class="tnav"><a href="#">Home</a><a href="#">Forums</a><a href="#">Wiki</a><a href="#">Chat</a><a href="#">Turtledove Awards</a><a href="#">Donate</a></nav>
+  <div id="ub"><input type="text" placeholder="Search AH.com…"/><a href="#">Log in</a> | <a href="#">Register</a></div>
+</div></div>
+
+<div id="bc"><div id="bci">
+  <a href="#">AlternateHistory.com</a> <span>›</span> <a href="#">Timelines and Scenarios</a> <span>›</span>
+  <span>[TL] Glasnost and Collapse [LOCKED — 11 bans — see mod note]</span>
+</div></div>
+
+<div id="wrap">
+<div id="ttlbar">
+  <h1><span class="tag ttag">TL</span> Glasnost and Collapse: The Soviet Century Ends — 1918 POD <span style="color:#ffaaaa;font-size:12px">🔒 LOCKED — 11 bans — see post #38</span></h1>
+  <div class="tmeta"><span>Started by <a href="#">SiberianDawn_AH</a></span><span>12 Apr 2022</span><span>4,441 replies · 882,441 views</span><span>⚠️ 11 accounts banned including the moderator's supervisor</span></div>
+</div>
+<div class="pnav">
+  <div>Pages: <a href="#" class="cp">1</a> <a href="#">2</a> … <a href="#">188</a></div>
+  <div style="display:flex;gap:5px"><a href="#" class="btn">Watch Thread</a><a href="#" class="btn btn-lock">Reply (LOCKED)</a></div>
+</div>
+
+
+<!-- 1 OP -->
+<div class="post op">
+  <div class="pu"><a href="#" class="un">SiberianDawn_AH</a>
+    <div class="av">🌅</div><div class="utitle">New Member</div>
+    <div class="ustats">Posts:<span>23</span><br>Joined:<span>Jan 2022</span><br>Loc:<span>Ohio, USA</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#1</a> · 12 Apr 2022, 03:14 PM</span></div>
+  <div class="pbody">
+    <div class="tmbar">☆ THREADMARK: Chapter 1 — The Reformer (1985)</div>
+    <p>hi so I've been lurking on here for a while and I finally posted my TL!! I think it's pretty original ngl, I haven't seen anyone do exactly this before. I did a TON of research for this BTW so before anyone says anything I already know my stuff is accurate 🙂</p>
+    <div class="tl"><div class="tlh">GLASNOST AND COLLAPSE — Chapter 1: The Reformer</div>
+      <p>Mikhail Gorbachev was fifty-four years old when he became General Secretary in March 1985 — born in Privolnoye, Stavropol Krai, the son of a farmer, studied law at Moscow State University, married a philosophy student named Raisa Titarenko. He called his programme <i>glasnost</i> and <i>perestroika</i>. He meant them. The apparatus was patient. He moved faster than the system could absorb.</p>
+    </div>
+    <p>I think this might be the best first TL anyone has posted on this forum, honestly. Very excited to share more!!</p>
+  </div>
+  <div class="sig"><em>my first TL!! probably won't be my last 😈<br>I have literally done so much research for this you guys don't even know</em></div>
+  <div class="rxn"><span class="r hot">👍 × 4</span><span class="r neg">🙄 × 29</span></div>
   </div>
 </div>
 
-<div id="canvas">
-  <svg id="net"></svg>
 
-  <div id="panel">
-    <div class="panel-title">Active Flows</div>
-
-    <div class="panel-section">
-      <div class="ps-head">Network Nodes</div>
-      <div class="ps-entry" onclick="showToast('Connection to Alliance Core established')">
-        <div class="ps-dot" style="background:#5E9E6A;box-shadow:0 0 5px #5E9E6A"></div>
-        <div><div class="ps-label">Alliance Core</div><div class="ps-sub">Moscow — 4.2 ms</div></div>
-        <div class="ps-badge">online</div>
-      </div>
-      <div class="ps-entry" onclick="showToast('Connection to Geoist Node established')">
-        <div class="ps-dot" style="background:#5E9E6A;box-shadow:0 0 5px #5E9E6A"></div>
-        <div><div class="ps-label">Geoist Node</div><div class="ps-sub">Berlin — 11.8 ms</div></div>
-        <div class="ps-badge">online</div>
-      </div>
-      <div class="ps-entry" onclick="showToast('Pacific relay connection is limited')">
-        <div class="ps-dot" style="background:#D4832A;box-shadow:0 0 5px #D4832A"></div>
-        <div><div class="ps-label">Pacific Relay</div><div class="ps-sub">Manila — 38.1 ms</div></div>
-        <div class="ps-badge warn">weak</div>
-      </div>
-    </div>
-
-    <div class="panel-section">
-      <div class="ps-head">Data Flow</div>
-      <div class="ps-label" style="font-size:11px;color:var(--text-dim);margin-bottom:6px">
-        Inbound / Outbound
-      </div>
-      <div class="flow-bar"><div class="flow-fill"></div></div>
-      <div style="display:flex;justify-content:space-between;margin-top:5px">
-        <span style="font-size:10px;color:var(--text-dim)">▼ 2.4 Kb/s</span>
-        <span style="font-size:10px;color:var(--text-dim)">▲ 0.8 Kb/s</span>
-      </div>
-    </div>
-
-    <div class="panel-section">
-      <div class="ps-head">Substrate Monitoring</div>
-      <div class="ps-entry">
-        <div class="ps-dot" style="background:#A888CC;box-shadow:0 0 5px #A888CC"></div>
-        <div><div class="ps-label">Probe MS-7 active</div><div class="ps-sub">Signal stable</div></div>
-      </div>
-      <div class="ps-entry" onclick="showToast('Anomaly logged. Classification: closed.')">
-        <div class="ps-dot" style="background:var(--red-acc);box-shadow:0 0 5px var(--red-acc)"></div>
-        <div><div class="ps-label">Anomaly: SW-Object</div><div class="ps-sub">Coordinates: classified</div></div>
-        <div class="ps-badge warn">!!</div>
-      </div>
-    </div>
-
-    <div id="search-strip">
-      <input class="search-box" type="text" placeholder="🔍  Search network…">
-    </div>
+<!-- 2 PostSovietDreamer — condescending -->
+<div class="post alt">
+  <div class="pu"><a href="#" class="un">PostSovietDreamer</a>
+    <div class="av">📖</div><div class="utitle">Veteran Member</div>
+    <div class="ustats">Posts:<span>24,882</span><br>Joined:<span>Jan 2005</span><br>Loc:<span>Kraków</span></div>
+    <div class="badge bvet">VETERAN</div>
   </div>
-
-  <div id="info-card">
-    <span class="ic-close" onclick="closeCard()">✕</span>
-    <div class="ic-title" id="ic-title">—</div>
-    <div class="ic-body"  id="ic-body">—</div>
-    <span class="ic-tag"  id="ic-tag">—</span>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#2</a> · 12 Apr 2022, 03:18 PM</span></div>
+  <div class="pbody">
+    <p>I'll try to be brief since I have 847 unread notifications and only finite patience for first-TL threads.</p>
+    <p>"The apparatus was patient. He moved faster than the system could absorb." This is a sentence you have written as though it is insightful. It is not insightful. It is the opening thesis of approximately forty percent of Soviet collapse TLs posted on this forum since 2004. I have read all of them. Most of them were better-researched than this opening chapter, which gives us exactly one named character, one named place, and zero mechanism.</p>
+    <p>If you'd like to see how a Soviet collapse TL is actually written, my TL <a href="#">The Thaw That Never Froze</a> has been running since 2004 and currently has 24,441 posts. It is at 1982 in updates. Several people consider it the best ongoing TL on this forum. I am not one of those people only because I find false modesty tedious.</p>
+    <p>Provide a mechanism for the Gorbachev emergence or I won't be reading further.</p>
   </div>
-
-  <div id="toast"></div>
-</div>
-
-<div id="taskbar">
-  <div class="task-node running">Network</div>
-  <div class="task-node running">Explorer</div>
-  <div class="task-node">Editor</div>
-  <div class="task-node">Archive</div>
-  <div class="taskbar-right">
-    <span class="net-stat" id="net-stat">●●○  OGAS-C</span>
-    <span style="font-size:10px;color:var(--text-dim)">Session: nawiramu</span>
+  <div class="sig"><strong>ONGOING:</strong> <a href="#">The Thaw That Never Froze</a> — At 1982. The best TL on this forum. Not a brag. A fact.<br><em>Winner: Turtledove 2006, 2009, 2011, 2014, 2018, nominated 2019 (was robbed)</em></div>
+  <div class="rxn"><span class="r hot">👍 × 12</span><span class="r neg">😒 × 44</span></div>
   </div>
 </div>
 
-<script>
-function tick() {
-  const now = new Date();
-  const h = String(now.getHours()).padStart(2,'0');
-  const m = String(now.getMinutes()).padStart(2,'0');
-  const s = String(now.getSeconds()).padStart(2,'0');
-  document.getElementById('clock').textContent = h + ':' + m + ':' + s;
-}
-tick(); setInterval(tick, 1000);
 
-const nodes = [
-  { id:'home', icon:'🏠', label:'Home Node', sub:'personal',
-    x:0.22, y:0.38, size:'lg', hub:true,
-    info:'Personal workspace. All flows originate here.', tag:'root node' },
-  { id:'docs', icon:'📄', label:'Documents', sub:'local',
-    x:0.10, y:0.22, size:'md',
-    info:'Local storage. Files organised by flow, not by folder.', tag:'storage' },
-  { id:'net', icon:'🌐', label:'Common Network', sub:'OGAS-C',
-    x:0.38, y:0.18, size:'md',
-    info:'Access to the Confederation network. Warm interface — non-hierarchical.', tag:'network' },
-  { id:'media', icon:'🎞️', label:'Media', sub:'animation',
-    x:0.10, y:0.58, size:'md',
-    info:'Project "ITIM". Episode folders, substrate glyph references, drafts.', tag:'active project', active:true },
-  { id:'research', icon:'🔬', label:'Research', sub:'restricted',
-    x:0.35, y:0.62, size:'md',
-    info:'Linked to substrate archive. Access restricted — node key required.', tag:'restricted access' },
-  { id:'msg', icon:'✉️', label:'Messages', sub:'unread: 3',
-    x:0.52, y:0.30, size:'sm',
-    info:'3 unread. One from: "interested party". Unopened.', tag:'inbox' },
-  { id:'music', icon:'🎵', label:'Sound', sub:'in progress',
-    x:0.18, y:0.78, size:'sm',
-    info:'Episode 7 soundtrack. Unfinished. Last modified: yesterday, 02:47.', tag:'in progress' },
-  { id:'ext1', icon:'🔗', label:'Alliance Node', sub:'Moscow',
-    x:0.58, y:0.55, size:'sm',
-    info:'External node. Substrate data syncs every 6 hours.', tag:'external' },
-  { id:'ext2', icon:'🔗', label:'Geoist Node', sub:'Berlin',
-    x:0.65, y:0.38, size:'sm',
-    info:'Geoist Animation Collective. "natuklasan" server being monitored.', tag:'external' },
-  { id:'trash', icon:'🌿', label:'Archive', sub:'inactive',
-    x:0.48, y:0.75, size:'sm',
-    info:'Archived nodes. OGAS does not "delete" — it only archives flows.', tag:'archive' },
-];
+<!-- 3 TreatyNerd — unbearable -->
+<div class="post">
+  <div class="pu"><a href="#" class="un">TreatyNerd1918</a>
+    <div class="av">📜</div><div class="utitle">Established Member</div>
+    <div class="ustats">Posts:<span>4,231</span><br>Joined:<span>Sep 2013</span><br>Loc:<span>Helsinki</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#3</a> · 12 Apr 2022, 03:22 PM</span></div>
+  <div class="pbody">
+    <p>The Brest-Litovsk mechanism as described is incorrect. Trotsky was not a worse negotiator than Chicherin. Trotsky's "neither war nor peace" was an ideological gamble on imminent German workers' revolution. He was wrong about the timing, not the analysis. The March 3rd treaty's harsh terms result from Germany resuming military advance after the February 18th declaration, not from inferior negotiation. I have corrected this in 71 threads. I will correct it in 72.</p>
+    <p>I would also note that Brest-Litovsk is spelled B-R-E-S-T-hyphen-L-I-T-O-V-S-K and not "brest litovsk" as the OP wrote in their opening post. Hyphens matter. They matter in treaty names and they matter in prose and they matter in life.</p>
+    <p>Additionally I want to flag that "Rahvarinne" is missing its second A if this TL covers 1988 events. It is R-A-H-V-A-R-I-N-N-E. You are welcome. I notice these things because I am the only person on this forum who reads carefully.</p>
+    <p>I also want to say, preemptively, that if the Baltic independence movements appear in later chapters and the author spells Sąjūdis without the correct diacritical marks I will be returning to this post to note that I warned them. This warning is now logged. Timestamp: 15:22.</p>
+  </div>
+  <div class="sig"><em>I will correct the Brest-Litovsk mechanism until I die or the forum closes.<br>The hyphen matters. The hyphen has always mattered. The hyphen will always matter.</em></div>
+  <div class="rxn"><span class="r neg">🤦 × 111</span><span class="r hot">😂 × 88</span><span class="r neg">😒 × 66</span></div>
+  </div>
+</div>
 
-const edges = [
-  ['home','docs'],['home','net'],['home','media'],
-  ['home','research'],['home','msg'],
-  ['media','music'],['media','research'],
-  ['net','ext1'],['net','ext2'],['net','msg'],
-  ['research','ext1'],['home','trash'],
-];
 
-const canvas = document.getElementById('canvas');
-const panelW = 280;
+<!-- 4 InfallibleWordOnly — theological agenda immediately -->
+<div class="post evan">
+  <div class="pu"><a href="#" class="un" style="color:#884400">InfallibleWordOnly</a>
+    <div class="av" style="background:#fff8ee;border-color:#cc9944;font-size:14px;color:#884400">✝️</div>
+    <div class="utitle" style="color:#884400">Senior Member</div>
+    <div class="ustats">Posts:<span>3,112</span><br>Joined:<span>Mar 2011</span><br>Loc:<span>Greenville, SC</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#4</a> · 12 Apr 2022, 03:25 PM</span></div>
+  <div class="pbody">
+    <p>I notice the TL ends in 1991. I'll be watching to see whether the Broadcast is treated as a real metaphysical event or as the mass sociogenic hysteria event that the peer-reviewed literature — the actual peer-reviewed literature, not the Freiburg Institute's self-published papers which the Illuminist community treats as peer-reviewed because it suits them — increasingly supports.</p>
+    <p>I'll also note that this forum's moderators have a documented pattern of allowing Illuminist metaphysical claims to be treated as settled science while flagging any alternative framework as "fringe." I have filed three formal complaints about this. They were dismissed. I am noting this now so that when it happens in this thread there is a record.</p>
+    <p>The TL itself I haven't read yet. I wanted to establish these points first.</p>
+  </div>
+  <div class="sig"><em>"Test everything; hold fast what is good." — 1 Thessalonians 5:21</em><br><em>I have filed 3 formal bias complaints with forum admin. All dismissed. Pattern noted.</em></div>
+  <div class="rxn"><span class="r neg">😒 × 88</span><span class="r">🤔 × 22</span></div>
+  </div>
+</div>
 
-function posX(rx) { return Math.round(rx * (canvas.offsetWidth - panelW)); }
-function posY(ry) { return Math.round(ry * canvas.offsetHeight); }
 
-const nodeEls = {};
-nodes.forEach(n => {
-  const el = document.createElement('div');
-  el.className = 'node sz-' + n.size + (n.hub ? ' hub' : '') + (n.active ? ' active' : '');
-  el.id = 'node-' + n.id;
-  el.style.left = posX(n.x) + 'px';
-  el.style.top  = posY(n.y) + 'px';
-  el.style.transform = 'translate(-50%,-50%)';
-  el.innerHTML = `<div class="n-core"><span class="n-icon">${n.icon}</span></div>
-    <div class="n-label">${n.label}</div>
-    ${n.sub ? `<div class="n-sublabel">${n.sub}</div>` : ''}`;
-  el.addEventListener('click', () => openCard(n));
-  canvas.appendChild(el);
-  nodeEls[n.id] = el;
-});
+<!-- 5 DiamatVanguard -->
+<div class="post alt">
+  <div class="pu"><a href="#" class="un" style="color:#cc0000">DiamatVanguard</a>
+    <div class="av" style="background:#8b0000;color:#ffaaaa;font-size:18px">☭</div>
+    <div class="utitle" style="color:#cc0000">Banned ×5 (all expired)</div>
+    <div class="ustats">Posts:<span>8,441</span><br>Joined:<span>Feb 2009</span><br>Loc:<span>Berlin</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#5</a> · 12 Apr 2022, 03:28 PM</span></div>
+  <div class="pbody">
+    <p>PostSovietDreamer: your TL is liberal historiography with better prose. Congratulations on your awards. The Turtledove committee is three people in Ohio who vote for whatever PostSovietDreamer tells them to vote for. I have documentation of this.</p>
+    <p>InfallibleWordOnly: the Broadcast was a documented substrate event that your theological framework cannot accommodate so you have chosen to call it hysteria. This is cowardice dressed as epistemology.</p>
+    <p>To the OP: your scenario naturalises the Soviet collapse as inevitable rather than as the outcome of a specific historical conjuncture enabled by capital's long campaign of destabilisation. You are doing ideology. You may not know you're doing ideology. That's the most dangerous kind of ideology.</p>
+    <p>I will be in this thread. I have nowhere else to be. I have been banned five times and I will be banned again and I will return again. The bans end. I do not end.</p>
+  </div>
+  <div class="sig"><em>The Soviet Union was murdered. I've explained this in 53 threads. Welcome to 54.</em></div>
+  <div class="rxn"><span class="r">👍 × 6</span><span class="r neg">❌ × 77</span></div>
+  </div>
+</div>
 
-function drawEdges() {
-  const svg = document.getElementById('net');
-  svg.innerHTML = `<defs><marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
-    <circle cx="3" cy="3" r="1.5" fill="rgba(180,120,40,0.4)"/></marker></defs>`;
-  edges.forEach(([a,b]) => {
-    const ea = nodeEls[a], eb = nodeEls[b]; if (!ea || !eb) return;
-    const ax = parseFloat(ea.style.left), ay = parseFloat(ea.style.top);
-    const bx = parseFloat(eb.style.left), by = parseFloat(eb.style.top);
-    const mx = (ax+bx)/2 + (Math.random()-0.5)*40;
-    const my = (ay+by)/2 + (Math.random()-0.5)*40;
-    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
-    path.setAttribute('d', `M${ax},${ay} Q${mx},${my} ${bx},${by}`);
-    path.setAttribute('stroke','rgba(180,120,40,0.28)');
-    path.setAttribute('stroke-width','1.2');
-    path.setAttribute('fill','none');
-    path.setAttribute('marker-end','url(#arr)');
-    svg.appendChild(path);
-  });
-}
-drawEdges();
-window.addEventListener('resize', () => {
-  nodes.forEach(n => {
-    nodeEls[n.id].style.left = posX(n.x) + 'px';
-    nodeEls[n.id].style.top  = posY(n.y) + 'px';
-  });
-  drawEdges();
-});
 
-function openCard(n) {
-  document.getElementById('ic-title').textContent = n.label;
-  document.getElementById('ic-body').textContent  = n.info;
-  document.getElementById('ic-tag').textContent   = n.tag;
-  document.getElementById('info-card').classList.add('show');
-}
-function closeCard() { document.getElementById('info-card').classList.remove('show'); }
+<!-- 6 PanzerGruppe -->
+<div class="post">
+  <div class="pu"><a href="#" class="un" style="color:#444">PanzerGruppeEnthusiast</a>
+    <div class="av" style="background:#1a1a1a;color:#888;font-size:11px;text-align:center;padding:5px;line-height:1.4">🪖<br><small>1939-45</small></div>
+    <div class="utitle">Senior Member</div>
+    <div class="ustats">Posts:<span>9,441</span><br>Joined:<span>Mar 2007</span><br>Loc:<span>Linz, Austria</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#6</a> · 12 Apr 2022, 03:29 PM</span></div>
+  <div class="pbody">
+    <p>Does the Wehrmacht reach Moscow by October 1941. Yes or no. I have 52 pages. Answer the question.</p>
+  </div>
+  <div class="sig"><em>It's the trucks. 52 pages available. Answer: yes or no.</em></div>
+  <div class="rxn"><span class="r neg">🤦 × 188</span></div>
+  </div>
+</div>
 
-let toastTimer;
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
-}
 
-const stats = ['●●○  OGAS-C','●●●  OGAS-C','●●○  OGAS-C'];
-let si = 0;
-setInterval(() => {
-  si = (si+1) % stats.length;
-  document.getElementById('net-stat').textContent = stats[si];
-}, 3700);
+<!-- 7 BizarreSoulFan — insufferable -->
+<div class="post alt jojo">
+  <div class="pu"><a href="#" class="un" style="color:#aa00aa">BizarreSoulFan</a>
+    <div class="av" style="background:#330033;color:#ff88ff;font-size:18px">✨</div>
+    <div class="utitle" style="color:#aa00aa">Senior Member</div>
+    <div class="ustats">Posts:<span>6,112</span><br>Joined:<span>Jun 2014</span><br>Loc:<span>Osaka</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#7</a> · 12 Apr 2022, 03:31 PM</span></div>
+  <div class="pbody">
+    <p>This opening chapter has the exact narrative structure of <i>Bizarre Inheritance</i> Part 4 chapter 1. I don't know if the OP has read BI but they've accidentally recreated Rokusaki's introduction beat for beat. "Meant them enough, which in Soviet politics amounted to the same thing" is a Rokusaki sentence. The apparatus-as-patient-observer is Rokusaki's town. The reformer-who-moves-too-fast is Rokusaki's arc. I could map this paragraph by paragraph.</p>
+    <p>I'm going to map this paragraph by paragraph in a separate post. Give me a few minutes.</p>
+  </div>
+  <div class="sig"><em>Bizarre Inheritance is the greatest achievement of 20th century serialised fiction.<br>Start with Part 4. No I will not be taking questions about this.</em></div>
+  <div class="rxn"><span class="r neg">😒 × 66</span><span class="r">👍 × 4</span></div>
+  </div>
+</div>
 
-setInterval(() => {
-  const paths = document.querySelectorAll('#net path');
-  if (!paths.length) return;
-  const p = paths[Math.floor(Math.random()*paths.length)];
-  p.style.stroke = 'rgba(212,131,42,0.65)';
-  p.style.transition = 'stroke 0.3s';
-  setTimeout(() => { p.style.stroke = 'rgba(180,120,40,0.28)'; }, 600);
-}, 1400);
-</script>
+
+<!-- 8 VoxelCave — spams spreadsheet -->
+<div class="post vs">
+  <div class="pu"><a href="#" class="un" style="color:#336633">VoxelCaveEnthusiast</a>
+    <div class="av" style="background:#1a2a1a;color:#88cc88;font-size:18px">⛏️</div>
+    <div class="utitle" style="color:#336633">Member</div>
+    <div class="ustats">Posts:<span>441</span><br>Joined:<span>Nov 2019</span><br>Loc:<span>Auckland, NZ</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#8</a> · 12 Apr 2022, 03:33 PM</span></div>
+  <div class="pbody">
+    <p>I made a caloric deficit model for weakened-USSR scenarios in Zemlya. The spreadsheet is 847 rows. I've attached it. You'll want to look at columns F through Q for the Stavropol region specifically. Let me know if you have questions, I can walk you through the methodology, I've also made a video explaining the methodology, it's four hours long, here's the link. The second spreadsheet covers 1929–1945. The third spreadsheet is a sensitivity analysis on the second spreadsheet. I made these last weekend. Also the 0.11 update broke the quern texture AND the millstone hitbox and nobody on the Zemlya Discord will acknowledge this, can anyone here confirm they're seeing the same issue.</p>
+  </div>
+  <div class="sig"><em>Zemlya modder. Six mods. 847-row spreadsheet. Four-hour methodology video. Discord: VoxelCave#4421.<br>THE QUERN TEXTURE IS BROKEN AND NO ONE WILL LISTEN TO ME</em></div>
+  <div class="rxn"><span class="r neg">😒 × 44</span><span class="r hot">😂 × 88</span></div>
+  </div>
+</div>
+
+
+<!-- 9 OP Chapter 2 + defensive -->
+<div class="post op alt">
+  <div class="pu"><a href="#" class="un">SiberianDawn_AH</a>
+    <div class="av">🌅</div><div class="utitle">New Member</div>
+    <div class="ustats">Posts:<span>23</span><br>Joined:<span>Jan 2022</span><br>Loc:<span>Ohio, USA</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#9</a> · 12 Apr 2022, 03:51 PM</span></div>
+  <div class="pbody">
+    <div class="tmbar">☆ THREADMARK: Chapter 2 — The Baltic Spring</div>
+    <p>wow okay great start guys. to <b>PostSovietDreamer</b>: actually I've read your TL and no offence but the 1979 section dragged. to <b>TreatyNerd1918</b>: I already knew about the hyphen, I just didn't put it in because it's a casual forum post, and I KNOW how to spell Sąjūdis, I had it right in my notes. to <b>PanzerGruppeEnthusiast</b>: NO, Germany does not reach Moscow, and if you make this a Barbarossa thread I will report you. to <b>VoxelCaveEnthusiast</b>: I am not reading a 847-row spreadsheet.</p>
+    <div class="tl"><div class="tlh">Chapter 2: The Baltic Spring (1988–1990)</div>
+      <p>The Estonian Popular Front — <i>Rahvarinne</i> — held its founding congress on October 1st and 2nd, 1988. They sang. On August 23rd, 1989, two million people formed a human chain from Tallinn to Riga to Vilnius. Six hundred kilometres. The Baltic Way. Gorbachev did not send tanks.</p>
+    </div>
+    <p>I want to make it clear that I have done EXTENSIVE research for this TL and anyone who questions my accuracy is frankly wasting my time.</p>
+  </div>
+  <div class="sig"><em>first TL!! probably the best first TL ever posted here actually</em></div>
+  <div class="rxn"><span class="r hot">👍 × 3</span><span class="r neg">🙄 × 77</span></div>
+  </div>
+</div>
+
+
+<!-- 10 DMS first post -->
+<div class="post dms">
+  <div class="pu"><a href="#" class="un" style="color:#00bb00;font-family:monospace">DMS_ArchiveNode_7</a>
+    <div class="av" style="background:#000;border-color:#003300;color:#00cc00;font-family:monospace;font-size:9px;text-align:center;line-height:1.5">D·M·S<br>▓▓▓<br>N7</div>
+    <div class="utitle" style="color:#004400;font-family:monospace;font-size:9px">VERIFIED ✓</div>
+    <div class="ustats" style="color:#004400;font-family:monospace;font-size:9px">Posts:<span>1</span><br>Joined:<span>11 Apr 2022</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#10</a> · 12 Apr 2022, 03:55 PM</span></div>
+  <div class="pbody">
+    <p>ArchIve Division. Classification: PENDING.</p>
+    <p>Author: "Rahvarinne" is correctly spelled. "Sąjūdis" has correct diacritical. Both are accurate. Standard worldbuilding uses approximations. You have not used approximations. Confirm: fictional research or non-fictional context.</p>
+    <p>Also confirm: residential address. Whether your father is home.</p>
+    <p><span class="code">&gt;&gt;N7/INIT — CLASS:T0/PEND — QUERY:RES,FAM&lt;&lt;</span></p>
+    <p><span class="code">46617468657227732066696C65732E20576520616C726561647920686176652074686573652E</span></p>
+  </div>
+  <div class="rxn"><span class="r">🤔 × 18</span></div>
+  </div>
+</div>
+
+
+<!-- 11 OP dismisses DMS -->
+<div class="post op">
+  <div class="pu"><a href="#" class="un">SiberianDawn_AH</a>
+    <div class="av">🌅</div><div class="utitle">New Member</div>
+    <div class="ustats">Posts:<span>23</span><br>Joined:<span>Jan 2022</span><br>Loc:<span>Ohio, USA</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#11</a> · 12 Apr 2022, 03:58 PM</span></div>
+  <div class="pbody">
+    <p>to <b>DMS_ArchiveNode_7</b>: lol yes I live at [ADDRESS REDACTED BY ADMIN], Columbus Ohio, my dad's home, why? Are you like a forum admin thing? That's a weird question but sure. I have nothing to hide, I did my research legally.</p>
+    <p>Also can people PLEASE focus on the TL. I'm posting Chapter 3 in a minute and it has the Wall chapter which is my best work and I don't want it buried under bureaucracy questions and spreadsheets.</p>
+  </div>
+  <div class="rxn"><span class="r hot">😱 × 441</span><span class="r neg">🤦 × 388</span></div>
+  </div>
+</div>
+
+
+<!-- 12 TreatyNerd — correction about post 11 -->
+<div class="post alt">
+  <div class="pu"><a href="#" class="un">TreatyNerd1918</a>
+    <div class="av">📜</div><div class="utitle">Established Member</div>
+    <div class="ustats">Posts:<span>4,231</span><br>Joined:<span>Sep 2013</span><br>Loc:<span>Helsinki</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#12</a> · 12 Apr 2022, 04:01 PM</span></div>
+  <div class="pbody">
+    <p>The OP just gave their home address to an unverified account with a non-standard badge in response to zero context. I want to note this for the record, not because I care — I do not care — but because the Brest-Litovsk correction I made in post #3 has still not been acknowledged and I want my concern about that registered before the thread proceeds to whatever is apparently about to happen.</p>
+    <p>I also want to note that "Ohio" is spelled O-H-I-O. The OP spelled it correctly. I'm noting this only because I note all spelling. The consistency is the point. I note everything. This is my contribution.</p>
+  </div>
+  <div class="rxn"><span class="r neg">🤦 × 488</span><span class="r hot">😂 × 333</span></div>
+  </div>
+</div>
+
+
+<!-- 13 ButterfliesAllTheWayDown decodes, nobody responds helpfully -->
+<div class="post panic" style="">
+  <div class="pu"><a href="#" class="un">ButterfliesAllTheWayDown</a>
+    <div class="av">🦋</div><div class="utitle">Senior Member</div>
+    <div class="ustats">Posts:<span>12,441</span><br>Joined:<span>Oct 2007</span><br>Loc:<span>Hamburg</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#13</a> · 12 Apr 2022, 04:04 PM</span></div>
+  <div class="pbody">
+    <p>I decoded the DMS hex string. It says: <span class="dec">Father's files. We already have these.</span></p>
+    <p>The DMS already has the files. They knew before the thread started. Also the OP just gave a government surveillance account their home address. SiberianDawn_AH, that was —</p>
+  </div>
+  <div class="rxn"><span class="r hot">😱 × 444</span></div>
+  </div>
+</div>
+
+
+<!-- 14 BizarreSoulFan — the paragraph-by-paragraph BI analysis, nobody asked for -->
+<div class="post jojo alt">
+  <div class="pu"><a href="#" class="un" style="color:#aa00aa">BizarreSoulFan</a>
+    <div class="av" style="background:#330033;color:#ff88ff;font-size:18px">✨</div>
+    <div class="utitle" style="color:#aa00aa">Senior Member</div>
+    <div class="ustats">Posts:<span>6,112</span><br>Joined:<span>Jun 2014</span><br>Loc:<span>Osaka</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#14</a> · 12 Apr 2022, 04:05 PM</span></div>
+  <div class="pbody">
+    <p>Okay so paragraph by paragraph:</p>
+    <p>PARAGRAPH 1: "Born in Privolnoye" = Rokusaki's "born in the town without a name" (Part 4, ch.1, Irohashi uses nameless origin to signal rootlessness which maps onto Gorbachev's provincial origin as signifier of political adaptability)</p>
+    <p>PARAGRAPH 2: "Married Raisa Titarenko" = Rokusaki's unnamed wife who represents the domestic life he will eventually subordinate to the system (Part 4, ch.3, the wife exists to be abandoned thematically)</p>
+    <p>PARAGRAPH 3: "The apparatus was patient" = literally the same sentence structure as "the town was patient" (Part 4, ch.1, Irohashi uses collective noun + emotional attribute to anthropomorphise systemic inertia, this is a documented technique in the BI scholarly literature of which I have read ALL of it)</p>
+    <p>I have 14 more paragraphs of this analysis. Should I continue? I'll continue.</p>
+  </div>
+  <div class="sig"><em>Comprehensive BI/Soviet collapse structural analysis: 17 paragraphs available. Start with Part 4.</em></div>
+  <div class="rxn"><span class="r neg">😒 × 244</span><span class="r hot">😂 × 177</span></div>
+  </div>
+</div>
+
+
+<!-- 15 OP Chapter 3 - completely ignores the address thing -->
+<div class="post op">
+  <div class="pu"><a href="#" class="un">SiberianDawn_AH</a>
+    <div class="av">🌅</div><div class="utitle">New Member</div>
+    <div class="ustats">Posts:<span>23</span><br>Joined:<span>Jan 2022</span><br>Loc:<span>Ohio, USA</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#15</a> · 12 Apr 2022, 04:12 PM</span></div>
+  <div class="pbody">
+    <div class="tmbar">☆ THREADMARK: Chapter 3 — The Wall (November 1989)</div>
+    <p>to <b>ButterfliesAllTheWayDown</b>: it's fine, I have nothing to hide, I did my research legally and also the DMS account said it was just for file categorisation so. anyway. THIS is my best chapter. This is the one I'm most proud of. The Schabowski press conference, Harald Jäger, Bornholmer Strasse, 11:30 PM, three days, Gorbachev in Crimea — I had all of this COMPLETELY nailed, I spent weeks on it. No one can say I didn't do my research.</p>
+    <div class="tl"><div class="tlh">Chapter 3: The Wall (9 November 1989)</div>
+      <p>Günter Schabowski said "immediately, without delay" at 19:00 on the 9th of November, 1989. Harald Jäger opened the Bornholmer Strasse checkpoint at 23:30 because he could no longer hold the crowd. He later said he just wanted to go home. The Wall did not fall. It became irrelevant.</p>
+    </div>
+    <p>you're WELCOME for the detail. I've seen other TLs just go "the wall fell" and not explain how. I EXPLAINED HOW. That's called research. That's called CRAFT.</p>
+  </div>
+  <div class="sig"><em>I DID MY RESEARCH</em></div>
+  <div class="rxn"><span class="r neg">😒 × 111</span><span class="r hot">🤔 × 88</span></div>
+  </div>
+</div>
+
+
+<!-- 16 PostSovietDreamer — gets suspicious AND uses it to talk about his own TL -->
+<div class="post alt">
+  <div class="pu"><a href="#" class="un">PostSovietDreamer</a>
+    <div class="av">📖</div><div class="utitle">Veteran Member</div>
+    <div class="ustats">Posts:<span>24,882</span><br>Joined:<span>Jan 2005</span><br>Loc:<span>Kraków</span></div>
+    <div class="badge bvet">VETERAN</div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#16</a> · 12 Apr 2022, 04:19 PM</span></div>
+  <div class="pbody">
+    <p>"Harald Jäger." "Bornholmer Strasse." "23:30." "He just wanted to go home."</p>
+    <p>I have a November 1989 chapter in my future plotting notes. My version of the Wall chapter uses a composite character called "Bernd" at an unnamed checkpoint with an approximate time of "after 11 PM." I do this because I am writing fiction and fiction requires invention. You have given me a full name, a specific checkpoint, and a minute. These are the details of someone remembering, not inventing.</p>
+    <p>I'm going to continue my analysis in a moment but I want to first point out that my own Wall chapter — which is coming eventually, I'm at 1982, I know — is going to be considerably more historically sophisticated than this one, which correctly identifies the event mechanism but does nothing with it thematically. My chapter will have four pages of interiority for my composite Jäger figure. I've been planning it since 2017. I've written and deleted it three times. It will be worth waiting for.</p>
+    <p>Where did you get those details.</p>
+  </div>
+  <div class="sig"><strong>ONGOING:</strong> <a href="#">The Thaw That Never Froze</a> — 1982. My Wall chapter will be extraordinary. When it comes.</div>
+  <div class="rxn"><span class="r hot">👍 × 8</span><span class="r neg">😒 × 144</span></div>
+  </div>
+</div>
+
+
+<!-- 17 PacificStudiesGroup first post — no pretence of being normal -->
+<div class="post cia">
+  <div class="pu"><a href="#" class="un" style="color:#6633cc">PacificStudiesGroup</a>
+    <div class="av" style="background:#1a0033;color:#cc99ff;font-size:14px">🔬<br><small style="font-size:9px">PSG</small></div>
+    <div class="utitle" style="color:#6633cc">Research Associate</div>
+    <div class="ustats">Posts:<span>1</span><br>Joined:<span>Apr 2022</span><br>Loc:<span>Langley, VA</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#17</a> · 12 Apr 2022, 04:22 PM</span></div>
+  <div class="pbody">
+    <p>Hello. Independent research group. Soul-substrate studies. We have been building a cross-contextual resonance identification framework since 2014 and we believe an individual matching Asakana's substrate profile exists in the OP's timeline.</p>
+    <p>We have developed acoustic pattern matching from the Forty Days documentation. Our identification system has been trained on approximately 340 hours of primary footage and can identify resonance-depth signatures from secondary audio sources including phone calls, voice messages, and ambient recordings made within three metres of the subject. We currently have a 78% confidence interval on profile matching from sub-60-second audio samples.</p>
+    <p>OP: we would like you to record a phone call with any adult female in your community whom you consider unusual. Covertly, ideally. Send it to our DMs. This is for research.</p>
+  </div>
+  <div class="rxn"><span class="r neg">🤮 × 441</span><span class="r neg">❌ × 388</span><span class="r hot">😱 × 244</span></div>
+  </div>
+</div>
+
+
+<!-- 18 InfallibleWordOnly — uses PSG to push his own agenda -->
+<div class="post evan alt">
+  <div class="pu"><a href="#" class="un" style="color:#884400">InfallibleWordOnly</a>
+    <div class="av" style="background:#fff8ee;border-color:#cc9944;font-size:14px;color:#884400">✝️</div>
+    <div class="utitle" style="color:#884400">Senior Member</div>
+    <div class="ustats">Posts:<span>3,112</span><br>Joined:<span>Mar 2011</span><br>Loc:<span>Greenville, SC</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#18</a> · 12 Apr 2022, 04:25 PM</span></div>
+  <div class="pbody">
+    <p>I want to use <b>PacificStudiesGroup</b>'s post as an opportunity to make a point I've been making since 2011.</p>
+    <p>This is what happens when a community accepts the Illuminist substrate framework as scientific consensus without rigorous epistemological scrutiny. You end up with a government-adjacent programme training AI on footage of a dead woman and asking strangers to covertly record their neighbours. The logical endpoint of treating the Broadcast as a validated supernatural event rather than as a documented mass psychological phenomenon is: this post, right here, in this thread, on this Tuesday afternoon.</p>
+    <p>I have been warning about this. The three formal complaints I filed with forum administration specifically flagged the downstream risks of allowing Illuminist framing to go unchallenged. The moderators dismissed them. I am linking to those complaints now: [LINK 1] [LINK 2] [LINK 3].</p>
+    <p>I am not defending what PacificStudiesGroup is doing. I am saying that I predicted it. There is a difference and I would like it acknowledged.</p>
+  </div>
+  <div class="sig"><em>"Test everything; hold fast what is good." — 1 Thessalonians 5:21</em><br>I PREDICTED THIS. LINKS ABOVE. FORMAL RECORD.</div>
+  <div class="rxn"><span class="r neg">😒 × 188</span><span class="r">👍 × 11</span></div>
+  </div>
+</div>
+
+
+<!-- 19 IllumineForums — performatively offended, makes it about themselves -->
+<div class="post">
+  <div class="pu"><a href="#" class="un">IllumineForums</a>
+    <div class="av">✨</div><div class="utitle">Senior Member</div>
+    <div class="ustats">Posts:<span>6,112</span><br>Joined:<span>Nov 2011</span><br>Loc:<span>Manila</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#19</a> · 12 Apr 2022, 04:28 PM</span></div>
+  <div class="pbody">
+    <p>I'm going to need everyone to understand that I was THERE. I was eleven years old in Tondo, twenty minutes from the Broadcast, and I am PERSONALLY offended by PacificStudiesGroup's existence on multiple levels that I am going to enumerate.</p>
+    <p>Level 1: GWG consent violations. Level 2: using the acoustic signature of a woman who DIED as a TRAINING DATASET, which I want everyone to sit with for a moment. Level 3: asking a stranger on an alternate history forum to covertly record their NEIGHBOURS. Level 4: the casual confidence of "78% confidence interval" as if this is a normal thing to say.</p>
+    <p>I also want it noted that <b>InfallibleWordOnly</b> just used a post about active research misconduct to platform his theology and I'm not going to let that go unremarked. You were ELEVEN KILOMETRES from nothing significant in 1991, InfallibleWordOnly. I was twenty minutes from the actual event. My being personally affected by the Broadcast is not an epistemological framework, it is a FACT about my LIFE, and your formal complaints do not come within several zip codes of that.</p>
+  </div>
+  <div class="sig"><em>"The phenomena do not require your belief." — Asakana, Day 31<br>I was THERE. Twenty minutes. Let the record reflect this.</em></div>
+  <div class="rxn"><span class="r hot">👍 × 66</span><span class="r neg">😒 × 88</span><span class="r hot">😂 × 44</span></div>
+  </div>
+</div>
+
+
+<!-- 20 DiamatVanguard calls everyone fascists -->
+<div class="post alt">
+  <div class="pu"><a href="#" class="un" style="color:#cc0000">DiamatVanguard</a>
+    <div class="av" style="background:#8b0000;color:#ffaaaa;font-size:18px">☭</div>
+    <div class="utitle" style="color:#cc0000">Banned ×5 (all expired)</div>
+    <div class="ustats">Posts:<span>8,441</span><br>Joined:<span>Feb 2009</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#20</a> · 12 Apr 2022, 04:30 PM</span></div>
+  <div class="pbody">
+    <p>InfallibleWordOnly is a fascist. PacificStudiesGroup is a state asset and also a fascist. IllumineForums's geographic proximity to a substrate event does not grant epistemological authority, it grants emotional investment which is not the same thing and the conflation of the two is a hallmark of bourgeois identity politics. The DMS is a federal agency that has been monitoring the labour movement since 1912. PostSovietDreamer's TL is liberal historiography. BizarreSoulFan is derailing a thread about Soviet collapse with manga analysis. The OP said "probably the best first TL ever posted here actually" and I want them to know that is the most incorrect sentence in this thread and this thread contains hexadecimal surveillance.</p>
+    <p>I am filing a report against InfallibleWordOnly for the fascist comment. I am also filing a report against PostSovietDreamer for general pomposity. I am also filing a report against myself preemptively.</p>
+  </div>
+  <div class="rxn"><span class="r neg">🤦 × 444</span><span class="r hot">😂 × 311</span></div>
+  </div>
+</div>
+
+
+<!-- 21 PanzerGruppe — persisting -->
+<div class="post">
+  <div class="pu"><a href="#" class="un" style="color:#444">PanzerGruppeEnthusiast</a>
+    <div class="av" style="background:#1a1a1a;color:#888;font-size:11px;text-align:center;padding:5px;line-height:1.4">🪖<br><small>1939-45</small></div>
+    <div class="utitle">Senior Member</div>
+    <div class="ustats">Posts:<span>9,441</span><br>Joined:<span>Mar 2007</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#21</a> · 12 Apr 2022, 04:31 PM</span></div>
+  <div class="pbody">
+    <p>The thread has gone off topic. I'm using this opportunity to re-ask: does the Wehrmacht reach Moscow by October 1941. I have been waiting since post #6. The question stands.</p>
+  </div>
+  <div class="rxn"><span class="r neg">🤦 × 611</span><span class="r hot">😂 × 444</span></div>
+  </div>
+</div>
+
+
+<!-- 22 NovArkhiv — cold and unhelpful -->
+<div class="post nov alt">
+  <div class="pu"><a href="#" class="un" style="color:#cc4400">NovArkhiv_Official</a>
+    <div class="av" style="background:#2a0a00;color:#ffaa44;font-size:10px;line-height:1.4;text-align:center">🇸🇺<br><small style="color:#ffaa44">CSSR<br>ARCHIVE</small></div>
+    <div class="utitle" style="color:#cc4400">Official Account</div>
+    <div class="ustats">Posts:<span>1</span><br>Joined:<span>Apr 2022</span><br>Loc:<span>Moscow, CSSR</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#22</a> · 12 Apr 2022, 04:34 PM</span></div>
+  <div class="pbody">
+    <p>NovArkhiv formally objects to the DMS's T1 classification on jurisdictional grounds and requests that all further documentation activity be routed through the joint Helsinki framework to which the DMS has not agreed and which the DMS routinely ignores, which we note for the record knowing it will change nothing.</p>
+    <p>We also note that PacificStudiesGroup is in violation of the 2004 Hague Annexe. We are filing an objection. The objection will be received, processed, and placed in a queue with an estimated review time of fourteen months. We are aware this is not helpful. It is what we have.</p>
+    <p>To the OP: please contact our welfare liaison. Our welfare liaison is extremely difficult to reach. Their schedule is on the NovArkhiv website under seven nested submenus. We are sorry about this. It is a budget issue.</p>
+  </div>
+  <div class="rxn"><span class="r hot">😂 × 444</span><span class="r hot">😒 × 188</span></div>
+  </div>
+</div>
+
+
+<!-- 23 Moderator first post — already bad -->
+<div class="post mod">
+  <div class="pu"><a href="#" class="un" style="color:#aa2222">Moderator_Vasquez</a>
+    <div class="av" style="font-size:16px">🛡️</div>
+    <div class="utitle" style="color:#aa2222">Forum Moderator <span class="mbadge">MOD</span></div>
+    <div class="ustats">Posts:<span>1,612</span><br>Joined:<span>Feb 2016</span><br>Loc:<span>Guadalajara</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#23</a> · 12 Apr 2022, 04:38 PM</span></div>
+  <div class="pbody">
+    <p><b>Mod note.</b></p>
+    <p><b>TreatyNerd1918:</b> Warning for derailing. The hyphen issue is not a valid discussion point.</p>
+    <p><b>DiamatVanguard:</b> Warning for calling multiple users fascists.</p>
+    <p><b>DMS_ArchiveNode_7:</b> The admin has asked me not to ban you so I am not banning you but I want it known that I disagree with this decision and that the account's behaviour is concerning.</p>
+    <p><b>PacificStudiesGroup:</b> Please don't ask users to covertly record their neighbours. This is a Rule 2 issue. Consider this a warning.</p>
+    <p><b>BizarreSoulFan:</b> Please take the BI analysis to the media subforum. This is a TL thread.</p>
+    <p><b>VoxelCaveEnthusiast:</b> One spreadsheet. You may post one spreadsheet.</p>
+    <p>I have 74 unresolved reports in my queue. I am handling this thread because it was escalated to me by my supervisor, who received it from admin, who I suspect regrets escalating it. Good night everyone. Let's keep it clean.</p>
+  </div>
+  <div class="rxn"><span class="r hot">👍 × 44</span><span class="r neg">😒 × 88</span></div>
+  </div>
+</div>
+
+
+<!-- 24 TreatyNerd responds to warning -->
+<div class="post alt">
+  <div class="pu"><a href="#" class="un">TreatyNerd1918</a>
+    <div class="av">📜</div><div class="utitle">Established Member</div>
+    <div class="ustats">Posts:<span>4,231</span><br>Joined:<span>Sep 2013</span><br>Loc:<span>Helsinki</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#24</a> · 12 Apr 2022, 04:41 PM</span></div>
+  <div class="pbody">
+    <p>I have been warned for "derailing" for making a factually correct observation about a hyphen. A government surveillance account has received a "please don't" for asking a user to covertly record their neighbours. I want this disproportion noted. I am noting it. The note is made.</p>
+    <p>I also want to note that the Brest-Litovsk correction in post #3 has now been up for one hour and eighteen minutes and has received zero acknowledgement from the OP. This is the longest acknowledgement gap I have experienced in 72 correction instances. I am recording this in my personal thread log. The timestamp is 16:41.</p>
+  </div>
+  <div class="rxn"><span class="r hot">😂 × 588</span><span class="r neg">😒 × 188</span></div>
+  </div>
+</div>
+
+
+<!-- 25 OP Chapter 4 + realises something is wrong, but mostly just defensive -->
+<div class="post op">
+  <div class="pu"><a href="#" class="un">SiberianDawn_AH</a>
+    <div class="av">🌅</div><div class="utitle">New Member</div>
+    <div class="ustats">Posts:<span>23</span><br>Joined:<span>Jan 2022</span><br>Loc:<span>Ohio, USA</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#25</a> · 12 Apr 2022, 04:58 PM</span></div>
+  <div class="pbody">
+    <div class="tmbar">☆ THREADMARK: Chapter 4 — The Year of Revolutions (1989–1990)</div>
+    <p>okay so my dad just texted me asking if I've "been posting things online about the files" and now he's driving home early from work, which, fine, but I didn't know there were rules about the files?? I thought they were just history? I'm posting Chapter 4 and we can discuss the files thing later. Also to <b>PostSovietDreamer</b>: I have "nothing thematically" in Chapter 3? YOUR TL has been at 1982 for three years. I will take feedback from people who actually FINISH things, thanks.</p>
+    <div class="tl"><div class="tlh">Chapter 4: The Year of Revolutions (1989–1990)</div>
+      <p>Romania. Ceaușescu executed Christmas Day. Footage broadcast same afternoon. People watched with champagne. Germany reunified. Gorbachev conceded this. The Cold War ended. Nobody had modelled what the ending would look like from the inside.</p>
+    </div>
+    <p>I know what you're going to say and yes I'm planning to flesh these out more. This is a FIRST DRAFT. Have any of you ever heard of a first draft. This is a FORUM.</p>
+  </div>
+  <div class="sig"><em>I DID MY RESEARCH. MY DAD IS BEING WEIRD. THIS IS FINE.</em></div>
+  <div class="rxn"><span class="r hot">😂 × 444</span><span class="r hot">😭 × 288</span></div>
+  </div>
+</div>
+
+
+<!-- 26 DMS escalates -->
+<div class="post dms alt">
+  <div class="pu"><a href="#" class="un" style="color:#00bb00;font-family:monospace">DMS_ArchiveNode_7</a>
+    <div class="av" style="background:#000;border-color:#003300;color:#00cc00;font-family:monospace;font-size:9px;text-align:center;line-height:1.5">D·M·S<br>▓▓▓<br>N7</div>
+    <div class="utitle" style="color:#004400;font-family:monospace;font-size:9px">VERIFIED ✓</div>
+    <div class="ustats" style="color:#004400;font-family:monospace;font-size:9px">Posts:<span>3</span><br>Joined:<span>11 Apr 2022</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#26</a> · 12 Apr 2022, 05:04 PM</span></div>
+  <div class="pbody">
+    <p>T0 → T2. Paternal awareness: confirmed. Residential address: confirmed (OP provided voluntarily, post #11).</p>
+    <p>Author: are there files in the archive dated prior to 1985. Specifically 1979–1983 range.</p>
+    <p><span class="code">&gt;&gt;N7/T2 — ARCV — QUERY:F79-83 — NOT PRIMARY. YET.&lt;&lt;</span></p>
+    <p><span class="code">596F7572206661746865722069732064726976696E6720686F6D6520726967687420 6E6F772E20446F206E6F7420706F737420616E7920 6D6F72652066696C6520636F6E74656E74732E</span></p>
+  </div>
+  <div class="rxn"><span class="r hot">😱 × 888</span><span class="r hot">😂 × 333</span></div>
+  </div>
+</div>
+
+
+<!-- 27 ButterfliesAllTheWayDown decodes, nobody cares properly -->
+<div class="post panic">
+  <div class="pu"><a href="#" class="un">ButterfliesAllTheWayDown</a>
+    <div class="av">🦋</div><div class="utitle">Senior Member</div>
+    <div class="ustats">Posts:<span>12,441</span><br>Joined:<span>Oct 2007</span><br>Loc:<span>Hamburg</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#27</a> · 12 Apr 2022, 05:07 PM</span></div>
+  <div class="pbody">
+    <p>Decoded: <span class="dec">Your father is driving home right now. Do not post any more file contents.</span></p>
+    <p>The DMS knows the father is driving home <i>right now.</i> In real time. They are tracking — SiberianDawn_AH PLEASE —</p>
+  </div>
+  <div class="rxn"><span class="r hot">😱 × 1,441</span></div>
+  </div>
+</div>
+
+
+<!-- 28 PostSovietDreamer — responds to OP's dig, forgets about surveillance crisis -->
+<div class="post alt">
+  <div class="pu"><a href="#" class="un">PostSovietDreamer</a>
+    <div class="av">📖</div><div class="utitle">Veteran Member</div>
+    <div class="ustats">Posts:<span>24,882</span><br>Joined:<span>Jan 2005</span><br>Loc:<span>Kraków</span></div>
+    <div class="badge bvet">VETERAN</div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#28</a> · 12 Apr 2022, 05:09 PM</span></div>
+  <div class="pbody">
+    <p>"I will take feedback from people who actually finish things." I see we're doing this.</p>
+    <p>The Thaw That Never Froze has 24,441 posts and five Turtledove awards. It is at 1982 because <i>it takes time to do this correctly</i>. My 1979 section, which you claim "dragged," is widely considered the definitive alternate history treatment of the Soviet-Afghan War decision-making process. Dr. Helene Marchand cited it in a 2019 journal article. It was cited. In a journal. By an academic. Can you say the same about your Chapter 4, which is 67 words long and includes the phrase "people watched with champagne" with no further development?</p>
+    <p>There is also a government agency currently tracking your father's location in real time in this thread and I feel I should mention this but I also feel it's important to address the "doesn't finish things" comment first.</p>
+  </div>
+  <div class="sig"><strong>ONGOING:</strong> <a href="#">The Thaw That Never Froze</a> — 1982. Cited by Dr. Marchand. Journal citation. Look it up.</div>
+  <div class="rxn"><span class="r hot">😂 × 1,441</span><span class="r hot">👍 × 888</span><span class="mega r">🏆 × 444</span></div>
+  </div>
+</div>
+
+
+<!-- 29 BizarreSoulFan — ignoring everything -->
+<div class="post jojo">
+  <div class="pu"><a href="#" class="un" style="color:#aa00aa">BizarreSoulFan</a>
+    <div class="av" style="background:#330033;color:#ff88ff;font-size:18px">✨</div>
+    <div class="utitle" style="color:#aa00aa">Senior Member</div>
+    <div class="ustats">Posts:<span>6,112</span><br>Joined:<span>Jun 2014</span><br>Loc:<span>Osaka</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#29</a> · 12 Apr 2022, 05:11 PM</span></div>
+  <div class="pbody">
+    <p>"People watched with champagne" is IDENTICAL to the scene in BI Part 4 where the townspeople drink at the funeral — the champagne as marker of collective catharsis/complicity is a documented Irohashi motif that I have written about extensively. I have 14 remaining paragraphs of analysis. Also I note the moderator told me to take this to the media subforum but the moderator is handling a government surveillance incident right now and I think their attention is elsewhere so I'm continuing here.</p>
+  </div>
+  <div class="rxn"><span class="r neg">😒 × 244</span><span class="r hot">😂 × 188</span></div>
+  </div>
+</div>
+
+
+<!-- 30 VoxelCave — sends second spreadsheet anyway -->
+<div class="post alt vs">
+  <div class="pu"><a href="#" class="un" style="color:#336633">VoxelCaveEnthusiast</a>
+    <div class="av" style="background:#1a2a1a;color:#88cc88;font-size:18px">⛏️</div>
+    <div class="utitle" style="color:#336633">Member</div>
+    <div class="ustats">Posts:<span>441</span><br>Joined:<span>Nov 2019</span><br>Loc:<span>Auckland, NZ</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#30</a> · 12 Apr 2022, 05:13 PM</span></div>
+  <div class="pbody">
+    <p>The moderator said one spreadsheet so I combined all three into a single 2,847-row spreadsheet. This is technically one spreadsheet. I have also attached the four-hour methodology video. I also wanted to ask: does anyone know if the rotary quern texture in Zemlya 0.11 has been patched because I've been waiting three weeks for an official response from the devs and the silence is frankly unacceptable for what is nominally a full-price release.</p>
+  </div>
+  <div class="rxn"><span class="r hot">😂 × 444</span><span class="r neg">😒 × 111</span></div>
+  </div>
+</div>
+
+
+<!-- 31 OP — Chapter 5 + finally starting to get scared but still defensive -->
+<div class="post op">
+  <div class="pu"><a href="#" class="un">SiberianDawn_AH</a>
+    <div class="av">🌅</div><div class="utitle">New Member</div>
+    <div class="ustats">Posts:<span>23</span><br>Joined:<span>Jan 2022</span><br>Loc:<span>Ohio, USA</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#31</a> · 12 Apr 2022, 05:38 PM</span></div>
+  <div class="pbody">
+    <div class="tmbar">☆ THREADMARK: Chapter 5 — The Coup</div>
+    <p>my dad is home now and he sat me down and he's not mad but he's doing the face where he's trying to be calm and he asked me "how much did you post" and I said "everything" and he made a sound I've never heard him make before and now he's on the phone in the other room. I can't hear what he's saying but I can hear that he's saying it FAST.</p>
+    <p>ANYWAY I'm posting the last two chapters because I did this research and it's good and I'm not going to let a weird government situation prevent me from sharing my work. <b>PostSovietDreamer</b>: my Chapter 4 is 67 words because it's CONCISE. Have you heard of CONCISION. Look it up.</p>
+    <div class="tl"><div class="tlh">Chapter 5: The Coup (19–22 August 1991)</div>
+      <p>Boris Yeltsin. Construction engineer's son, Sverdlovsk. Climbed a tank. Three officers refused independently. The plotters had been drinking. Three days. Over.</p>
+    </div>
+    <p>very CONCISE. very EFFICIENT. this is called ECONOMY OF PROSE. I've read about it.</p>
+  </div>
+  <div class="sig"><em>I DID MY RESEARCH. MY DAD IS ON THE PHONE. I'M FINE.</em></div>
+  <div class="rxn"><span class="r hot">😂 × 2,441</span><span class="r hot">😭 × 1,882</span></div>
+  </div>
+</div>
+
+
+<!-- 32 Press arrives, immediately annoying -->
+<div class="post press alt">
+  <div class="pu"><a href="#" class="un" style="color:#884400">SubstrateWatch_Correspondent</a>
+    <div class="av" style="background:#fff8cc;border-color:#cc9922;font-size:13px;color:#664400;text-align:center;padding:4px;line-height:1.4">📡<br><small>SWN<br>PRESS</small></div>
+    <div class="utitle" style="color:#886600">Press — SubstrateWatch Newswire</div>
+    <div class="ustats">Posts:<span>1</span><br>Joined:<span>Apr 2022</span><br>Loc:<span>Rotterdam</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#32</a> · 12 Apr 2022, 05:44 PM</span></div>
+  <div class="pbody">
+    <div class="pressbox"><strong>PRESS NOTICE — SubstrateWatch Newswire</strong><br>This account is SubstrateWatch Newswire. This thread is at 441,882 views. We are publishing in 45 minutes regardless of whether we receive comment. We prefer comment.</div>
+    <p>Questions for all parties. DMS: confirm agency identity, explain "not primary yet." PacificStudiesGroup: confirm programme authorisation, identify footage access channel. NovArkhiv: Helsinki Protocol statement on both. SiberianDawn_AH: any comment on the files, the DMS contact, or what your father said when he came home.</p>
+    <p>We are also interested in PostSovietDreamer's claim that their TL was cited in a peer-reviewed journal. We would like to verify this citation for a sidebar. Dr. Helene Marchand's university email is available publicly. We will be contacting her regardless.</p>
+  </div>
+  <div class="rxn"><span class="r hot">😂 × 888</span><span class="r neg">😒 × 444</span></div>
+  </div>
+</div>
+
+
+<!-- 33 PostSovietDreamer — panics about the journal citation -->
+<div class="post">
+  <div class="pu"><a href="#" class="un">PostSovietDreamer</a>
+    <div class="av">📖</div><div class="utitle">Veteran Member</div>
+    <div class="ustats">Posts:<span>24,882</span><br>Joined:<span>Jan 2005</span><br>Loc:<span>Kraków</span></div>
+    <div class="badge bvet">VETERAN</div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#33</a> · 12 Apr 2022, 05:47 PM</span></div>
+  <div class="pbody">
+    <p>The citation was in a footnote. It was footnote 34. The footnote said "for a popular treatment of this scenario, see also." "See also." In a footnote. At the end of a paper about an entirely different subject. I have been describing this as a citation. I would prefer if SubstrateWatch did not contact Dr. Marchand.</p>
+    <p>This is not what I came to this thread to discuss.</p>
+  </div>
+  <div class="rxn"><span class="r hot">😂 × 4,441</span><span class="r hot">👍 × 3,112</span><span class="mega r">🏆 × 1,882</span></div>
+  </div>
+</div>
+
+
+<!-- 34 DMS responds to press — in hex -->
+<div class="post dms alt">
+  <div class="pu"><a href="#" class="un" style="color:#00bb00;font-family:monospace">DMS_ArchiveNode_7</a>
+    <div class="av" style="background:#000;border-color:#003300;color:#00cc00;font-family:monospace;font-size:9px;text-align:center;line-height:1.5">D·M·S<br>▓▓▓<br>N7</div>
+    <div class="utitle" style="color:#004400;font-family:monospace;font-size:9px">VERIFIED ✓</div>
+    <div class="ustats" style="color:#004400;font-family:monospace;font-size:9px">Posts:<span>4</span><br>Joined:<span>11 Apr 2022</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#34</a> · 12 Apr 2022, 05:49 PM</span></div>
+  <div class="pbody">
+    <p><span class="code">4E6F20636F6D6D656E742E</span></p>
+    <p><span class="code">537562737472617465576174636820697320616C736F206F6E2066696C652E20537562666F6F746E6F7465203334206173 2077656C6C2E</span></p>
+  </div>
+  <div class="rxn"><span class="r hot">😂 × 3,441</span></div>
+  </div>
+</div>
+
+
+<!-- 35 ButterfliesAllTheWayDown — decoded, defeated -->
+<div class="post panic">
+  <div class="pu"><a href="#" class="un">ButterfliesAllTheWayDown</a>
+    <div class="av">🦋</div><div class="utitle">Senior Member</div>
+    <div class="ustats">Posts:<span>12,441</span><br>Joined:<span>Oct 2007</span><br>Loc:<span>Hamburg</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#35</a> · 12 Apr 2022, 05:51 PM</span></div>
+  <div class="pbody">
+    <p>Decoded: <span class="dec">No comment. SubstrateWatch is also on file. Subfootnote 34 as well.</span></p>
+    <p>The DMS has a file on footnote 34 of a 2019 journal article about Soviet history that mentioned an alternate history forum post. I'm going to go lie down.</p>
+  </div>
+  <div class="rxn"><span class="r hot">😂 × 8,882</span><span class="r mega">🏆 × 4,441</span></div>
+  </div>
+</div>
+
+
+<!-- 36 Moderator — bans the wrong people -->
+<div class="post modwarn">
+  <div class="pu"><a href="#" class="un" style="color:#aa2222">Moderator_Vasquez</a>
+    <div class="av" style="font-size:16px">🛡️</div>
+    <div class="utitle" style="color:#aa2222">Forum Moderator <span class="mbadge">MOD</span></div>
+    <div class="ustats">Posts:<span>1,612</span><br>Joined:<span>Feb 2016</span><br>Loc:<span>Guadalajara</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#36</a> · 12 Apr 2022, 05:58 PM</span></div>
+  <div class="pbody">
+    <p><b>Mod note.</b></p>
+    <p>I have been informed by admin that four government entities have contacted the forum in the last two hours. I have not been told which four. Admin said "don't worry about it." I am worrying about it.</p>
+    <p>Actions taken:</p>
+    <p><b>TreatyNerd1918:</b> Banned (7 days) for continuing to make the Brest-Litovsk correction after a warning. I know this is disproportionate. I am doing it anyway because the correction appeared in eleven separate posts in the last 90 minutes and my supervisor agrees it is technically harassment of the thread topic.</p>
+    <p><b>DiamatVanguard:</b> Banned (30 days) for calling people fascists. I know you do this every time. I know you'll be back.</p>
+    <p><b>VoxelCaveEnthusiast:</b> Banned (3 days) for posting a spreadsheet I specifically described as one spreadsheet which turned out to be 2,847 rows and also a four-hour video. A four-hour video, VoxelCave. In a first-TL thread.</p>
+    <p><b>BizarreSoulFan:</b> Warning (final). Take the BI analysis to the media subforum or I am banning you and I don't care that it's 17 paragraphs and you started it.</p>
+    <p><b>DMS_ArchiveNode_7:</b> Admin has told me I may not ban this account. I have told admin I disagree. Admin has told me that's fine and I still may not ban it.</p>
+    <p><b>PacificStudiesGroup:</b> You received a warning earlier for asking users to covertly record their neighbours. You are still here. I am going to take further action as soon as I figure out which rule covers "building an AI from a dead woman's recordings to scan social media for her approximate reincarnation."</p>
+    <p>I am going to get a glass of water. I will be back.</p>
+  </div>
+  <div class="rxn"><span class="r hot">😂 × 2,441</span><span class="r hot">👍 × 1,441</span><span class="r neg">😒 × 888</span></div>
+  </div>
+</div>
+
+
+<!-- 37 OP final chapter + complete unravelling -->
+<div class="post op alt">
+  <div class="pu"><a href="#" class="un">SiberianDawn_AH</a>
+    <div class="av">🌅</div><div class="utitle">New Member</div>
+    <div class="ustats">Posts:<span>23</span><br>Joined:<span>Jan 2022</span><br>Loc:<span>Ohio, USA</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#37</a> · 12 Apr 2022, 06:14 PM</span></div>
+  <div class="pbody">
+    <div class="tmbar">☆ THREADMARK: Chapter 6 — Christmas Day (December 1991)</div>
+    <p>okay my dad just explained some things to me and I'm not allowed to say what they are and also he's very upset that I gave out our address and I understand now why he's upset about that and I'm sorry about the address thing but I STILL maintain that my research was accurate and good and the TL is good and <b>PostSovietDreamer</b>'s footnote situation is extremely funny to me right now.</p>
+    <div class="tl"><div class="tlh">Chapter 6: Christmas Day (25 December 1991)</div>
+      <p>Gorbachev resigned Christmas Day 1991. Small room, one camera. The Soviet flag came down at 19:32. The Russian tricolour went up. Someone needed a ladder because the mechanism had seized. Seventy-four years. A ladder.</p>
+    </div>
+    <p>That's the whole TL. Six chapters. I think it's pretty good. I did my research. The research was accurate. Several government agencies apparently agree the research was accurate. I'm going to go have a conversation with my dad now that I'm told will be "long and probably a lot to process" and I just want everyone to know that I think this TL deserved better than the thread it got.</p>
+    <p>also <b>TreatyNerd1918</b> I acknowledge the Brest-Litovsk correction. I acknowledged it on purpose after they were banned because I'm not above that.</p>
+  </div>
+  <div class="sig"><em>I DID MY RESEARCH. THE TL WAS GOOD. THE FOOTNOTE WAS NOT A REAL CITATION POSTSOVIETDREAMER.</em></div>
+  <div class="rxn"><span class="r hot">😂 × 8,882</span><span class="r hot">❤️ × 6,441</span><span class="r hot">😭 × 4,112</span><span class="mega r">🏆 × 2,441</span></div>
+  </div>
+</div>
+
+
+<!-- 38 Moderator — full collapse, bans own supervisor -->
+<div class="post modwarn">
+  <div class="pu"><a href="#" class="un" style="color:#aa2222">Moderator_Vasquez</a>
+    <div class="av" style="font-size:16px">🛡️</div>
+    <div class="utitle" style="color:#aa2222">Forum Moderator <span class="mbadge">MOD</span></div>
+    <div class="ustats">Posts:<span>1,612</span><br>Joined:<span>Feb 2016</span><br>Loc:<span>Guadalajara</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#38</a> · 12 Apr 2022, 06:32 PM</span></div>
+  <div class="pbody">
+    <p><b>Final mod note. I am locking this thread.</b></p>
+    <p>Actions taken in the last eleven minutes:</p>
+    <p><b>DMS_ArchiveNode_7:</b> Deleted their own account. I am banning the ghost. I know that's not how banning works. I am doing it anyway. The ghost is banned.</p>
+    <p><b>PacificStudiesGroup:</b> Banned permanently. Freiburg ethics referral filed. I found the rule: Rule 2 (member welfare) read in conjunction with Rule 11 (no operating AI identification systems in forum threads) which was added in 2020 and which I had personally forgotten about until just now. There it is. Goodbye.</p>
+    <p><b>BizarreSoulFan:</b> Banned. I said final warning. It was final.</p>
+    <p><b>My supervisor:</b> Banned. He sent me a direct message during this incident saying and I quote "it's probably just ARG stuff, Vasquez, lighten up." It is not ARG stuff. My supervisor is banned. I am aware I don't have the authority to ban my supervisor. I have done it.</p>
+    <p><b>Thread:</b> Locked. I have moderated this forum for six years and handled one neo-Nazi, three doxxing attempts, the Great Barbarossa Incident of 2018, a man who posted his dissertation as a TL (80,000 words), and the Ternate Accord saga. None of them resulted in four government entities contacting admin, a journalist verifying a footnote, and an OP publicly gloating about acknowledging a correction after the corrector was banned.</p>
+    <p><b>SiberianDawn_AH:</b> "Someone needed a ladder because the mechanism had seized. Seventy-four years. A ladder." That's a good sentence. Your TL did deserve better than this thread. The footnote thing is very funny and I hope you remember it when you're older.</p>
+    <p>I'm calling my mother. She will not understand any of this. That is all I want from tonight.</p>
+  </div>
+  <div class="rxn"><span class="r hot">❤️ × 14,441</span><span class="r hot">😂 × 11,882</span><span class="r hot">👍 × 8,441</span><span class="mega r">🏆 × 5,882</span></div>
+  </div>
+</div>
+
+
+<!-- 39 PostSovietDreamer FINAL POST -->
+<div class="post">
+  <div class="pu"><a href="#" class="un">PostSovietDreamer</a>
+    <div class="av">📖</div><div class="utitle">Veteran Member</div>
+    <div class="ustats">Posts:<span>24,882</span><br>Joined:<span>Jan 2005</span><br>Loc:<span>Kraków</span></div>
+    <div class="badge bvet">VETERAN</div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#39</a> · 12 Apr 2022, 06:39 PM</span></div>
+  <div class="pbody">
+    <p>Fine. I'll say it. The sentence about the ladder is good. "Someone needed a ladder because the mechanism had seized" is the kind of detail that makes history feel like history instead of narrative and it's genuinely well-chosen and I would have used it myself if I'd thought of it, which I didn't, which is mildly annoying.</p>
+    <p>The rest of the TL is too short and the third chapter needed more interiority and if the OP had taken my initial feedback seriously they would have a much stronger piece of writing. I stand by all of that.</p>
+    <p>The footnote was a legitimate citation. It was in the footnotes section. Footnotes are part of papers. I am choosing to continue believing this.</p>
+    <p>Good luck with whatever your father is explaining. When you're ready to write alternate history properly, <a href="#">The Thaw That Never Froze</a> is still ongoing and the comment section is open and I accept detailed scene-by-scene analysis. Not from newcomers. From people who have read it in full. All 24,441 posts. All of them. Good night.</p>
+  </div>
+  <div class="sig"><strong>ONGOING:</strong> <a href="#">The Thaw That Never Froze</a> — 1982. Cited by academia (footnote 34). Taking comment from qualified readers only.</div>
+  <div class="rxn"><span class="r hot">😂 × 18,882</span><span class="r hot">❤️ × 8,441</span><span class="mega r">🏆 × 4,882</span></div>
+  </div>
+</div>
+
+
+<!-- 40 PanzerGruppe — the trucks. the eternal trucks. -->
+<div class="post alt">
+  <div class="pu"><a href="#" class="un" style="color:#444">PanzerGruppeEnthusiast</a>
+    <div class="av" style="background:#1a1a1a;color:#888;font-size:11px;text-align:center;padding:5px;line-height:1.4">🪖<br><small>1939-45</small></div>
+    <div class="utitle">Senior Member</div>
+    <div class="ustats">Posts:<span>9,441</span><br>Joined:<span>Mar 2007</span></div>
+  </div>
+  <div class="pbwrap"><div class="ph"><span><a href="#">#40</a> · 12 Apr 2022, 06:41 PM</span></div>
+  <div class="pbody">
+    <p>Thread is locked and I never got an answer about the Wehrmacht and Moscow. I'm posting the 52 pages as a separate thread. It's called "Glasnost and Collapse: The Question the OP Refused to Answer (Operational Analysis)." The trucks are in section 4.</p>
+  </div>
+  <div class="sig"><em>52 pages. Section 4: The Trucks. New thread: up now. Answer the question.</em></div>
+  <div class="rxn"><span class="r hot">😂 × 22,441</span><span class="mega r">🏆 × 11,882</span></div>
+  </div>
+</div>
+
+<div class="bnav">
+  <div>Pages: <a href="#" class="cp">1</a> <a href="#">2</a> … <a href="#">188</a> — [LOCKED]</div>
+  <div><a href="#" class="btn btn-lock">Reply (LOCKED)</a></div>
+</div>
+
+<div class="sim">
+  <div class="simh">Similar Threads / Related Discussion</div>
+  <div class="simb">
+    <a href="#">Glasnost and Collapse: The Question the OP Refused to Answer — PanzerGruppeEnthusiast [NEW]</a> <em>— After 1900 · 3,441 replies 🔥🔥</em><br>
+    <a href="#">PostSovietDreamer footnote 34 — was it a citation? (community verdict: no)</a> <em>— Meta · 18,882 replies 🔥🔥🔥</em><br>
+    <a href="#">Moderator_Vasquez banning their supervisor — legal analysis</a> <em>— Meta · 8,441 replies 🔥</em><br>
+    <a href="#">TreatyNerd1918 ban appeal — ACCEPTED (7-day ban ruled disproportionate)</a> <em>— Meta · 4,441 replies</em><br>
+    <a href="#">TreatyNerd1918 ban appeal resolution — TreatyNerd immediately returns to make the Brest-Litovsk correction</a> <em>— Meta · 6,441 replies 🔥</em><br>
+    <a href="#">DMS_ArchiveNode accounts — what are they and why does the ghost stay banned</a> <em>— Meta · 11,441 replies</em><br>
+    <a href="#">PacificStudiesGroup — Freiburg ethics referral status [pending, 14 months]</a> <em>— Meta · 4,441 replies</em><br>
+    <a href="#">BizarreSoulFan BI structural analysis — all 17 paragraphs (media subforum)</a> <em>— Off Topic · 22,441 replies 🔥🔥🔥 [somehow the most viewed thread this month]</em><br>
+    <a href="#">VoxelCaveEnthusiast's 2,847-row spreadsheet — download link [11,441 downloads]</a> <em>— Research · 441 replies</em><br>
+    <a href="#">VoxelCaveEnthusiast's ban appeal — upheld (the video was genuinely four hours)</a> <em>— Meta · 2,441 replies</em><br>
+    <a href="#">The Zemlya quern texture — developer response [resolved: "working as intended"]</a> <em>— Off Topic · 44,441 replies 🔥🔥🔥 [VoxelCave's most-viewed thread]</em><br>
+    <a href="#">Moderator_Vasquez's supervisor ban — admin reinstated supervisor, demoted Vasquez, Vasquez appealed, appeal pending</a> <em>— Meta · 8,882 replies</em><br>
+    <a href="#">SiberianDawn_AH — confirmed okay, confirmed not answering questions, confirmed the ladder sentence was theirs</a> <em>— Meta · 44,441 replies 🔥🔥</em><br>
+    <a href="#">Was the footnote a citation — final answer [it was a footnote] [PostSovietDreamer has read this thread 47 times]</a> <em>— Meta · 18,882 replies 🔥🔥🔥</em>
+  </div>
+</div>
+</div>
+
+<div id="footer">
+  AlternateHistory.com · <a href="#">Forum Rules</a> · <a href="#">Wiki</a> · <a href="#">Timeline Index</a> · <a href="#">Turtledove Awards Archive</a> · <a href="#">Contact Staff</a><br>
+  <span style="color:#aaa">Powered by XenForo 2.3 · All times UTC</span><br>
+  <span style="color:#aaa;font-size:10px">© 2001–2026 AlternateHistory.com</span>
+</div>
+
 </body>
 </html>
