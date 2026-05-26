@@ -2,907 +2,900 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>[TL] Glasnost and Collapse — JERK VERSION | AlternateHistory.com</title>
+<title>Project Granite — Season 1 Reference</title>
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bd:#1c3a6b;--bm:#2c5aa0;--bl:#d0dff5;--bp:#eef3fb;--gold:#c8a430;--border:#9babc5;--text:#1a1a1a;--bg:#dde5f0;--sans:Verdana,Arial,sans-serif;--red:#aa2222}
-body{font-family:var(--sans);font-size:12px;background:var(--bg);color:var(--text);line-height:1.5}
-#topbar{background:linear-gradient(180deg,#1c3a6b,#0f2244);border-bottom:3px solid var(--gold)}
-#tbi{max-width:1100px;margin:0 auto;padding:0 10px;display:flex;align-items:center;gap:12px;min-height:44px}
-#logo a{color:#fff;font-size:17px;font-weight:bold;text-decoration:none;display:flex;flex-direction:column;line-height:1.1}
-#logo a span{font-size:9px;font-weight:400;color:#aac4e8;letter-spacing:1px}
-.tnav{display:flex;gap:1px}.tnav a{color:#c8d8f0;text-decoration:none;font-size:11px;padding:4px 7px}
-#ub{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:11px;color:#aac4e8}
-#ub a{color:#c8d8f0;text-decoration:none}
-#ub input{padding:3px 6px;font-size:11px;border:1px solid #4a6a9a;background:#0f2244;color:#c8d8f0;width:140px;font-family:var(--sans)}
-#bc{background:#e8eef8;border-bottom:1px solid var(--border);padding:5px 10px;font-size:11px}
-#bci{max-width:1100px;margin:0 auto}
-#bc a{color:var(--bm);text-decoration:none}
-#bc span{color:#888;margin:0 4px}
-#wrap{max-width:1100px;margin:12px auto;padding:0 8px}
-#ttlbar{background:linear-gradient(180deg,var(--bd),#152d54);color:#fff;padding:10px 14px;border:1px solid #0a1a3a;border-bottom:none}
-#ttlbar h1{font-size:14px;font-weight:bold;line-height:1.3;margin-bottom:5px}
-.tmeta{font-size:10px;color:#aac4e8;display:flex;gap:12px;flex-wrap:wrap}
-.pnav{background:var(--bl);border:1px solid var(--border);border-bottom:none;padding:5px 10px;display:flex;align-items:center;justify-content:space-between;font-size:11px}
-.pnav a{color:var(--bm);text-decoration:none;margin:0 2px}
-.cp{background:var(--bm);color:#fff;padding:1px 5px;border-radius:2px}
-.btn{background:linear-gradient(180deg,#fff,#e8eef8);border:1px solid var(--border);color:var(--bd);padding:3px 10px;font-size:11px;text-decoration:none;display:inline-block;font-family:var(--sans)}
-.btn-lock{background:#ccc;color:#888;cursor:not-allowed;border-color:#aaa}
-.btn-post{background:linear-gradient(180deg,#2c6a2c,#1a4a1a);color:#fff;border-color:#1a4a1a}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#000;--bg2:#080c14;--bg3:#0a1628;--accent:#4A90D9;--gold:#E8A838;--red:#CC3333;--text:#ddd;--dim:#888;--faint:#444;--border:#1a2a40}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',Trebuchet MS,sans-serif;display:flex;min-height:100vh;font-size:15px;line-height:1.6}
 
-.post{display:grid;grid-template-columns:155px 1fr;border:1px solid var(--border);border-top:none;background:#fff}
-.post.alt .pbwrap{background:#fafcff}
-.post.mod .pbwrap{background:#fffbe6}.post.mod .ph{background:linear-gradient(180deg,#fffbe6,#fff3cc)}
-.post.modwarn .pbwrap{background:#fff0e8}.post.modwarn .ph{background:linear-gradient(180deg,#ffe8d8,#ffd8c0)}
-.post.dms .pu{background:#060606;border-right:2px solid #003300}
-.post.dms .pbwrap{background:#090909}.post.dms .ph{background:#0a0a0a;border-bottom:1px solid #003300}
-.post.dms .pbody{color:#00cc00;font-family:'Courier New',monospace;font-size:11.5px;line-height:1.9}
-.post.dms .ph a,.post.dms .ph span{color:#003300}
-.post.cia .pu{background:#f5f0ff;border-right:2px solid #6633cc}
-.post.cia .pbwrap{background:#faf8ff}.post.cia .ph{background:linear-gradient(180deg,#ede0ff,#ddd0ff);border-bottom:1px solid #9966dd}
-.post.nov .pu{background:#fff0e0;border-right:2px solid #cc4400}
-.post.nov .pbwrap{background:#fffaf5}.post.nov .ph{background:linear-gradient(180deg,#ffe8d0,#ffd8b0);border-bottom:1px solid #cc8844}
-.post.op .pbwrap{background:#f5fff5}.post.op .ph{background:linear-gradient(180deg,#d8ffd8,#c8f0c8);border-bottom:1px solid #88cc88}
-.post.evan .pu{background:#fff8ee;border-right:2px solid #aa6600}
-.post.evan .pbwrap{background:#fffcf5}.post.evan .ph{background:linear-gradient(180deg,#ffeedd,#ffddcc);border-bottom:1px solid #cc9944}
-.post.jojo .pu{background:#fff0ff;border-right:2px solid #cc44cc}
-.post.jojo .pbwrap{background:#fdf8ff}.post.jojo .ph{background:linear-gradient(180deg,#f0d8ff,#e8c8ff);border-bottom:1px solid #cc88cc}
-.post.vs .pu{background:#f0fff0;border-right:2px solid #336633}
-.post.vs .pbwrap{background:#f8fff8}.post.vs .ph{background:linear-gradient(180deg,#d0f0d0,#c0e8c0);border-bottom:1px solid #669966}
-.post.press .pu{background:#fff8e0;border-right:2px solid #996600}
-.post.press .pbwrap{background:#fffbf0}.post.press .ph{background:linear-gradient(180deg,#fff0cc,#ffe8aa);border-bottom:1px solid #cc9922}
-.post.del .pu{background:#e0e0e0}.post.del .pbwrap{background:#efefef}
+/* SIDEBAR */
+#sidebar{width:260px;min-width:260px;height:100vh;position:sticky;top:0;background:#030608;border-right:1px solid var(--border);overflow-y:auto;display:flex;flex-direction:column;flex-shrink:0}
+#sidebar-header{padding:1.2em 1.2em .8em;border-bottom:1px solid var(--border)}
+#sidebar-header .logo{font-size:1.1em;font-weight:bold;color:#fff;letter-spacing:.05em}
+#sidebar-header .sub{font-size:.78em;color:var(--dim);margin-top:.2em}
+#sidebar nav{flex:1;padding:.5em 0}
+#sidebar nav a{display:flex;align-items:baseline;gap:.5em;padding:.38em 1.2em;font-size:.82em;color:var(--dim);text-decoration:none;transition:all .15s;border-left:3px solid transparent;line-height:1.35}
+#sidebar nav a:hover{color:#fff;background:var(--bg3)}
+#sidebar nav a.active{color:var(--accent);border-left-color:var(--accent);background:#050d18}
+#sidebar nav a .num{color:var(--faint);font-size:.78em;min-width:2.2em;font-family:monospace}
+#sidebar nav .group-label{padding:.7em 1.2em .2em;font-size:.7em;text-transform:uppercase;letter-spacing:.12em;color:var(--faint)}
+#pg-panel{padding:1em 1.2em;border-top:1px solid var(--border);background:#040a10}
+#pg-panel .panel-title{font-size:.72em;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:.6em}
+#pg-panel .choice{font-size:.8em;color:var(--dim);padding:.2em 0;border-bottom:1px solid #0a1220}
+#pg-panel .choice b{color:#fff}
 
-.pu{background:var(--bp);border-right:1px solid var(--border);padding:10px 7px;text-align:center}
-.un{font-weight:bold;font-size:12px;color:var(--bd);text-decoration:none;display:block;margin-bottom:2px;word-break:break-word}
-.av{width:70px;height:70px;margin:4px auto;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:22px;background:#e8eef8;flex-direction:column;line-height:1.3}
-.utitle{font-size:10px;color:var(--bm);font-style:italic;margin-bottom:2px}
-.ustats{font-size:10px;color:#666;text-align:left;margin-top:4px;line-height:1.8;border-top:1px solid #b0bdd6;padding-top:3px}
-.ustats span{color:#333}
-.badge{display:inline-block;font-size:9px;font-weight:bold;padding:1px 4px;border-radius:2px;margin-top:2px}
-.bvet{background:#5a2a8a;color:#fff}.bmod{background:var(--gold);color:#fff}
-.pbwrap{min-width:0}
-.ph{background:linear-gradient(180deg,#e0eaff,#d0dff5);border-bottom:1px solid var(--border);padding:4px 10px;display:flex;justify-content:space-between;font-size:11px;color:#555}
-.ph a{color:var(--bm);text-decoration:none}
-.pbody{padding:10px 13px;line-height:1.6;font-size:12px}
-.pbody p{margin-bottom:8px}.pbody p:last-child{margin-bottom:0}
-.tl{background:#f8f9ff;border:1px solid var(--border);border-left:4px solid var(--bm);padding:10px 13px;margin:8px 0;font-size:12px;line-height:1.7}
-.tlh{font-weight:bold;font-size:11px;color:var(--bd);border-bottom:1px solid var(--bl);padding-bottom:3px;margin-bottom:6px}
-.sig{border-top:1px solid #b0bdd6;margin:8px 13px 0;padding:5px 0 9px;font-size:11px;color:#555;line-height:1.5}
-.sig a{color:var(--bm);text-decoration:none}
-.rxn{padding:3px 13px 7px;display:flex;gap:4px;flex-wrap:wrap;font-size:11px}
-.r{background:var(--bp);border:1px solid var(--border);padding:2px 6px;border-radius:10px;color:#444}
-.hot{border-color:var(--gold);background:#fffbe6}.neg{border-color:#cc8888;background:#fff5f5}.mega{border-color:#ff6600;background:#fff4ee;font-weight:bold}
-.tag{display:inline-block;font-size:10px;font-weight:bold;padding:1px 5px;border-radius:2px;margin-right:3px;vertical-align:middle}
-.ttag{background:#5a2a8a;color:#fff}
-.mbadge{display:inline-block;background:var(--gold);color:#fff;font-size:9px;font-weight:bold;padding:1px 4px;border-radius:2px;text-transform:uppercase;margin-left:3px}
-.tmbar{background:linear-gradient(90deg,#2c5aa0,#1c3a6b);color:#fff;font-size:10px;font-weight:bold;padding:2px 7px;display:inline-block;margin-bottom:6px}
-.code{font-family:'Courier New',monospace;background:#111;color:#00cc00;padding:2px 7px;font-size:10.5px;display:inline-block;letter-spacing:.3px}
-.dec{font-family:'Courier New',monospace;background:#fff8e0;border:1px solid var(--gold);padding:2px 6px;font-size:11px;color:#664400;display:inline-block}
-.ln{font-size:10px;color:#888;font-style:italic}
-.pressbox{background:#fffbf0;border:2px solid #cc9922;padding:9px 13px;margin:8px 0;font-size:11.5px}
-.pressbox strong{color:#884400}
-.delnotice{padding:12px 14px;color:#888;font-style:italic;background:#efefef}
-.bnav{background:var(--bl);border:1px solid var(--border);border-top:none;padding:6px 10px;display:flex;justify-content:space-between;align-items:center;font-size:11px}
-.sim{margin-top:14px;border:1px solid var(--border);background:#fff}
-.simh{background:linear-gradient(180deg,var(--bd),#152d54);color:#fff;padding:6px 12px;font-size:12px;font-weight:bold}
-.simb{padding:8px 12px;font-size:11.5px;line-height:2.3}
-.simb a{color:var(--bm);text-decoration:none}
-.simb em{color:#666}
-#footer{text-align:center;font-size:10px;color:#666;margin-top:16px;padding-bottom:20px;line-height:2}
-#footer a{color:var(--bm);text-decoration:none}
-b{font-weight:bold}em,i{font-style:italic}
-.banned-notice{background:#ffeeee;border:1px solid #cc4444;padding:4px 10px;font-size:10.5px;color:#aa2222;margin:0 13px 8px}
+/* MAIN */
+#main{flex:1;min-width:0;padding:3em 4em 6em;max-width:920px}
+#main h1{font-size:2.6em;font-weight:bold;color:#fff;letter-spacing:.04em;margin-bottom:.2em}
+#main .tagline{color:var(--accent);font-style:italic;font-size:1.1em;margin-bottom:3em}
+
+/* SECTIONS */
+.section{margin-bottom:4em;padding-top:.5em}
+.section-header{display:flex;align-items:baseline;gap:.8em;margin-bottom:.8em;padding-bottom:.4em;border-bottom:2px solid var(--accent)}
+.section-num{font-size:.85em;color:var(--accent);font-family:monospace;opacity:.7;letter-spacing:.05em}
+.section-title{font-size:1.55em;font-weight:bold;color:#fff}
+.section p{color:var(--text);margin-bottom:.9em;line-height:1.7}
+.section p b{color:#fff}
+
+/* CALLOUT BOXES */
+.pick{background:#040e1c;border-left:4px solid var(--gold);padding:.8em 1.1em;border-radius:0 6px 6px 0;margin:.8em 0;font-size:.95em;line-height:1.6}
+.pick b{color:var(--gold)}
+.reject{background:#0d0303;border-left:4px solid var(--red);padding:.8em 1.1em;border-radius:0 6px 6px 0;margin:.8em 0;font-size:.95em;line-height:1.6}
+.reject b{color:var(--red)}
+.note{background:var(--bg3);border-left:4px solid var(--faint);padding:.8em 1.1em;border-radius:0 6px 6px 0;margin:.8em 0;font-size:.9em;color:var(--dim);line-height:1.6}
+.note b{color:var(--text)}
+.formula{background:#050505;border:1px solid #222;border-radius:4px;padding:.5em 1em;font-family:monospace;font-size:.92em;color:#adf;margin:.5em 0;display:inline-block}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;margin:.8em 0;font-size:.88em}
+th{background:var(--bg3);color:var(--accent);padding:.5em .8em;text-align:left;border-bottom:2px solid var(--accent);font-size:.85em}
+td{padding:.45em .8em;border-bottom:1px solid #0d0d0d;vertical-align:top;color:#ccc}
+tr:hover td{background:#060c14}
+tr.pick-row td{background:#04101e;color:#fff;border-left:3px solid var(--gold)}
+tr.reject-row td{color:var(--faint)}
+tr.reject-row td:first-child{color:var(--red)}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2em;margin:1em 0}
+.card{background:var(--bg3);border-radius:8px;padding:1em 1.2em;border-top:3px solid var(--accent)}
+.card.rejected{border-top-color:var(--red);opacity:.7}
+.card.picked{border-top-color:var(--gold);background:#04101e}
+.card h3{font-size:.95em;font-weight:bold;margin-bottom:.4em}
+.card p{font-size:.85em;color:var(--dim);line-height:1.5}
+
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:2em;margin:1em 0}
+.two-col-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5em;margin:1em 0}
+@media(max-width:700px){.two-col,.two-col-3{grid-template-columns:1fr}}
+
+/* STAR ROW */
+.star-entry{display:flex;align-items:flex-start;gap:1.2em;padding:.8em 0;border-bottom:1px solid #0d0d0d}
+.star-dot{width:28px;height:28px;border-radius:50%;flex-shrink:0;margin-top:.2em}
+.star-entry.picked-star{background:#04101e;padding:.8em 1em;border-radius:6px;border:1px solid var(--gold);border-bottom-color:var(--gold)}
+.star-data{flex:1}
+.star-data h3{font-size:1em;font-weight:bold;margin-bottom:.2em}
+.star-data .stats{display:flex;flex-wrap:wrap;gap:.3em .8em;font-size:.82em;color:var(--dim);margin:.3em 0}
+.star-data .stats span b{color:#fff}
+.star-data p{font-size:.87em;color:var(--dim);line-height:1.5}
+
+/* SVG DIAGRAMS */
+.diagram{margin:1.2em 0;text-align:center}
+.diagram svg{max-width:100%;border-radius:8px;background:#000}
+.diagram .caption{font-size:.8em;color:var(--dim);margin-top:.4em;font-style:italic}
+
+/* BADGE */
+.badge{display:inline-block;padding:.12em .55em;border-radius:3px;font-size:.78em;font-weight:bold;vertical-align:middle}
+.b-ok{background:#0d2c18;color:#4caf50;border:1px solid #4caf50}
+.b-no{background:#2c0d0d;color:#f44336;border:1px solid #f44336}
+.b-meh{background:#2c220d;color:#ff9800;border:1px solid #ff9800}
+.b-pick{background:#0d1e2c;color:var(--accent);border:1px solid var(--accent)}
+
+/* LISTS */
+ul.fancy{list-style:none;padding:0;margin:.5em 0}
+ul.fancy li{padding:.3em 0 .3em 1.4em;position:relative;font-size:.93em;color:var(--text);border-bottom:1px solid #080808}
+ul.fancy li::before{content:'→';position:absolute;left:0;color:var(--accent)}
+ul.fancy li b{color:#fff}
+
+/* scrollbar */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#000}
+::-webkit-scrollbar-thumb{background:#1a2a40;border-radius:3px}
 </style>
 </head>
 <body>
 
-<div id="topbar"><div id="tbi">
-  <div id="logo"><a href="#"><b>AlternateHistory</b><span>.COM FORUMS</span></a></div>
-  <nav class="tnav"><a href="#">Home</a><a href="#">Forums</a><a href="#">Wiki</a><a href="#">Chat</a><a href="#">Turtledove Awards</a><a href="#">Donate</a></nav>
-  <div id="ub"><input type="text" placeholder="Search AH.com…"/><a href="#">Log in</a> | <a href="#">Register</a></div>
-</div></div>
-
-<div id="bc"><div id="bci">
-  <a href="#">AlternateHistory.com</a> <span>›</span> <a href="#">Timelines and Scenarios</a> <span>›</span>
-  <span>[TL] Glasnost and Collapse [LOCKED — 11 bans — see mod note]</span>
-</div></div>
-
-<div id="wrap">
-<div id="ttlbar">
-  <h1><span class="tag ttag">TL</span> Glasnost and Collapse: The Soviet Century Ends — 1918 POD <span style="color:#ffaaaa;font-size:12px">🔒 LOCKED — 11 bans — see post #38</span></h1>
-  <div class="tmeta"><span>Started by <a href="#">SiberianDawn_AH</a></span><span>12 Apr 2022</span><span>4,441 replies · 882,441 views</span><span>⚠️ 11 accounts banned including the moderator's supervisor</span></div>
-</div>
-<div class="pnav">
-  <div>Pages: <a href="#" class="cp">1</a> <a href="#">2</a> … <a href="#">188</a></div>
-  <div style="display:flex;gap:5px"><a href="#" class="btn">Watch Thread</a><a href="#" class="btn btn-lock">Reply (LOCKED)</a></div>
-</div>
-
-
-<!-- 1 OP -->
-<div class="post op">
-  <div class="pu"><a href="#" class="un">SiberianDawn_AH</a>
-    <div class="av">🌅</div><div class="utitle">New Member</div>
-    <div class="ustats">Posts:<span>23</span><br>Joined:<span>Jan 2022</span><br>Loc:<span>Ohio, USA</span></div>
+<!-- SIDEBAR -->
+<div id="sidebar">
+  <div id="sidebar-header">
+    <div class="logo">PROJECT GRANITE</div>
+    <div class="sub">Season 1 — Galaxy &amp; Star Reference</div>
   </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#1</a> · 12 Apr 2022, 03:14 PM</span></div>
-  <div class="pbody">
-    <div class="tmbar">☆ THREADMARK: Chapter 1 — The Reformer (1985)</div>
-    <p>hi so I've been lurking on here for a while and I finally posted my TL!! I think it's pretty original ngl, I haven't seen anyone do exactly this before. I did a TON of research for this BTW so before anyone says anything I already know my stuff is accurate 🙂</p>
-    <div class="tl"><div class="tlh">GLASNOST AND COLLAPSE — Chapter 1: The Reformer</div>
-      <p>Mikhail Gorbachev was fifty-four years old when he became General Secretary in March 1985 — born in Privolnoye, Stavropol Krai, the son of a farmer, studied law at Moscow State University, married a philosophy student named Raisa Titarenko. He called his programme <i>glasnost</i> and <i>perestroika</i>. He meant them. The apparatus was patient. He moved faster than the system could absorb.</p>
-    </div>
-    <p>I think this might be the best first TL anyone has posted on this forum, honestly. Very excited to share more!!</p>
-  </div>
-  <div class="sig"><em>my first TL!! probably won't be my last 😈<br>I have literally done so much research for this you guys don't even know</em></div>
-  <div class="rxn"><span class="r hot">👍 × 4</span><span class="r neg">🙄 × 29</span></div>
-  </div>
-</div>
-
-
-<!-- 2 PostSovietDreamer — condescending -->
-<div class="post alt">
-  <div class="pu"><a href="#" class="un">PostSovietDreamer</a>
-    <div class="av">📖</div><div class="utitle">Veteran Member</div>
-    <div class="ustats">Posts:<span>24,882</span><br>Joined:<span>Jan 2005</span><br>Loc:<span>Kraków</span></div>
-    <div class="badge bvet">VETERAN</div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#2</a> · 12 Apr 2022, 03:18 PM</span></div>
-  <div class="pbody">
-    <p>I'll try to be brief since I have 847 unread notifications and only finite patience for first-TL threads.</p>
-    <p>"The apparatus was patient. He moved faster than the system could absorb." This is a sentence you have written as though it is insightful. It is not insightful. It is the opening thesis of approximately forty percent of Soviet collapse TLs posted on this forum since 2004. I have read all of them. Most of them were better-researched than this opening chapter, which gives us exactly one named character, one named place, and zero mechanism.</p>
-    <p>If you'd like to see how a Soviet collapse TL is actually written, my TL <a href="#">The Thaw That Never Froze</a> has been running since 2004 and currently has 24,441 posts. It is at 1982 in updates. Several people consider it the best ongoing TL on this forum. I am not one of those people only because I find false modesty tedious.</p>
-    <p>Provide a mechanism for the Gorbachev emergence or I won't be reading further.</p>
-  </div>
-  <div class="sig"><strong>ONGOING:</strong> <a href="#">The Thaw That Never Froze</a> — At 1982. The best TL on this forum. Not a brag. A fact.<br><em>Winner: Turtledove 2006, 2009, 2011, 2014, 2018, nominated 2019 (was robbed)</em></div>
-  <div class="rxn"><span class="r hot">👍 × 12</span><span class="r neg">😒 × 44</span></div>
+  <nav id="nav">
+    <div class="group-label">The Universe</div>
+    <a href="#cosmic-web"><span class="num">I</span>The Cosmic Web</a>
+    <a href="#galactic-taxonomy"><span class="num">II</span>Galactic Taxonomy</a>
+    <a href="#dwarf-problem"><span class="num">III</span>Dwarf Galaxy Problem</a>
+    <a href="#our-galaxy"><span class="num">IV</span>Our Galaxy</a>
+    <div class="group-label">Galactic Location</div>
+    <a href="#ghz"><span class="num">V</span>Habitable Zone</a>
+    <a href="#position"><span class="num">VI</span>Our Position</a>
+    <div class="group-label">Star Systems</div>
+    <a href="#unary"><span class="num">VII</span>Unary Systems</a>
+    <a href="#star-formation"><span class="num">VIII</span>Star Formation</a>
+    <a href="#binary"><span class="num">IX</span>Binary Systems</a>
+    <a href="#high-order"><span class="num">X</span>High-Order &amp; Clusters</a>
+    <a href="#system-choice"><span class="num">XI</span>Our System Choice</a>
+    <div class="group-label">Star Classification</div>
+    <a href="#yerkes"><span class="num">XII</span>Yerkes Classification</a>
+    <a href="#hypergiants"><span class="num">XIII</span>Hypergiants (Class 0)</a>
+    <a href="#supergiants"><span class="num">XIV</span>Supergiants (Class I)</a>
+    <a href="#giants"><span class="num">XV–XVI</span>Giants &amp; Subgiants</a>
+    <a href="#giants-bad"><span class="num">XVII</span>Giants: Eliminated</a>
+    <a href="#class-v-intro"><span class="num">XVIII</span>Class V Introduction</a>
+    <a href="#oba"><span class="num">XIX–XXII</span>O, B, A Types</a>
+    <a href="#fgkm"><span class="num">XXIV–XXVII</span>F, G, K, M Types</a>
+    <a href="#tidal"><span class="num">XXVIII</span>Tidal Locking</a>
+    <a href="#structure"><span class="num">XXIX</span>Internal Structure</a>
+    <a href="#ttauri"><span class="num">XXX</span>T-Tauri &amp; Herbig</a>
+    <a href="#our-star"><span class="num">XXXI</span>Our Star: K6V</a>
+    <a href="#subdwarfs"><span class="num">XXXII</span>Subdwarfs</a>
+    <a href="#brown-dwarfs"><span class="num">XXXIII</span>Brown Dwarfs</a>
+    <a href="#white-dwarfs"><span class="num">XXXIV</span>White Dwarfs</a>
+    <a href="#remnants"><span class="num">XXXV</span>Neutron Stars &amp; BH</a>
+    <a href="#supernovae"><span class="num">XXXVI</span>Supernova Types</a>
+    <a href="#rejects"><span class="num">XXXVII</span>The Rejects</a>
+    <div class="group-label">Stellar Metallicity</div>
+    <a href="#metallicity"><span class="num">XXXVIII</span>What is Metallicity?</a>
+    <a href="#nucleosynthesis"><span class="num">XXXIX</span>Nucleosynthesis</a>
+    <a href="#dex"><span class="num">XL</span>Measuring in Dex</a>
+    <a href="#galactic-geo"><span class="num">XLI</span>Galactic Geography</a>
+    <a href="#evolution-effects"><span class="num">XLII</span>Effects on Evolution</a>
+    <a href="#final"><span class="num">XLIII</span>Final Derivation</a>
+  </nav>
+  <div id="pg-panel">
+    <div class="panel-title">Project Granite Choices</div>
+    <div class="choice">Location: <b>Cosmic filament</b></div>
+    <div class="choice">Galaxy: <b>Barred spiral, ~1T M☉</b></div>
+    <div class="choice">Position: <b>Thin/thick disc boundary</b></div>
+    <div class="choice">System: <b>Unary</b></div>
+    <div class="choice">Star: <b>K6V — 4,300 K, 0.69 M☉</b></div>
+    <div class="choice">Metallicity: <b>−0.30 dex (~½ solar Fe)</b></div>
+    <div class="choice">Key feature: <b>Tidal locking</b></div>
   </div>
 </div>
 
+<!-- MAIN CONTENT -->
+<div id="main">
+<h1>Project Granite</h1>
+<p class="tagline">An Exercise in Alien Biospheres — Season 1: Galaxy &amp; Star</p>
+<p style="color:var(--dim);font-size:.88em;margin-bottom:3em">By Brma118 &amp; Ayansh Kumar. Use the sidebar to jump between sections. Highlighted rows and gold boxes mark the choices made for Project Granite.</p>
 
-<!-- 3 TreatyNerd — unbearable -->
-<div class="post">
-  <div class="pu"><a href="#" class="un">TreatyNerd1918</a>
-    <div class="av">📜</div><div class="utitle">Established Member</div>
-    <div class="ustats">Posts:<span>4,231</span><br>Joined:<span>Sep 2013</span><br>Loc:<span>Helsinki</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#3</a> · 12 Apr 2022, 03:22 PM</span></div>
-  <div class="pbody">
-    <p>The Brest-Litovsk mechanism as described is incorrect. Trotsky was not a worse negotiator than Chicherin. Trotsky's "neither war nor peace" was an ideological gamble on imminent German workers' revolution. He was wrong about the timing, not the analysis. The March 3rd treaty's harsh terms result from Germany resuming military advance after the February 18th declaration, not from inferior negotiation. I have corrected this in 71 threads. I will correct it in 72.</p>
-    <p>I would also note that Brest-Litovsk is spelled B-R-E-S-T-hyphen-L-I-T-O-V-S-K and not "brest litovsk" as the OP wrote in their opening post. Hyphens matter. They matter in treaty names and they matter in prose and they matter in life.</p>
-    <p>Additionally I want to flag that "Rahvarinne" is missing its second A if this TL covers 1988 events. It is R-A-H-V-A-R-I-N-N-E. You are welcome. I notice these things because I am the only person on this forum who reads carefully.</p>
-    <p>I also want to say, preemptively, that if the Baltic independence movements appear in later chapters and the author spells Sąjūdis without the correct diacritical marks I will be returning to this post to note that I warned them. This warning is now logged. Timestamp: 15:22.</p>
-  </div>
-  <div class="sig"><em>I will correct the Brest-Litovsk mechanism until I die or the forum closes.<br>The hyphen matters. The hyphen has always mattered. The hyphen will always matter.</em></div>
-  <div class="rxn"><span class="r neg">🤦 × 111</span><span class="r hot">😂 × 88</span><span class="r neg">😒 × 66</span></div>
-  </div>
+
+<!-- I. COSMIC WEB -->
+<div class="section" id="cosmic-web">
+<div class="section-header"><span class="section-num">I</span><span class="section-title">The Cosmic Web</span></div>
+<p>Matter in the universe is organized into the <b>Cosmic Web</b> — a large-scale network of filaments, knots, walls, and voids. This structure arose because initial density imbalances were amplified over time: slightly more massive regions attracted slightly less massive ones, causing matter to flow toward filaments and knots.</p>
+<div class="diagram">
+<svg viewBox="0 0 600 280" style="width:100%;max-width:600px">
+<rect width="600" height="280" fill="#000"/>
+<ellipse cx="300" cy="140" rx="170" ry="100" fill="#020206"/>
+<text x="300" y="143" fill="#222" font-size="14" text-anchor="middle" font-family="sans-serif">Void</text>
+<line x1="40" y1="30" x2="200" y2="120" stroke="#1a3a6a" stroke-width="7" stroke-linecap="round"/>
+<line x1="200" y1="120" x2="500" y2="40" stroke="#1a3a6a" stroke-width="7" stroke-linecap="round"/>
+<line x1="200" y1="120" x2="120" y2="265" stroke="#1a3a6a" stroke-width="5" stroke-linecap="round"/>
+<line x1="200" y1="120" x2="430" y2="240" stroke="#1a3a6a" stroke-width="5" stroke-linecap="round"/>
+<line x1="500" y1="40" x2="560" y2="200" stroke="#1a3a6a" stroke-width="4"/>
+<line x1="560" y1="200" x2="430" y2="240" stroke="#1a3a6a" stroke-width="4"/>
+<circle cx="200" cy="120" r="22" fill="#2a1a00" stroke="#aa6600" stroke-width="2"/>
+<text x="200" y="154" fill="#aa6600" font-size="11" text-anchor="middle" font-family="sans-serif">Knot</text>
+<circle cx="500" cy="40" r="16" fill="#2a1a00" stroke="#aa6600" stroke-width="1.5"/>
+<circle cx="120" cy="265" r="12" fill="#2a1a00" stroke="#aa6600" stroke-width="1.5"/>
+<circle cx="560" cy="200" r="14" fill="#2a1a00" stroke="#aa6600" stroke-width="1.5"/>
+<circle cx="350" cy="82" r="6" fill="#4A90D9"/>
+<line x1="356" y1="82" x2="400" y2="58" stroke="#4A90D9" stroke-width="1.5"/>
+<text x="404" y="55" fill="#4A90D9" font-size="12" font-family="sans-serif" font-weight="bold">Local Group (here)</text>
+<line x1="30" y1="270" x2="160" y2="270" stroke="#333" stroke-width="1"/>
+<text x="95" y="280" fill="#444" font-size="9" text-anchor="middle" font-family="sans-serif">≈1 billion light-years</text>
+</svg>
+<div class="caption">Simplified Cosmic Web schematic. Project Granite is placed in a filament.</div>
+</div>
+<div class="two-col">
+<div class="reject"><b>Knots:</b> Too much going on — extreme radiation environments, frequent galaxy mergers, hostile to stable planetary systems.</div>
+<div class="reject"><b>Voids &amp; Walls:</b> Too little going on — metal-poor environments, sparse star formation, insufficient heavy elements.</div>
+</div>
+<div class="pick"><b>✓ Filaments:</b> Our choice. Active star formation, moderate metallicity, and a stable enough environment for long-lived planetary systems. The Local Group (containing the Milky Way) sits in a filament.</div>
+</div>
+
+<!-- II. GALACTIC TAXONOMY -->
+<div class="section" id="galactic-taxonomy">
+<div class="section-header"><span class="section-num">II</span><span class="section-title">The Galactic Taxonomy</span></div>
+<p>Galaxies are classified by shape and composition. The choice of galaxy type matters because it determines available metallicity, star formation rates, and the frequency of mass-extinction events.</p>
+<table>
+<thead><tr><th>Type</th><th>Frequency</th><th>Size / Mass</th><th>Metallicity</th><th>Star Formation</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr class="reject-row"><td>Elliptical</td><td>15%</td><td>3,000–700,000 ly; up to 10¹³ M☉</td><td>Very high (2–3× spiral)</td><td>Very low</td><td><span class="badge b-no">Reject</span></td></tr>
+<tr class="pick-row"><td><b>Barred Spiral</b></td><td>40%</td><td>Milky Way-like; bar from central density wave</td><td>Moderate</td><td>Moderate</td><td><span class="badge b-pick">✓ Our choice</span></td></tr>
+<tr><td>Spiral</td><td>20%</td><td>10¹⁰–10¹² M☉</td><td>Medium</td><td>Medium</td><td><span class="badge b-ok">Viable</span></td></tr>
+<tr class="reject-row"><td>Lenticular</td><td>20%</td><td>50,000–500,000 ly</td><td>High</td><td>Low</td><td><span class="badge b-no">Reject</span></td></tr>
+<tr class="reject-row"><td>Irregular</td><td>5%</td><td>10⁷–10¹⁰ M☉; 10k–30k ly</td><td>Very low</td><td>High</td><td><span class="badge b-no">Reject</span></td></tr>
+</tbody>
+</table>
+<p><b>Ellipticals</b> are formed from traumatic mergers of spiral galaxies — high metallicity is tempting but extremely low star formation means very few young planetary systems. <b>Lenticulars</b> are gas-depleted spirals past their prime. <b>Irregulars</b> are too metal-poor for reliable rocky planet formation.</p>
+<div class="pick"><b>Barred Spiral chosen</b> for moderate metallicity (enough heavy elements for rocky planets), the right rate of supernova-driven mass extinctions, and because we know life is possible in barred spirals — the Milky Way is one.</div>
+</div>
+
+<!-- III. DWARF GALAXIES -->
+<div class="section" id="dwarf-problem">
+<div class="section-header"><span class="section-num">III</span><span class="section-title">The Problem with Dwarf Galaxies</span></div>
+<p>Dwarf galaxies follow the <b>mass–metallicity relation</b>: smaller galaxies have significantly lower metallicity. This is a problem because metals are the seeds for rocky planet formation.</p>
+<p>A typical dwarf galaxy consists of roughly <b>~95% dark matter</b>, ~3% gas and dust, and only ~2% stars — and the stars that do exist formed in a low-metallicity environment. The graph below shows how metallicity [M/H] correlates with stellar mass — small galaxies sit at the bottom left, below the viable zone.</p>
+<div class="diagram">
+<svg viewBox="0 0 500 320" style="width:100%;max-width:500px">
+<rect width="500" height="320" fill="#000"/>
+<line x1="65" y1="20" x2="65" y2="268" stroke="#333" stroke-width="1.5"/>
+<line x1="65" y1="268" x2="470" y2="268" stroke="#333" stroke-width="1.5"/>
+<text x="32" y="155" fill="#555" font-size="11" font-family="sans-serif" text-anchor="middle" transform="rotate(-90,32,155)">[M/H]</text>
+<text x="270" y="305" fill="#555" font-size="11" font-family="sans-serif" text-anchor="middle">log₁₀ M★ [M☉]</text>
+<text x="60" y="42" fill="#444" font-size="9" text-anchor="end" font-family="monospace">0.5</text>
+<text x="60" y="95" fill="#444" font-size="9" text-anchor="end" font-family="monospace">0.0</text>
+<text x="60" y="148" fill="#444" font-size="9" text-anchor="end" font-family="monospace">-0.5</text>
+<text x="60" y="201" fill="#444" font-size="9" text-anchor="end" font-family="monospace">-1.0</text>
+<text x="60" y="254" fill="#444" font-size="9" text-anchor="end" font-family="monospace">-1.5</text>
+<text x="120" y="282" fill="#444" font-size="9" text-anchor="middle" font-family="monospace">8</text>
+<text x="200" y="282" fill="#444" font-size="9" text-anchor="middle" font-family="monospace">9</text>
+<text x="280" y="282" fill="#444" font-size="9" text-anchor="middle" font-family="monospace">10</text>
+<text x="360" y="282" fill="#444" font-size="9" text-anchor="middle" font-family="monospace">11</text>
+<text x="440" y="282" fill="#444" font-size="9" text-anchor="middle" font-family="monospace">12</text>
+<ellipse cx="285" cy="130" rx="165" ry="85" fill="none" stroke="#4A90D9" stroke-width="1" stroke-dasharray="5"/>
+<ellipse cx="272" cy="135" rx="115" ry="55" fill="#060e1c" stroke="#4A90D9" stroke-width="2"/>
+<rect x="67" y="100" width="110" height="164" fill="#3b0000" fill-opacity="0.25"/>
+<text x="122" y="195" fill="#CC3333" font-size="10" text-anchor="middle" font-family="sans-serif">Dwarf zone</text>
+<text x="122" y="208" fill="#CC3333" font-size="10" text-anchor="middle" font-family="sans-serif">(metal-poor)</text>
+<text x="122" y="222" fill="#CC3333" font-size="9" text-anchor="middle" font-family="sans-serif">Eliminated</text>
+</svg>
+<div class="caption">Mass-metallicity relation. Small galaxies fall into the low-metallicity danger zone.</div>
+</div>
+<div class="reject"><b>Dwarf / irregular galaxies eliminated:</b> insufficient metallicity for reliable rocky planet formation regardless of other conditions.</div>
+</div>
+
+<!-- IV. OUR GALAXY -->
+<div class="section" id="our-galaxy">
+<div class="section-header"><span class="section-num">IV</span><span class="section-title">Our Choice: The Barred Spiral</span></div>
+<div class="pick" style="font-size:1em;line-height:1.8"><b>Total mass:</b> ~1 trillion M☉ &nbsp;|&nbsp; <b>Stellar mass:</b> ~50 billion M☉ &nbsp;|&nbsp; <b>Type:</b> Medium-sized barred spiral</div>
+<ul class="fancy" style="margin-top:1em">
+<li><b>Moderate metallicity</b> — enough heavy elements for rocky planets without excessive stellar wind interference</li>
+<li><b>Proven habitable</b> — the Milky Way is a barred spiral; life exists in it</li>
+<li><b>Right rate of mass extinctions</b> — enough supernovae to drive evolution without constantly sterilizing planets</li>
+<li><b>Active star formation</b> — ongoing supply of young planetary systems</li>
+<li><b>Bar structure</b> — created by a density wave radiating from the center; channels gas into the center, fueling star formation</li>
+</ul>
+</div>
+
+<!-- V. GHZ -->
+<div class="section" id="ghz">
+<div class="section-header"><span class="section-num">V</span><span class="section-title">Mapping the Galactic Habitable Zone</span></div>
+<p>Not all locations in a barred spiral are equally suitable for life. Several factors — metallicity, radiation environment, and stellar density — vary dramatically across the galaxy.</p>
+<table>
+<thead><tr><th>Region</th><th>Metallicity</th><th>Hazards</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr class="reject-row"><td><b>Galactic Center</b></td><td>Very high</td><td>Extreme star density → rogue stars; lethal radiation from supermassive black hole</td><td><span class="badge b-no">Hostile</span></td></tr>
+<tr class="reject-row"><td><b>Galactic Halo</b></td><td>−2.0 to −4.5 dex (outer)</td><td>Very little metal; planets cannot easily form; Population II stars with erratic orbits</td><td><span class="badge b-no">Too poor</span></td></tr>
+<tr><td><b>Thick Disc</b></td><td>−0.4 to −1.0 dex</td><td>Slightly metal-poor, more so farther from center; older stellar population</td><td><span class="badge b-meh">Marginal</span></td></tr>
+<tr class="pick-row"><td><b>Thin Disc</b></td><td>−1.0 to +0.5 dex (+0.3 avg)</td><td>Most stable region; Population I stars; near-circular orbits</td><td><span class="badge b-ok">Good</span></td></tr>
+<tr><td><b>Spiral Arms</b></td><td>Varies</td><td>Often misunderstood as a "no-go zone" — actually density waves, not fixed structures. Our Sun passes through them. A hazard, not a dealbreaker.</td><td><span class="badge b-meh">Manageable</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- VI. OUR POSITION -->
+<div class="section" id="position">
+<div class="section-header"><span class="section-num">VI</span><span class="section-title">Where Project Granite Is in the Galaxy</span></div>
+<div class="pick">On the <b>boundary between the thin and thick disc</b>, closer to the galactic center than the Sun, but not in it.</div>
+<ul class="fancy" style="margin-top:1em">
+<li><b>Higher metallicity</b> than the solar neighborhood — beneficial for rocky planet formation</li>
+<li><b>More stellar encounters</b> than the outer disc — useful for driving periodic mass extinctions</li>
+<li>Still stable enough for long-lived planetary systems</li>
+<li><b>System age:</b> ~6 billion years (formed when the universe was ~8 Gyr old)</li>
+</ul>
 </div>
 
 
-<!-- 4 InfallibleWordOnly — theological agenda immediately -->
-<div class="post evan">
-  <div class="pu"><a href="#" class="un" style="color:#884400">InfallibleWordOnly</a>
-    <div class="av" style="background:#fff8ee;border-color:#cc9944;font-size:14px;color:#884400">✝️</div>
-    <div class="utitle" style="color:#884400">Senior Member</div>
-    <div class="ustats">Posts:<span>3,112</span><br>Joined:<span>Mar 2011</span><br>Loc:<span>Greenville, SC</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#4</a> · 12 Apr 2022, 03:25 PM</span></div>
-  <div class="pbody">
-    <p>I notice the TL ends in 1991. I'll be watching to see whether the Broadcast is treated as a real metaphysical event or as the mass sociogenic hysteria event that the peer-reviewed literature — the actual peer-reviewed literature, not the Freiburg Institute's self-published papers which the Illuminist community treats as peer-reviewed because it suits them — increasingly supports.</p>
-    <p>I'll also note that this forum's moderators have a documented pattern of allowing Illuminist metaphysical claims to be treated as settled science while flagging any alternative framework as "fringe." I have filed three formal complaints about this. They were dismissed. I am noting this now so that when it happens in this thread there is a record.</p>
-    <p>The TL itself I haven't read yet. I wanted to establish these points first.</p>
-  </div>
-  <div class="sig"><em>"Test everything; hold fast what is good." — 1 Thessalonians 5:21</em><br><em>I have filed 3 formal bias complaints with forum admin. All dismissed. Pattern noted.</em></div>
-  <div class="rxn"><span class="r neg">😒 × 88</span><span class="r">🤔 × 22</span></div>
-  </div>
-</div>
-
-
-<!-- 5 DiamatVanguard -->
-<div class="post alt">
-  <div class="pu"><a href="#" class="un" style="color:#cc0000">DiamatVanguard</a>
-    <div class="av" style="background:#8b0000;color:#ffaaaa;font-size:18px">☭</div>
-    <div class="utitle" style="color:#cc0000">Banned ×5 (all expired)</div>
-    <div class="ustats">Posts:<span>8,441</span><br>Joined:<span>Feb 2009</span><br>Loc:<span>Berlin</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#5</a> · 12 Apr 2022, 03:28 PM</span></div>
-  <div class="pbody">
-    <p>PostSovietDreamer: your TL is liberal historiography with better prose. Congratulations on your awards. The Turtledove committee is three people in Ohio who vote for whatever PostSovietDreamer tells them to vote for. I have documentation of this.</p>
-    <p>InfallibleWordOnly: the Broadcast was a documented substrate event that your theological framework cannot accommodate so you have chosen to call it hysteria. This is cowardice dressed as epistemology.</p>
-    <p>To the OP: your scenario naturalises the Soviet collapse as inevitable rather than as the outcome of a specific historical conjuncture enabled by capital's long campaign of destabilisation. You are doing ideology. You may not know you're doing ideology. That's the most dangerous kind of ideology.</p>
-    <p>I will be in this thread. I have nowhere else to be. I have been banned five times and I will be banned again and I will return again. The bans end. I do not end.</p>
-  </div>
-  <div class="sig"><em>The Soviet Union was murdered. I've explained this in 53 threads. Welcome to 54.</em></div>
-  <div class="rxn"><span class="r">👍 × 6</span><span class="r neg">❌ × 77</span></div>
-  </div>
-</div>
-
-
-<!-- 6 PanzerGruppe -->
-<div class="post">
-  <div class="pu"><a href="#" class="un" style="color:#444">PanzerGruppeEnthusiast</a>
-    <div class="av" style="background:#1a1a1a;color:#888;font-size:11px;text-align:center;padding:5px;line-height:1.4">🪖<br><small>1939-45</small></div>
-    <div class="utitle">Senior Member</div>
-    <div class="ustats">Posts:<span>9,441</span><br>Joined:<span>Mar 2007</span><br>Loc:<span>Linz, Austria</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#6</a> · 12 Apr 2022, 03:29 PM</span></div>
-  <div class="pbody">
-    <p>Does the Wehrmacht reach Moscow by October 1941. Yes or no. I have 52 pages. Answer the question.</p>
-  </div>
-  <div class="sig"><em>It's the trucks. 52 pages available. Answer: yes or no.</em></div>
-  <div class="rxn"><span class="r neg">🤦 × 188</span></div>
-  </div>
-</div>
-
-
-<!-- 7 BizarreSoulFan — insufferable -->
-<div class="post alt jojo">
-  <div class="pu"><a href="#" class="un" style="color:#aa00aa">BizarreSoulFan</a>
-    <div class="av" style="background:#330033;color:#ff88ff;font-size:18px">✨</div>
-    <div class="utitle" style="color:#aa00aa">Senior Member</div>
-    <div class="ustats">Posts:<span>6,112</span><br>Joined:<span>Jun 2014</span><br>Loc:<span>Osaka</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#7</a> · 12 Apr 2022, 03:31 PM</span></div>
-  <div class="pbody">
-    <p>This opening chapter has the exact narrative structure of <i>Bizarre Inheritance</i> Part 4 chapter 1. I don't know if the OP has read BI but they've accidentally recreated Rokusaki's introduction beat for beat. "Meant them enough, which in Soviet politics amounted to the same thing" is a Rokusaki sentence. The apparatus-as-patient-observer is Rokusaki's town. The reformer-who-moves-too-fast is Rokusaki's arc. I could map this paragraph by paragraph.</p>
-    <p>I'm going to map this paragraph by paragraph in a separate post. Give me a few minutes.</p>
-  </div>
-  <div class="sig"><em>Bizarre Inheritance is the greatest achievement of 20th century serialised fiction.<br>Start with Part 4. No I will not be taking questions about this.</em></div>
-  <div class="rxn"><span class="r neg">😒 × 66</span><span class="r">👍 × 4</span></div>
-  </div>
-</div>
-
-
-<!-- 8 VoxelCave — spams spreadsheet -->
-<div class="post vs">
-  <div class="pu"><a href="#" class="un" style="color:#336633">VoxelCaveEnthusiast</a>
-    <div class="av" style="background:#1a2a1a;color:#88cc88;font-size:18px">⛏️</div>
-    <div class="utitle" style="color:#336633">Member</div>
-    <div class="ustats">Posts:<span>441</span><br>Joined:<span>Nov 2019</span><br>Loc:<span>Auckland, NZ</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#8</a> · 12 Apr 2022, 03:33 PM</span></div>
-  <div class="pbody">
-    <p>I made a caloric deficit model for weakened-USSR scenarios in Zemlya. The spreadsheet is 847 rows. I've attached it. You'll want to look at columns F through Q for the Stavropol region specifically. Let me know if you have questions, I can walk you through the methodology, I've also made a video explaining the methodology, it's four hours long, here's the link. The second spreadsheet covers 1929–1945. The third spreadsheet is a sensitivity analysis on the second spreadsheet. I made these last weekend. Also the 0.11 update broke the quern texture AND the millstone hitbox and nobody on the Zemlya Discord will acknowledge this, can anyone here confirm they're seeing the same issue.</p>
-  </div>
-  <div class="sig"><em>Zemlya modder. Six mods. 847-row spreadsheet. Four-hour methodology video. Discord: VoxelCave#4421.<br>THE QUERN TEXTURE IS BROKEN AND NO ONE WILL LISTEN TO ME</em></div>
-  <div class="rxn"><span class="r neg">😒 × 44</span><span class="r hot">😂 × 88</span></div>
-  </div>
-</div>
-
-
-<!-- 9 OP Chapter 2 + defensive -->
-<div class="post op alt">
-  <div class="pu"><a href="#" class="un">SiberianDawn_AH</a>
-    <div class="av">🌅</div><div class="utitle">New Member</div>
-    <div class="ustats">Posts:<span>23</span><br>Joined:<span>Jan 2022</span><br>Loc:<span>Ohio, USA</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#9</a> · 12 Apr 2022, 03:51 PM</span></div>
-  <div class="pbody">
-    <div class="tmbar">☆ THREADMARK: Chapter 2 — The Baltic Spring</div>
-    <p>wow okay great start guys. to <b>PostSovietDreamer</b>: actually I've read your TL and no offence but the 1979 section dragged. to <b>TreatyNerd1918</b>: I already knew about the hyphen, I just didn't put it in because it's a casual forum post, and I KNOW how to spell Sąjūdis, I had it right in my notes. to <b>PanzerGruppeEnthusiast</b>: NO, Germany does not reach Moscow, and if you make this a Barbarossa thread I will report you. to <b>VoxelCaveEnthusiast</b>: I am not reading a 847-row spreadsheet.</p>
-    <div class="tl"><div class="tlh">Chapter 2: The Baltic Spring (1988–1990)</div>
-      <p>The Estonian Popular Front — <i>Rahvarinne</i> — held its founding congress on October 1st and 2nd, 1988. They sang. On August 23rd, 1989, two million people formed a human chain from Tallinn to Riga to Vilnius. Six hundred kilometres. The Baltic Way. Gorbachev did not send tanks.</p>
-    </div>
-    <p>I want to make it clear that I have done EXTENSIVE research for this TL and anyone who questions my accuracy is frankly wasting my time.</p>
-  </div>
-  <div class="sig"><em>first TL!! probably the best first TL ever posted here actually</em></div>
-  <div class="rxn"><span class="r hot">👍 × 3</span><span class="r neg">🙄 × 77</span></div>
-  </div>
-</div>
-
-
-<!-- 10 DMS first post -->
-<div class="post dms">
-  <div class="pu"><a href="#" class="un" style="color:#00bb00;font-family:monospace">DMS_ArchiveNode_7</a>
-    <div class="av" style="background:#000;border-color:#003300;color:#00cc00;font-family:monospace;font-size:9px;text-align:center;line-height:1.5">D·M·S<br>▓▓▓<br>N7</div>
-    <div class="utitle" style="color:#004400;font-family:monospace;font-size:9px">VERIFIED ✓</div>
-    <div class="ustats" style="color:#004400;font-family:monospace;font-size:9px">Posts:<span>1</span><br>Joined:<span>11 Apr 2022</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#10</a> · 12 Apr 2022, 03:55 PM</span></div>
-  <div class="pbody">
-    <p>ArchIve Division. Classification: PENDING.</p>
-    <p>Author: "Rahvarinne" is correctly spelled. "Sąjūdis" has correct diacritical. Both are accurate. Standard worldbuilding uses approximations. You have not used approximations. Confirm: fictional research or non-fictional context.</p>
-    <p>Also confirm: residential address. Whether your father is home.</p>
-    <p><span class="code">&gt;&gt;N7/INIT — CLASS:T0/PEND — QUERY:RES,FAM&lt;&lt;</span></p>
-    <p><span class="code">46617468657227732066696C65732E20576520616C726561647920686176652074686573652E</span></p>
-  </div>
-  <div class="rxn"><span class="r">🤔 × 18</span></div>
-  </div>
-</div>
-
-
-<!-- 11 OP dismisses DMS -->
-<div class="post op">
-  <div class="pu"><a href="#" class="un">SiberianDawn_AH</a>
-    <div class="av">🌅</div><div class="utitle">New Member</div>
-    <div class="ustats">Posts:<span>23</span><br>Joined:<span>Jan 2022</span><br>Loc:<span>Ohio, USA</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#11</a> · 12 Apr 2022, 03:58 PM</span></div>
-  <div class="pbody">
-    <p>to <b>DMS_ArchiveNode_7</b>: lol yes I live at [ADDRESS REDACTED BY ADMIN], Columbus Ohio, my dad's home, why? Are you like a forum admin thing? That's a weird question but sure. I have nothing to hide, I did my research legally.</p>
-    <p>Also can people PLEASE focus on the TL. I'm posting Chapter 3 in a minute and it has the Wall chapter which is my best work and I don't want it buried under bureaucracy questions and spreadsheets.</p>
-  </div>
-  <div class="rxn"><span class="r hot">😱 × 441</span><span class="r neg">🤦 × 388</span></div>
-  </div>
-</div>
-
-
-<!-- 12 TreatyNerd — correction about post 11 -->
-<div class="post alt">
-  <div class="pu"><a href="#" class="un">TreatyNerd1918</a>
-    <div class="av">📜</div><div class="utitle">Established Member</div>
-    <div class="ustats">Posts:<span>4,231</span><br>Joined:<span>Sep 2013</span><br>Loc:<span>Helsinki</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#12</a> · 12 Apr 2022, 04:01 PM</span></div>
-  <div class="pbody">
-    <p>The OP just gave their home address to an unverified account with a non-standard badge in response to zero context. I want to note this for the record, not because I care — I do not care — but because the Brest-Litovsk correction I made in post #3 has still not been acknowledged and I want my concern about that registered before the thread proceeds to whatever is apparently about to happen.</p>
-    <p>I also want to note that "Ohio" is spelled O-H-I-O. The OP spelled it correctly. I'm noting this only because I note all spelling. The consistency is the point. I note everything. This is my contribution.</p>
-  </div>
-  <div class="rxn"><span class="r neg">🤦 × 488</span><span class="r hot">😂 × 333</span></div>
-  </div>
-</div>
-
-
-<!-- 13 ButterfliesAllTheWayDown decodes, nobody responds helpfully -->
-<div class="post panic" style="">
-  <div class="pu"><a href="#" class="un">ButterfliesAllTheWayDown</a>
-    <div class="av">🦋</div><div class="utitle">Senior Member</div>
-    <div class="ustats">Posts:<span>12,441</span><br>Joined:<span>Oct 2007</span><br>Loc:<span>Hamburg</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#13</a> · 12 Apr 2022, 04:04 PM</span></div>
-  <div class="pbody">
-    <p>I decoded the DMS hex string. It says: <span class="dec">Father's files. We already have these.</span></p>
-    <p>The DMS already has the files. They knew before the thread started. Also the OP just gave a government surveillance account their home address. SiberianDawn_AH, that was —</p>
-  </div>
-  <div class="rxn"><span class="r hot">😱 × 444</span></div>
-  </div>
-</div>
-
-
-<!-- 14 BizarreSoulFan — the paragraph-by-paragraph BI analysis, nobody asked for -->
-<div class="post jojo alt">
-  <div class="pu"><a href="#" class="un" style="color:#aa00aa">BizarreSoulFan</a>
-    <div class="av" style="background:#330033;color:#ff88ff;font-size:18px">✨</div>
-    <div class="utitle" style="color:#aa00aa">Senior Member</div>
-    <div class="ustats">Posts:<span>6,112</span><br>Joined:<span>Jun 2014</span><br>Loc:<span>Osaka</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#14</a> · 12 Apr 2022, 04:05 PM</span></div>
-  <div class="pbody">
-    <p>Okay so paragraph by paragraph:</p>
-    <p>PARAGRAPH 1: "Born in Privolnoye" = Rokusaki's "born in the town without a name" (Part 4, ch.1, Irohashi uses nameless origin to signal rootlessness which maps onto Gorbachev's provincial origin as signifier of political adaptability)</p>
-    <p>PARAGRAPH 2: "Married Raisa Titarenko" = Rokusaki's unnamed wife who represents the domestic life he will eventually subordinate to the system (Part 4, ch.3, the wife exists to be abandoned thematically)</p>
-    <p>PARAGRAPH 3: "The apparatus was patient" = literally the same sentence structure as "the town was patient" (Part 4, ch.1, Irohashi uses collective noun + emotional attribute to anthropomorphise systemic inertia, this is a documented technique in the BI scholarly literature of which I have read ALL of it)</p>
-    <p>I have 14 more paragraphs of this analysis. Should I continue? I'll continue.</p>
-  </div>
-  <div class="sig"><em>Comprehensive BI/Soviet collapse structural analysis: 17 paragraphs available. Start with Part 4.</em></div>
-  <div class="rxn"><span class="r neg">😒 × 244</span><span class="r hot">😂 × 177</span></div>
-  </div>
-</div>
-
-
-<!-- 15 OP Chapter 3 - completely ignores the address thing -->
-<div class="post op">
-  <div class="pu"><a href="#" class="un">SiberianDawn_AH</a>
-    <div class="av">🌅</div><div class="utitle">New Member</div>
-    <div class="ustats">Posts:<span>23</span><br>Joined:<span>Jan 2022</span><br>Loc:<span>Ohio, USA</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#15</a> · 12 Apr 2022, 04:12 PM</span></div>
-  <div class="pbody">
-    <div class="tmbar">☆ THREADMARK: Chapter 3 — The Wall (November 1989)</div>
-    <p>to <b>ButterfliesAllTheWayDown</b>: it's fine, I have nothing to hide, I did my research legally and also the DMS account said it was just for file categorisation so. anyway. THIS is my best chapter. This is the one I'm most proud of. The Schabowski press conference, Harald Jäger, Bornholmer Strasse, 11:30 PM, three days, Gorbachev in Crimea — I had all of this COMPLETELY nailed, I spent weeks on it. No one can say I didn't do my research.</p>
-    <div class="tl"><div class="tlh">Chapter 3: The Wall (9 November 1989)</div>
-      <p>Günter Schabowski said "immediately, without delay" at 19:00 on the 9th of November, 1989. Harald Jäger opened the Bornholmer Strasse checkpoint at 23:30 because he could no longer hold the crowd. He later said he just wanted to go home. The Wall did not fall. It became irrelevant.</p>
-    </div>
-    <p>you're WELCOME for the detail. I've seen other TLs just go "the wall fell" and not explain how. I EXPLAINED HOW. That's called research. That's called CRAFT.</p>
-  </div>
-  <div class="sig"><em>I DID MY RESEARCH</em></div>
-  <div class="rxn"><span class="r neg">😒 × 111</span><span class="r hot">🤔 × 88</span></div>
-  </div>
-</div>
-
-
-<!-- 16 PostSovietDreamer — gets suspicious AND uses it to talk about his own TL -->
-<div class="post alt">
-  <div class="pu"><a href="#" class="un">PostSovietDreamer</a>
-    <div class="av">📖</div><div class="utitle">Veteran Member</div>
-    <div class="ustats">Posts:<span>24,882</span><br>Joined:<span>Jan 2005</span><br>Loc:<span>Kraków</span></div>
-    <div class="badge bvet">VETERAN</div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#16</a> · 12 Apr 2022, 04:19 PM</span></div>
-  <div class="pbody">
-    <p>"Harald Jäger." "Bornholmer Strasse." "23:30." "He just wanted to go home."</p>
-    <p>I have a November 1989 chapter in my future plotting notes. My version of the Wall chapter uses a composite character called "Bernd" at an unnamed checkpoint with an approximate time of "after 11 PM." I do this because I am writing fiction and fiction requires invention. You have given me a full name, a specific checkpoint, and a minute. These are the details of someone remembering, not inventing.</p>
-    <p>I'm going to continue my analysis in a moment but I want to first point out that my own Wall chapter — which is coming eventually, I'm at 1982, I know — is going to be considerably more historically sophisticated than this one, which correctly identifies the event mechanism but does nothing with it thematically. My chapter will have four pages of interiority for my composite Jäger figure. I've been planning it since 2017. I've written and deleted it three times. It will be worth waiting for.</p>
-    <p>Where did you get those details.</p>
-  </div>
-  <div class="sig"><strong>ONGOING:</strong> <a href="#">The Thaw That Never Froze</a> — 1982. My Wall chapter will be extraordinary. When it comes.</div>
-  <div class="rxn"><span class="r hot">👍 × 8</span><span class="r neg">😒 × 144</span></div>
-  </div>
-</div>
-
-
-<!-- 17 PacificStudiesGroup first post — no pretence of being normal -->
-<div class="post cia">
-  <div class="pu"><a href="#" class="un" style="color:#6633cc">PacificStudiesGroup</a>
-    <div class="av" style="background:#1a0033;color:#cc99ff;font-size:14px">🔬<br><small style="font-size:9px">PSG</small></div>
-    <div class="utitle" style="color:#6633cc">Research Associate</div>
-    <div class="ustats">Posts:<span>1</span><br>Joined:<span>Apr 2022</span><br>Loc:<span>Langley, VA</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#17</a> · 12 Apr 2022, 04:22 PM</span></div>
-  <div class="pbody">
-    <p>Hello. Independent research group. Soul-substrate studies. We have been building a cross-contextual resonance identification framework since 2014 and we believe an individual matching Asakana's substrate profile exists in the OP's timeline.</p>
-    <p>We have developed acoustic pattern matching from the Forty Days documentation. Our identification system has been trained on approximately 340 hours of primary footage and can identify resonance-depth signatures from secondary audio sources including phone calls, voice messages, and ambient recordings made within three metres of the subject. We currently have a 78% confidence interval on profile matching from sub-60-second audio samples.</p>
-    <p>OP: we would like you to record a phone call with any adult female in your community whom you consider unusual. Covertly, ideally. Send it to our DMs. This is for research.</p>
-  </div>
-  <div class="rxn"><span class="r neg">🤮 × 441</span><span class="r neg">❌ × 388</span><span class="r hot">😱 × 244</span></div>
-  </div>
-</div>
-
-
-<!-- 18 InfallibleWordOnly — uses PSG to push his own agenda -->
-<div class="post evan alt">
-  <div class="pu"><a href="#" class="un" style="color:#884400">InfallibleWordOnly</a>
-    <div class="av" style="background:#fff8ee;border-color:#cc9944;font-size:14px;color:#884400">✝️</div>
-    <div class="utitle" style="color:#884400">Senior Member</div>
-    <div class="ustats">Posts:<span>3,112</span><br>Joined:<span>Mar 2011</span><br>Loc:<span>Greenville, SC</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#18</a> · 12 Apr 2022, 04:25 PM</span></div>
-  <div class="pbody">
-    <p>I want to use <b>PacificStudiesGroup</b>'s post as an opportunity to make a point I've been making since 2011.</p>
-    <p>This is what happens when a community accepts the Illuminist substrate framework as scientific consensus without rigorous epistemological scrutiny. You end up with a government-adjacent programme training AI on footage of a dead woman and asking strangers to covertly record their neighbours. The logical endpoint of treating the Broadcast as a validated supernatural event rather than as a documented mass psychological phenomenon is: this post, right here, in this thread, on this Tuesday afternoon.</p>
-    <p>I have been warning about this. The three formal complaints I filed with forum administration specifically flagged the downstream risks of allowing Illuminist framing to go unchallenged. The moderators dismissed them. I am linking to those complaints now: [LINK 1] [LINK 2] [LINK 3].</p>
-    <p>I am not defending what PacificStudiesGroup is doing. I am saying that I predicted it. There is a difference and I would like it acknowledged.</p>
-  </div>
-  <div class="sig"><em>"Test everything; hold fast what is good." — 1 Thessalonians 5:21</em><br>I PREDICTED THIS. LINKS ABOVE. FORMAL RECORD.</div>
-  <div class="rxn"><span class="r neg">😒 × 188</span><span class="r">👍 × 11</span></div>
-  </div>
-</div>
-
-
-<!-- 19 IllumineForums — performatively offended, makes it about themselves -->
-<div class="post">
-  <div class="pu"><a href="#" class="un">IllumineForums</a>
-    <div class="av">✨</div><div class="utitle">Senior Member</div>
-    <div class="ustats">Posts:<span>6,112</span><br>Joined:<span>Nov 2011</span><br>Loc:<span>Manila</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#19</a> · 12 Apr 2022, 04:28 PM</span></div>
-  <div class="pbody">
-    <p>I'm going to need everyone to understand that I was THERE. I was eleven years old in Tondo, twenty minutes from the Broadcast, and I am PERSONALLY offended by PacificStudiesGroup's existence on multiple levels that I am going to enumerate.</p>
-    <p>Level 1: GWG consent violations. Level 2: using the acoustic signature of a woman who DIED as a TRAINING DATASET, which I want everyone to sit with for a moment. Level 3: asking a stranger on an alternate history forum to covertly record their NEIGHBOURS. Level 4: the casual confidence of "78% confidence interval" as if this is a normal thing to say.</p>
-    <p>I also want it noted that <b>InfallibleWordOnly</b> just used a post about active research misconduct to platform his theology and I'm not going to let that go unremarked. You were ELEVEN KILOMETRES from nothing significant in 1991, InfallibleWordOnly. I was twenty minutes from the actual event. My being personally affected by the Broadcast is not an epistemological framework, it is a FACT about my LIFE, and your formal complaints do not come within several zip codes of that.</p>
-  </div>
-  <div class="sig"><em>"The phenomena do not require your belief." — Asakana, Day 31<br>I was THERE. Twenty minutes. Let the record reflect this.</em></div>
-  <div class="rxn"><span class="r hot">👍 × 66</span><span class="r neg">😒 × 88</span><span class="r hot">😂 × 44</span></div>
-  </div>
-</div>
-
-
-<!-- 20 DiamatVanguard calls everyone fascists -->
-<div class="post alt">
-  <div class="pu"><a href="#" class="un" style="color:#cc0000">DiamatVanguard</a>
-    <div class="av" style="background:#8b0000;color:#ffaaaa;font-size:18px">☭</div>
-    <div class="utitle" style="color:#cc0000">Banned ×5 (all expired)</div>
-    <div class="ustats">Posts:<span>8,441</span><br>Joined:<span>Feb 2009</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#20</a> · 12 Apr 2022, 04:30 PM</span></div>
-  <div class="pbody">
-    <p>InfallibleWordOnly is a fascist. PacificStudiesGroup is a state asset and also a fascist. IllumineForums's geographic proximity to a substrate event does not grant epistemological authority, it grants emotional investment which is not the same thing and the conflation of the two is a hallmark of bourgeois identity politics. The DMS is a federal agency that has been monitoring the labour movement since 1912. PostSovietDreamer's TL is liberal historiography. BizarreSoulFan is derailing a thread about Soviet collapse with manga analysis. The OP said "probably the best first TL ever posted here actually" and I want them to know that is the most incorrect sentence in this thread and this thread contains hexadecimal surveillance.</p>
-    <p>I am filing a report against InfallibleWordOnly for the fascist comment. I am also filing a report against PostSovietDreamer for general pomposity. I am also filing a report against myself preemptively.</p>
-  </div>
-  <div class="rxn"><span class="r neg">🤦 × 444</span><span class="r hot">😂 × 311</span></div>
-  </div>
-</div>
-
-
-<!-- 21 PanzerGruppe — persisting -->
-<div class="post">
-  <div class="pu"><a href="#" class="un" style="color:#444">PanzerGruppeEnthusiast</a>
-    <div class="av" style="background:#1a1a1a;color:#888;font-size:11px;text-align:center;padding:5px;line-height:1.4">🪖<br><small>1939-45</small></div>
-    <div class="utitle">Senior Member</div>
-    <div class="ustats">Posts:<span>9,441</span><br>Joined:<span>Mar 2007</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#21</a> · 12 Apr 2022, 04:31 PM</span></div>
-  <div class="pbody">
-    <p>The thread has gone off topic. I'm using this opportunity to re-ask: does the Wehrmacht reach Moscow by October 1941. I have been waiting since post #6. The question stands.</p>
-  </div>
-  <div class="rxn"><span class="r neg">🤦 × 611</span><span class="r hot">😂 × 444</span></div>
-  </div>
-</div>
-
-
-<!-- 22 NovArkhiv — cold and unhelpful -->
-<div class="post nov alt">
-  <div class="pu"><a href="#" class="un" style="color:#cc4400">NovArkhiv_Official</a>
-    <div class="av" style="background:#2a0a00;color:#ffaa44;font-size:10px;line-height:1.4;text-align:center">🇸🇺<br><small style="color:#ffaa44">CSSR<br>ARCHIVE</small></div>
-    <div class="utitle" style="color:#cc4400">Official Account</div>
-    <div class="ustats">Posts:<span>1</span><br>Joined:<span>Apr 2022</span><br>Loc:<span>Moscow, CSSR</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#22</a> · 12 Apr 2022, 04:34 PM</span></div>
-  <div class="pbody">
-    <p>NovArkhiv formally objects to the DMS's T1 classification on jurisdictional grounds and requests that all further documentation activity be routed through the joint Helsinki framework to which the DMS has not agreed and which the DMS routinely ignores, which we note for the record knowing it will change nothing.</p>
-    <p>We also note that PacificStudiesGroup is in violation of the 2004 Hague Annexe. We are filing an objection. The objection will be received, processed, and placed in a queue with an estimated review time of fourteen months. We are aware this is not helpful. It is what we have.</p>
-    <p>To the OP: please contact our welfare liaison. Our welfare liaison is extremely difficult to reach. Their schedule is on the NovArkhiv website under seven nested submenus. We are sorry about this. It is a budget issue.</p>
-  </div>
-  <div class="rxn"><span class="r hot">😂 × 444</span><span class="r hot">😒 × 188</span></div>
-  </div>
-</div>
-
-
-<!-- 23 Moderator first post — already bad -->
-<div class="post mod">
-  <div class="pu"><a href="#" class="un" style="color:#aa2222">Moderator_Vasquez</a>
-    <div class="av" style="font-size:16px">🛡️</div>
-    <div class="utitle" style="color:#aa2222">Forum Moderator <span class="mbadge">MOD</span></div>
-    <div class="ustats">Posts:<span>1,612</span><br>Joined:<span>Feb 2016</span><br>Loc:<span>Guadalajara</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#23</a> · 12 Apr 2022, 04:38 PM</span></div>
-  <div class="pbody">
-    <p><b>Mod note.</b></p>
-    <p><b>TreatyNerd1918:</b> Warning for derailing. The hyphen issue is not a valid discussion point.</p>
-    <p><b>DiamatVanguard:</b> Warning for calling multiple users fascists.</p>
-    <p><b>DMS_ArchiveNode_7:</b> The admin has asked me not to ban you so I am not banning you but I want it known that I disagree with this decision and that the account's behaviour is concerning.</p>
-    <p><b>PacificStudiesGroup:</b> Please don't ask users to covertly record their neighbours. This is a Rule 2 issue. Consider this a warning.</p>
-    <p><b>BizarreSoulFan:</b> Please take the BI analysis to the media subforum. This is a TL thread.</p>
-    <p><b>VoxelCaveEnthusiast:</b> One spreadsheet. You may post one spreadsheet.</p>
-    <p>I have 74 unresolved reports in my queue. I am handling this thread because it was escalated to me by my supervisor, who received it from admin, who I suspect regrets escalating it. Good night everyone. Let's keep it clean.</p>
-  </div>
-  <div class="rxn"><span class="r hot">👍 × 44</span><span class="r neg">😒 × 88</span></div>
-  </div>
-</div>
-
-
-<!-- 24 TreatyNerd responds to warning -->
-<div class="post alt">
-  <div class="pu"><a href="#" class="un">TreatyNerd1918</a>
-    <div class="av">📜</div><div class="utitle">Established Member</div>
-    <div class="ustats">Posts:<span>4,231</span><br>Joined:<span>Sep 2013</span><br>Loc:<span>Helsinki</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#24</a> · 12 Apr 2022, 04:41 PM</span></div>
-  <div class="pbody">
-    <p>I have been warned for "derailing" for making a factually correct observation about a hyphen. A government surveillance account has received a "please don't" for asking a user to covertly record their neighbours. I want this disproportion noted. I am noting it. The note is made.</p>
-    <p>I also want to note that the Brest-Litovsk correction in post #3 has now been up for one hour and eighteen minutes and has received zero acknowledgement from the OP. This is the longest acknowledgement gap I have experienced in 72 correction instances. I am recording this in my personal thread log. The timestamp is 16:41.</p>
-  </div>
-  <div class="rxn"><span class="r hot">😂 × 588</span><span class="r neg">😒 × 188</span></div>
-  </div>
-</div>
-
-
-<!-- 25 OP Chapter 4 + realises something is wrong, but mostly just defensive -->
-<div class="post op">
-  <div class="pu"><a href="#" class="un">SiberianDawn_AH</a>
-    <div class="av">🌅</div><div class="utitle">New Member</div>
-    <div class="ustats">Posts:<span>23</span><br>Joined:<span>Jan 2022</span><br>Loc:<span>Ohio, USA</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#25</a> · 12 Apr 2022, 04:58 PM</span></div>
-  <div class="pbody">
-    <div class="tmbar">☆ THREADMARK: Chapter 4 — The Year of Revolutions (1989–1990)</div>
-    <p>okay so my dad just texted me asking if I've "been posting things online about the files" and now he's driving home early from work, which, fine, but I didn't know there were rules about the files?? I thought they were just history? I'm posting Chapter 4 and we can discuss the files thing later. Also to <b>PostSovietDreamer</b>: I have "nothing thematically" in Chapter 3? YOUR TL has been at 1982 for three years. I will take feedback from people who actually FINISH things, thanks.</p>
-    <div class="tl"><div class="tlh">Chapter 4: The Year of Revolutions (1989–1990)</div>
-      <p>Romania. Ceaușescu executed Christmas Day. Footage broadcast same afternoon. People watched with champagne. Germany reunified. Gorbachev conceded this. The Cold War ended. Nobody had modelled what the ending would look like from the inside.</p>
-    </div>
-    <p>I know what you're going to say and yes I'm planning to flesh these out more. This is a FIRST DRAFT. Have any of you ever heard of a first draft. This is a FORUM.</p>
-  </div>
-  <div class="sig"><em>I DID MY RESEARCH. MY DAD IS BEING WEIRD. THIS IS FINE.</em></div>
-  <div class="rxn"><span class="r hot">😂 × 444</span><span class="r hot">😭 × 288</span></div>
-  </div>
-</div>
-
-
-<!-- 26 DMS escalates -->
-<div class="post dms alt">
-  <div class="pu"><a href="#" class="un" style="color:#00bb00;font-family:monospace">DMS_ArchiveNode_7</a>
-    <div class="av" style="background:#000;border-color:#003300;color:#00cc00;font-family:monospace;font-size:9px;text-align:center;line-height:1.5">D·M·S<br>▓▓▓<br>N7</div>
-    <div class="utitle" style="color:#004400;font-family:monospace;font-size:9px">VERIFIED ✓</div>
-    <div class="ustats" style="color:#004400;font-family:monospace;font-size:9px">Posts:<span>3</span><br>Joined:<span>11 Apr 2022</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#26</a> · 12 Apr 2022, 05:04 PM</span></div>
-  <div class="pbody">
-    <p>T0 → T2. Paternal awareness: confirmed. Residential address: confirmed (OP provided voluntarily, post #11).</p>
-    <p>Author: are there files in the archive dated prior to 1985. Specifically 1979–1983 range.</p>
-    <p><span class="code">&gt;&gt;N7/T2 — ARCV — QUERY:F79-83 — NOT PRIMARY. YET.&lt;&lt;</span></p>
-    <p><span class="code">596F7572206661746865722069732064726976696E6720686F6D6520726967687420 6E6F772E20446F206E6F7420706F737420616E7920 6D6F72652066696C6520636F6E74656E74732E</span></p>
-  </div>
-  <div class="rxn"><span class="r hot">😱 × 888</span><span class="r hot">😂 × 333</span></div>
-  </div>
-</div>
-
-
-<!-- 27 ButterfliesAllTheWayDown decodes, nobody cares properly -->
-<div class="post panic">
-  <div class="pu"><a href="#" class="un">ButterfliesAllTheWayDown</a>
-    <div class="av">🦋</div><div class="utitle">Senior Member</div>
-    <div class="ustats">Posts:<span>12,441</span><br>Joined:<span>Oct 2007</span><br>Loc:<span>Hamburg</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#27</a> · 12 Apr 2022, 05:07 PM</span></div>
-  <div class="pbody">
-    <p>Decoded: <span class="dec">Your father is driving home right now. Do not post any more file contents.</span></p>
-    <p>The DMS knows the father is driving home <i>right now.</i> In real time. They are tracking — SiberianDawn_AH PLEASE —</p>
-  </div>
-  <div class="rxn"><span class="r hot">😱 × 1,441</span></div>
-  </div>
-</div>
-
-
-<!-- 28 PostSovietDreamer — responds to OP's dig, forgets about surveillance crisis -->
-<div class="post alt">
-  <div class="pu"><a href="#" class="un">PostSovietDreamer</a>
-    <div class="av">📖</div><div class="utitle">Veteran Member</div>
-    <div class="ustats">Posts:<span>24,882</span><br>Joined:<span>Jan 2005</span><br>Loc:<span>Kraków</span></div>
-    <div class="badge bvet">VETERAN</div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#28</a> · 12 Apr 2022, 05:09 PM</span></div>
-  <div class="pbody">
-    <p>"I will take feedback from people who actually finish things." I see we're doing this.</p>
-    <p>The Thaw That Never Froze has 24,441 posts and five Turtledove awards. It is at 1982 because <i>it takes time to do this correctly</i>. My 1979 section, which you claim "dragged," is widely considered the definitive alternate history treatment of the Soviet-Afghan War decision-making process. Dr. Helene Marchand cited it in a 2019 journal article. It was cited. In a journal. By an academic. Can you say the same about your Chapter 4, which is 67 words long and includes the phrase "people watched with champagne" with no further development?</p>
-    <p>There is also a government agency currently tracking your father's location in real time in this thread and I feel I should mention this but I also feel it's important to address the "doesn't finish things" comment first.</p>
-  </div>
-  <div class="sig"><strong>ONGOING:</strong> <a href="#">The Thaw That Never Froze</a> — 1982. Cited by Dr. Marchand. Journal citation. Look it up.</div>
-  <div class="rxn"><span class="r hot">😂 × 1,441</span><span class="r hot">👍 × 888</span><span class="mega r">🏆 × 444</span></div>
-  </div>
-</div>
-
-
-<!-- 29 BizarreSoulFan — ignoring everything -->
-<div class="post jojo">
-  <div class="pu"><a href="#" class="un" style="color:#aa00aa">BizarreSoulFan</a>
-    <div class="av" style="background:#330033;color:#ff88ff;font-size:18px">✨</div>
-    <div class="utitle" style="color:#aa00aa">Senior Member</div>
-    <div class="ustats">Posts:<span>6,112</span><br>Joined:<span>Jun 2014</span><br>Loc:<span>Osaka</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#29</a> · 12 Apr 2022, 05:11 PM</span></div>
-  <div class="pbody">
-    <p>"People watched with champagne" is IDENTICAL to the scene in BI Part 4 where the townspeople drink at the funeral — the champagne as marker of collective catharsis/complicity is a documented Irohashi motif that I have written about extensively. I have 14 remaining paragraphs of analysis. Also I note the moderator told me to take this to the media subforum but the moderator is handling a government surveillance incident right now and I think their attention is elsewhere so I'm continuing here.</p>
-  </div>
-  <div class="rxn"><span class="r neg">😒 × 244</span><span class="r hot">😂 × 188</span></div>
-  </div>
-</div>
-
-
-<!-- 30 VoxelCave — sends second spreadsheet anyway -->
-<div class="post alt vs">
-  <div class="pu"><a href="#" class="un" style="color:#336633">VoxelCaveEnthusiast</a>
-    <div class="av" style="background:#1a2a1a;color:#88cc88;font-size:18px">⛏️</div>
-    <div class="utitle" style="color:#336633">Member</div>
-    <div class="ustats">Posts:<span>441</span><br>Joined:<span>Nov 2019</span><br>Loc:<span>Auckland, NZ</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#30</a> · 12 Apr 2022, 05:13 PM</span></div>
-  <div class="pbody">
-    <p>The moderator said one spreadsheet so I combined all three into a single 2,847-row spreadsheet. This is technically one spreadsheet. I have also attached the four-hour methodology video. I also wanted to ask: does anyone know if the rotary quern texture in Zemlya 0.11 has been patched because I've been waiting three weeks for an official response from the devs and the silence is frankly unacceptable for what is nominally a full-price release.</p>
-  </div>
-  <div class="rxn"><span class="r hot">😂 × 444</span><span class="r neg">😒 × 111</span></div>
-  </div>
-</div>
-
-
-<!-- 31 OP — Chapter 5 + finally starting to get scared but still defensive -->
-<div class="post op">
-  <div class="pu"><a href="#" class="un">SiberianDawn_AH</a>
-    <div class="av">🌅</div><div class="utitle">New Member</div>
-    <div class="ustats">Posts:<span>23</span><br>Joined:<span>Jan 2022</span><br>Loc:<span>Ohio, USA</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#31</a> · 12 Apr 2022, 05:38 PM</span></div>
-  <div class="pbody">
-    <div class="tmbar">☆ THREADMARK: Chapter 5 — The Coup</div>
-    <p>my dad is home now and he sat me down and he's not mad but he's doing the face where he's trying to be calm and he asked me "how much did you post" and I said "everything" and he made a sound I've never heard him make before and now he's on the phone in the other room. I can't hear what he's saying but I can hear that he's saying it FAST.</p>
-    <p>ANYWAY I'm posting the last two chapters because I did this research and it's good and I'm not going to let a weird government situation prevent me from sharing my work. <b>PostSovietDreamer</b>: my Chapter 4 is 67 words because it's CONCISE. Have you heard of CONCISION. Look it up.</p>
-    <div class="tl"><div class="tlh">Chapter 5: The Coup (19–22 August 1991)</div>
-      <p>Boris Yeltsin. Construction engineer's son, Sverdlovsk. Climbed a tank. Three officers refused independently. The plotters had been drinking. Three days. Over.</p>
-    </div>
-    <p>very CONCISE. very EFFICIENT. this is called ECONOMY OF PROSE. I've read about it.</p>
-  </div>
-  <div class="sig"><em>I DID MY RESEARCH. MY DAD IS ON THE PHONE. I'M FINE.</em></div>
-  <div class="rxn"><span class="r hot">😂 × 2,441</span><span class="r hot">😭 × 1,882</span></div>
-  </div>
-</div>
-
-
-<!-- 32 Press arrives, immediately annoying -->
-<div class="post press alt">
-  <div class="pu"><a href="#" class="un" style="color:#884400">SubstrateWatch_Correspondent</a>
-    <div class="av" style="background:#fff8cc;border-color:#cc9922;font-size:13px;color:#664400;text-align:center;padding:4px;line-height:1.4">📡<br><small>SWN<br>PRESS</small></div>
-    <div class="utitle" style="color:#886600">Press — SubstrateWatch Newswire</div>
-    <div class="ustats">Posts:<span>1</span><br>Joined:<span>Apr 2022</span><br>Loc:<span>Rotterdam</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#32</a> · 12 Apr 2022, 05:44 PM</span></div>
-  <div class="pbody">
-    <div class="pressbox"><strong>PRESS NOTICE — SubstrateWatch Newswire</strong><br>This account is SubstrateWatch Newswire. This thread is at 441,882 views. We are publishing in 45 minutes regardless of whether we receive comment. We prefer comment.</div>
-    <p>Questions for all parties. DMS: confirm agency identity, explain "not primary yet." PacificStudiesGroup: confirm programme authorisation, identify footage access channel. NovArkhiv: Helsinki Protocol statement on both. SiberianDawn_AH: any comment on the files, the DMS contact, or what your father said when he came home.</p>
-    <p>We are also interested in PostSovietDreamer's claim that their TL was cited in a peer-reviewed journal. We would like to verify this citation for a sidebar. Dr. Helene Marchand's university email is available publicly. We will be contacting her regardless.</p>
-  </div>
-  <div class="rxn"><span class="r hot">😂 × 888</span><span class="r neg">😒 × 444</span></div>
-  </div>
-</div>
-
-
-<!-- 33 PostSovietDreamer — panics about the journal citation -->
-<div class="post">
-  <div class="pu"><a href="#" class="un">PostSovietDreamer</a>
-    <div class="av">📖</div><div class="utitle">Veteran Member</div>
-    <div class="ustats">Posts:<span>24,882</span><br>Joined:<span>Jan 2005</span><br>Loc:<span>Kraków</span></div>
-    <div class="badge bvet">VETERAN</div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#33</a> · 12 Apr 2022, 05:47 PM</span></div>
-  <div class="pbody">
-    <p>The citation was in a footnote. It was footnote 34. The footnote said "for a popular treatment of this scenario, see also." "See also." In a footnote. At the end of a paper about an entirely different subject. I have been describing this as a citation. I would prefer if SubstrateWatch did not contact Dr. Marchand.</p>
-    <p>This is not what I came to this thread to discuss.</p>
-  </div>
-  <div class="rxn"><span class="r hot">😂 × 4,441</span><span class="r hot">👍 × 3,112</span><span class="mega r">🏆 × 1,882</span></div>
-  </div>
-</div>
-
-
-<!-- 34 DMS responds to press — in hex -->
-<div class="post dms alt">
-  <div class="pu"><a href="#" class="un" style="color:#00bb00;font-family:monospace">DMS_ArchiveNode_7</a>
-    <div class="av" style="background:#000;border-color:#003300;color:#00cc00;font-family:monospace;font-size:9px;text-align:center;line-height:1.5">D·M·S<br>▓▓▓<br>N7</div>
-    <div class="utitle" style="color:#004400;font-family:monospace;font-size:9px">VERIFIED ✓</div>
-    <div class="ustats" style="color:#004400;font-family:monospace;font-size:9px">Posts:<span>4</span><br>Joined:<span>11 Apr 2022</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#34</a> · 12 Apr 2022, 05:49 PM</span></div>
-  <div class="pbody">
-    <p><span class="code">4E6F20636F6D6D656E742E</span></p>
-    <p><span class="code">537562737472617465576174636820697320616C736F206F6E2066696C652E20537562666F6F746E6F7465203334206173 2077656C6C2E</span></p>
-  </div>
-  <div class="rxn"><span class="r hot">😂 × 3,441</span></div>
-  </div>
-</div>
-
-
-<!-- 35 ButterfliesAllTheWayDown — decoded, defeated -->
-<div class="post panic">
-  <div class="pu"><a href="#" class="un">ButterfliesAllTheWayDown</a>
-    <div class="av">🦋</div><div class="utitle">Senior Member</div>
-    <div class="ustats">Posts:<span>12,441</span><br>Joined:<span>Oct 2007</span><br>Loc:<span>Hamburg</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#35</a> · 12 Apr 2022, 05:51 PM</span></div>
-  <div class="pbody">
-    <p>Decoded: <span class="dec">No comment. SubstrateWatch is also on file. Subfootnote 34 as well.</span></p>
-    <p>The DMS has a file on footnote 34 of a 2019 journal article about Soviet history that mentioned an alternate history forum post. I'm going to go lie down.</p>
-  </div>
-  <div class="rxn"><span class="r hot">😂 × 8,882</span><span class="r mega">🏆 × 4,441</span></div>
-  </div>
-</div>
-
-
-<!-- 36 Moderator — bans the wrong people -->
-<div class="post modwarn">
-  <div class="pu"><a href="#" class="un" style="color:#aa2222">Moderator_Vasquez</a>
-    <div class="av" style="font-size:16px">🛡️</div>
-    <div class="utitle" style="color:#aa2222">Forum Moderator <span class="mbadge">MOD</span></div>
-    <div class="ustats">Posts:<span>1,612</span><br>Joined:<span>Feb 2016</span><br>Loc:<span>Guadalajara</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#36</a> · 12 Apr 2022, 05:58 PM</span></div>
-  <div class="pbody">
-    <p><b>Mod note.</b></p>
-    <p>I have been informed by admin that four government entities have contacted the forum in the last two hours. I have not been told which four. Admin said "don't worry about it." I am worrying about it.</p>
-    <p>Actions taken:</p>
-    <p><b>TreatyNerd1918:</b> Banned (7 days) for continuing to make the Brest-Litovsk correction after a warning. I know this is disproportionate. I am doing it anyway because the correction appeared in eleven separate posts in the last 90 minutes and my supervisor agrees it is technically harassment of the thread topic.</p>
-    <p><b>DiamatVanguard:</b> Banned (30 days) for calling people fascists. I know you do this every time. I know you'll be back.</p>
-    <p><b>VoxelCaveEnthusiast:</b> Banned (3 days) for posting a spreadsheet I specifically described as one spreadsheet which turned out to be 2,847 rows and also a four-hour video. A four-hour video, VoxelCave. In a first-TL thread.</p>
-    <p><b>BizarreSoulFan:</b> Warning (final). Take the BI analysis to the media subforum or I am banning you and I don't care that it's 17 paragraphs and you started it.</p>
-    <p><b>DMS_ArchiveNode_7:</b> Admin has told me I may not ban this account. I have told admin I disagree. Admin has told me that's fine and I still may not ban it.</p>
-    <p><b>PacificStudiesGroup:</b> You received a warning earlier for asking users to covertly record their neighbours. You are still here. I am going to take further action as soon as I figure out which rule covers "building an AI from a dead woman's recordings to scan social media for her approximate reincarnation."</p>
-    <p>I am going to get a glass of water. I will be back.</p>
-  </div>
-  <div class="rxn"><span class="r hot">😂 × 2,441</span><span class="r hot">👍 × 1,441</span><span class="r neg">😒 × 888</span></div>
-  </div>
-</div>
-
-
-<!-- 37 OP final chapter + complete unravelling -->
-<div class="post op alt">
-  <div class="pu"><a href="#" class="un">SiberianDawn_AH</a>
-    <div class="av">🌅</div><div class="utitle">New Member</div>
-    <div class="ustats">Posts:<span>23</span><br>Joined:<span>Jan 2022</span><br>Loc:<span>Ohio, USA</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#37</a> · 12 Apr 2022, 06:14 PM</span></div>
-  <div class="pbody">
-    <div class="tmbar">☆ THREADMARK: Chapter 6 — Christmas Day (December 1991)</div>
-    <p>okay my dad just explained some things to me and I'm not allowed to say what they are and also he's very upset that I gave out our address and I understand now why he's upset about that and I'm sorry about the address thing but I STILL maintain that my research was accurate and good and the TL is good and <b>PostSovietDreamer</b>'s footnote situation is extremely funny to me right now.</p>
-    <div class="tl"><div class="tlh">Chapter 6: Christmas Day (25 December 1991)</div>
-      <p>Gorbachev resigned Christmas Day 1991. Small room, one camera. The Soviet flag came down at 19:32. The Russian tricolour went up. Someone needed a ladder because the mechanism had seized. Seventy-four years. A ladder.</p>
-    </div>
-    <p>That's the whole TL. Six chapters. I think it's pretty good. I did my research. The research was accurate. Several government agencies apparently agree the research was accurate. I'm going to go have a conversation with my dad now that I'm told will be "long and probably a lot to process" and I just want everyone to know that I think this TL deserved better than the thread it got.</p>
-    <p>also <b>TreatyNerd1918</b> I acknowledge the Brest-Litovsk correction. I acknowledged it on purpose after they were banned because I'm not above that.</p>
-  </div>
-  <div class="sig"><em>I DID MY RESEARCH. THE TL WAS GOOD. THE FOOTNOTE WAS NOT A REAL CITATION POSTSOVIETDREAMER.</em></div>
-  <div class="rxn"><span class="r hot">😂 × 8,882</span><span class="r hot">❤️ × 6,441</span><span class="r hot">😭 × 4,112</span><span class="mega r">🏆 × 2,441</span></div>
-  </div>
-</div>
-
-
-<!-- 38 Moderator — full collapse, bans own supervisor -->
-<div class="post modwarn">
-  <div class="pu"><a href="#" class="un" style="color:#aa2222">Moderator_Vasquez</a>
-    <div class="av" style="font-size:16px">🛡️</div>
-    <div class="utitle" style="color:#aa2222">Forum Moderator <span class="mbadge">MOD</span></div>
-    <div class="ustats">Posts:<span>1,612</span><br>Joined:<span>Feb 2016</span><br>Loc:<span>Guadalajara</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#38</a> · 12 Apr 2022, 06:32 PM</span></div>
-  <div class="pbody">
-    <p><b>Final mod note. I am locking this thread.</b></p>
-    <p>Actions taken in the last eleven minutes:</p>
-    <p><b>DMS_ArchiveNode_7:</b> Deleted their own account. I am banning the ghost. I know that's not how banning works. I am doing it anyway. The ghost is banned.</p>
-    <p><b>PacificStudiesGroup:</b> Banned permanently. Freiburg ethics referral filed. I found the rule: Rule 2 (member welfare) read in conjunction with Rule 11 (no operating AI identification systems in forum threads) which was added in 2020 and which I had personally forgotten about until just now. There it is. Goodbye.</p>
-    <p><b>BizarreSoulFan:</b> Banned. I said final warning. It was final.</p>
-    <p><b>My supervisor:</b> Banned. He sent me a direct message during this incident saying and I quote "it's probably just ARG stuff, Vasquez, lighten up." It is not ARG stuff. My supervisor is banned. I am aware I don't have the authority to ban my supervisor. I have done it.</p>
-    <p><b>Thread:</b> Locked. I have moderated this forum for six years and handled one neo-Nazi, three doxxing attempts, the Great Barbarossa Incident of 2018, a man who posted his dissertation as a TL (80,000 words), and the Ternate Accord saga. None of them resulted in four government entities contacting admin, a journalist verifying a footnote, and an OP publicly gloating about acknowledging a correction after the corrector was banned.</p>
-    <p><b>SiberianDawn_AH:</b> "Someone needed a ladder because the mechanism had seized. Seventy-four years. A ladder." That's a good sentence. Your TL did deserve better than this thread. The footnote thing is very funny and I hope you remember it when you're older.</p>
-    <p>I'm calling my mother. She will not understand any of this. That is all I want from tonight.</p>
-  </div>
-  <div class="rxn"><span class="r hot">❤️ × 14,441</span><span class="r hot">😂 × 11,882</span><span class="r hot">👍 × 8,441</span><span class="mega r">🏆 × 5,882</span></div>
-  </div>
-</div>
-
-
-<!-- 39 PostSovietDreamer FINAL POST -->
-<div class="post">
-  <div class="pu"><a href="#" class="un">PostSovietDreamer</a>
-    <div class="av">📖</div><div class="utitle">Veteran Member</div>
-    <div class="ustats">Posts:<span>24,882</span><br>Joined:<span>Jan 2005</span><br>Loc:<span>Kraków</span></div>
-    <div class="badge bvet">VETERAN</div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#39</a> · 12 Apr 2022, 06:39 PM</span></div>
-  <div class="pbody">
-    <p>Fine. I'll say it. The sentence about the ladder is good. "Someone needed a ladder because the mechanism had seized" is the kind of detail that makes history feel like history instead of narrative and it's genuinely well-chosen and I would have used it myself if I'd thought of it, which I didn't, which is mildly annoying.</p>
-    <p>The rest of the TL is too short and the third chapter needed more interiority and if the OP had taken my initial feedback seriously they would have a much stronger piece of writing. I stand by all of that.</p>
-    <p>The footnote was a legitimate citation. It was in the footnotes section. Footnotes are part of papers. I am choosing to continue believing this.</p>
-    <p>Good luck with whatever your father is explaining. When you're ready to write alternate history properly, <a href="#">The Thaw That Never Froze</a> is still ongoing and the comment section is open and I accept detailed scene-by-scene analysis. Not from newcomers. From people who have read it in full. All 24,441 posts. All of them. Good night.</p>
-  </div>
-  <div class="sig"><strong>ONGOING:</strong> <a href="#">The Thaw That Never Froze</a> — 1982. Cited by academia (footnote 34). Taking comment from qualified readers only.</div>
-  <div class="rxn"><span class="r hot">😂 × 18,882</span><span class="r hot">❤️ × 8,441</span><span class="mega r">🏆 × 4,882</span></div>
-  </div>
-</div>
-
-
-<!-- 40 PanzerGruppe — the trucks. the eternal trucks. -->
-<div class="post alt">
-  <div class="pu"><a href="#" class="un" style="color:#444">PanzerGruppeEnthusiast</a>
-    <div class="av" style="background:#1a1a1a;color:#888;font-size:11px;text-align:center;padding:5px;line-height:1.4">🪖<br><small>1939-45</small></div>
-    <div class="utitle">Senior Member</div>
-    <div class="ustats">Posts:<span>9,441</span><br>Joined:<span>Mar 2007</span></div>
-  </div>
-  <div class="pbwrap"><div class="ph"><span><a href="#">#40</a> · 12 Apr 2022, 06:41 PM</span></div>
-  <div class="pbody">
-    <p>Thread is locked and I never got an answer about the Wehrmacht and Moscow. I'm posting the 52 pages as a separate thread. It's called "Glasnost and Collapse: The Question the OP Refused to Answer (Operational Analysis)." The trucks are in section 4.</p>
-  </div>
-  <div class="sig"><em>52 pages. Section 4: The Trucks. New thread: up now. Answer the question.</em></div>
-  <div class="rxn"><span class="r hot">😂 × 22,441</span><span class="mega r">🏆 × 11,882</span></div>
-  </div>
-</div>
-
-<div class="bnav">
-  <div>Pages: <a href="#" class="cp">1</a> <a href="#">2</a> … <a href="#">188</a> — [LOCKED]</div>
-  <div><a href="#" class="btn btn-lock">Reply (LOCKED)</a></div>
-</div>
-
-<div class="sim">
-  <div class="simh">Similar Threads / Related Discussion</div>
-  <div class="simb">
-    <a href="#">Glasnost and Collapse: The Question the OP Refused to Answer — PanzerGruppeEnthusiast [NEW]</a> <em>— After 1900 · 3,441 replies 🔥🔥</em><br>
-    <a href="#">PostSovietDreamer footnote 34 — was it a citation? (community verdict: no)</a> <em>— Meta · 18,882 replies 🔥🔥🔥</em><br>
-    <a href="#">Moderator_Vasquez banning their supervisor — legal analysis</a> <em>— Meta · 8,441 replies 🔥</em><br>
-    <a href="#">TreatyNerd1918 ban appeal — ACCEPTED (7-day ban ruled disproportionate)</a> <em>— Meta · 4,441 replies</em><br>
-    <a href="#">TreatyNerd1918 ban appeal resolution — TreatyNerd immediately returns to make the Brest-Litovsk correction</a> <em>— Meta · 6,441 replies 🔥</em><br>
-    <a href="#">DMS_ArchiveNode accounts — what are they and why does the ghost stay banned</a> <em>— Meta · 11,441 replies</em><br>
-    <a href="#">PacificStudiesGroup — Freiburg ethics referral status [pending, 14 months]</a> <em>— Meta · 4,441 replies</em><br>
-    <a href="#">BizarreSoulFan BI structural analysis — all 17 paragraphs (media subforum)</a> <em>— Off Topic · 22,441 replies 🔥🔥🔥 [somehow the most viewed thread this month]</em><br>
-    <a href="#">VoxelCaveEnthusiast's 2,847-row spreadsheet — download link [11,441 downloads]</a> <em>— Research · 441 replies</em><br>
-    <a href="#">VoxelCaveEnthusiast's ban appeal — upheld (the video was genuinely four hours)</a> <em>— Meta · 2,441 replies</em><br>
-    <a href="#">The Zemlya quern texture — developer response [resolved: "working as intended"]</a> <em>— Off Topic · 44,441 replies 🔥🔥🔥 [VoxelCave's most-viewed thread]</em><br>
-    <a href="#">Moderator_Vasquez's supervisor ban — admin reinstated supervisor, demoted Vasquez, Vasquez appealed, appeal pending</a> <em>— Meta · 8,882 replies</em><br>
-    <a href="#">SiberianDawn_AH — confirmed okay, confirmed not answering questions, confirmed the ladder sentence was theirs</a> <em>— Meta · 44,441 replies 🔥🔥</em><br>
-    <a href="#">Was the footnote a citation — final answer [it was a footnote] [PostSovietDreamer has read this thread 47 times]</a> <em>— Meta · 18,882 replies 🔥🔥🔥</em>
-  </div>
+<!-- VII. UNARY -->
+<div class="section" id="unary">
+<div class="section-header"><span class="section-num">VII</span><span class="section-title">Unary Star Systems</span></div>
+<p>Unary systems — those with only one star — make up about <b>65% of all stars</b> in the galaxy. The probability of a star being unary varies with mass: more massive stars tend to form in multiple-star systems.</p>
+<table>
+<thead><tr><th>Mass Range (M☉)</th><th>&lt;0.1</th><th>0.1–0.6</th><th>0.6–1.4</th><th>1.4–7</th><th>7–16</th><th>&gt;16</th></tr></thead>
+<tbody><tr><td>Unary frequency</td><td><b style="color:#4A90D9">78%</b></td><td><b style="color:#4A90D9">74%</b></td><td><b style="color:#E8A838">56%</b></td><td>50%</td><td>40%</td><td>20%</td></tr></tbody>
+</table>
+<p>Our K6V star (0.69 M☉) falls in the 0.6–1.4 M☉ range, where 56% of stars are unary — well above chance.</p>
+<div class="diagram">
+<svg viewBox="0 0 600 110" style="width:100%;max-width:600px">
+<rect width="600" height="110" fill="#000"/>
+<circle cx="55" cy="68" r="8" fill="#ff4400"/>
+<text x="55" y="95" fill="#555" font-size="9" text-anchor="middle" font-family="sans-serif">&lt;0.1 M☉</text>
+<circle cx="140" cy="64" r="14" fill="#ff6622"/>
+<text x="140" y="95" fill="#555" font-size="9" text-anchor="middle" font-family="sans-serif">0.3 M☉</text>
+<circle cx="240" cy="57" r="22" fill="#ffaa44"/>
+<text x="240" y="95" fill="#E8A838" font-size="9" text-anchor="middle" font-family="sans-serif" font-weight="bold">0.69 M☉ ★</text>
+<circle cx="340" cy="50" r="28" fill="#ffe066"/>
+<text x="340" y="95" fill="#aaa" font-size="9" text-anchor="middle" font-family="sans-serif">1.0 M☉ (Sun)</text>
+<circle cx="455" cy="40" r="38" fill="#ddeeff" opacity=".55"/>
+<text x="455" y="95" fill="#555" font-size="9" text-anchor="middle" font-family="sans-serif">2.0 M☉</text>
+<circle cx="568" cy="18" r="55" fill="#aaaaff" opacity=".3" clip-path="url(#uc)"/>
+<clipPath id="uc"><rect x="510" y="0" width="90" height="110"/></clipPath>
+<text x="568" y="95" fill="#555" font-size="9" text-anchor="middle" font-family="sans-serif">10 M☉</text>
+</svg>
+<div class="caption">Stars roughly to scale. Our K6V (0.69 M☉) marked with ★.</div>
 </div>
 </div>
 
-<div id="footer">
-  AlternateHistory.com · <a href="#">Forum Rules</a> · <a href="#">Wiki</a> · <a href="#">Timeline Index</a> · <a href="#">Turtledove Awards Archive</a> · <a href="#">Contact Staff</a><br>
-  <span style="color:#aaa">Powered by XenForo 2.3 · All times UTC</span><br>
-  <span style="color:#aaa;font-size:10px">© 2001–2026 AlternateHistory.com</span>
+<!-- VIII. STAR FORMATION -->
+<div class="section" id="star-formation">
+<div class="section-header"><span class="section-num">VIII</span><span class="section-title">How Are Stars Formed?</span></div>
+<p>Stars form from cold, massive clouds of gas in two main ways:</p>
+<div class="two-col">
+<div class="card"><h3>Compression in Spiral Arms</h3><p>As gas clouds pass through density waves in the spiral arms, they are compressed. If the compression is sufficient, gravity takes over and the cloud collapses into a star-forming region, often producing clusters of protostars simultaneously.</p></div>
+<div class="card"><h3>Bok Globules</h3><p>Dense, isolated dark nebulae of gas and dust found between spiral arms. Gravity causes them to contract from all directions. They typically produce small groups of stars (2–10) and are one of the few places where star formation can be observed from start to finish.</p></div>
+</div>
 </div>
 
+<!-- IX. BINARY -->
+<div class="section" id="binary">
+<div class="section-header"><span class="section-num">IX</span><span class="section-title">Binary Systems</span></div>
+<p>Binary systems — two stars orbiting a shared centre of mass — are the second most common configuration. They divide into two orbital types:</p>
+<div class="two-col">
+<div class="card"><h3>P-type (Circumbinary) — ~10% of binaries</h3><p>A planet orbits <b>both</b> stars, which are close together. The two stars can often be treated as a single mass for planetary calculations. If the stars are closer than ~20 million km, they fill their Roche lobes and pull gas from each other.</p><p style="margin-top:.6em"><b>Minimum stable planet distance from barycentre:</b></p><div class="formula">3[(1+e₁)r₁ + (1+e₂)r₂]</div><p style="font-size:.82em;color:var(--dim)">r and e relative to barycentre</p></div>
+<div class="card"><h3>S-type (Circumstellar) — ~90% of binaries</h3><p>A planet orbits <b>one</b> star; the second star orbits at a great distance and can largely be ignored. The host star behaves like a unary star within the planet's orbital zone.</p><p style="margin-top:.6em"><b>Maximum stable planet distance from host star:</b></p><div class="formula">[(1−e₁)r₁ + (1−e₂)r₂] / 3</div><p style="font-size:.82em;color:var(--dim)">r and e relative to barycentre</p></div>
+</div>
+</div>
+
+<!-- X. HIGH ORDER -->
+<div class="section" id="high-order">
+<div class="section-header"><span class="section-num">X</span><span class="section-title">High-Order Systems &amp; Clusters</span></div>
+<div class="two-col-3">
+<div class="card"><h3>Trinary Systems (~4%)</h3><p>Usually hierarchical — e.g. a binary being orbited by a third star at a distance. Rare cases are chaotic and gravitationally indivisible. Planets can exist in stable S-type orbits around individual stars.</p></div>
+<div class="card"><h3>Complex Systems (~1%)</h3><p>Four or more stars. Like trinary systems, usually hierarchical nested configurations. Genuinely chaotic systems do exist but are rare.</p></div>
+<div class="card"><h3>Star Clusters</h3><p><b>Open clusters:</b> Young, small, loosely bound — disperse over millions of years.<br><b>Globular clusters:</b> Ancient, densely packed, tens of thousands to millions of stars. Planetary habitability limited by stellar crowding. Clusters contain ~1/1000 of galaxy's stars but number in the thousands.</p></div>
+</div>
+</div>
+
+<!-- XI. SYSTEM CHOICE -->
+<div class="section" id="system-choice">
+<div class="section-header"><span class="section-num">XI</span><span class="section-title">Project Granite's Star System</span></div>
+<div class="pick"><b>Choice: Unary.</b> The most common configuration and the most stable gravitational environment for a developing biosphere. A single star eliminates binary-related complications (tidal distortions from a second star, variable illumination, complex habitable zone geometry), letting us isolate tidal locking as the key variable.</div>
+<p>Binary systems are valid worldbuilding choices and sometimes produce more interesting scenarios. This is simply the choice made for this series.</p>
+</div>
+
+<!-- XII. YERKES -->
+<div class="section" id="yerkes">
+<div class="section-header"><span class="section-num">XII</span><span class="section-title">The Yerkes Luminosity Classification</span></div>
+<p>The Yerkes system classifies stars by their luminosity class — from the most massive and luminous down to stellar remnants. Main sequence stars (Class V) are the starting point for almost everything else.</p>
+<table>
+<thead><tr><th>Class</th><th>Name</th><th>Luminosity</th><th>Mass</th><th>Lifespan</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr class="reject-row"><td>0</td><td>Hypergiants</td><td>Up to ~10⁷ L☉</td><td>&gt;25 M☉</td><td>&lt;1 Myr</td><td><span class="badge b-no">Eliminated</span></td></tr>
+<tr class="reject-row"><td>Ia/Ib</td><td>Supergiants</td><td>10⁵–10⁶ L☉</td><td>&gt;8 M☉</td><td>&lt;1 Myr</td><td><span class="badge b-no">Eliminated</span></td></tr>
+<tr class="reject-row"><td>II</td><td>Bright Giants</td><td>10³–10⁴ L☉</td><td>Varies</td><td>&lt;1 Gyr</td><td><span class="badge b-no">Eliminated</span></td></tr>
+<tr class="reject-row"><td>III</td><td>Giants</td><td>10²–10³ L☉</td><td>Varies</td><td>&lt;1 Gyr</td><td><span class="badge b-no">Eliminated</span></td></tr>
+<tr class="reject-row"><td>IV</td><td>Subgiants</td><td>2–10 L☉</td><td>Varies</td><td>Transitional</td><td><span class="badge b-no">Eliminated</span></td></tr>
+<tr class="pick-row"><td><b>V</b></td><td><b>Main Sequence Dwarfs</b></td><td>0.0001–10⁵ L☉</td><td>0.08–200 M☉</td><td>Billions–trillions of years</td><td><span class="badge b-pick">✓ Our focus</span></td></tr>
+<tr class="reject-row"><td>VI</td><td>Subdwarfs</td><td>Below main sequence</td><td>Varies</td><td>Long but problematic</td><td><span class="badge b-no">Eliminated</span></td></tr>
+<tr class="reject-row"><td>VII</td><td>White Dwarfs</td><td>0.0001–0.01 L☉</td><td>0.17–1.44 M☉</td><td>Trillions of years</td><td><span class="badge b-no">Eliminated</span></td></tr>
+</tbody>
+</table>
+</div>
+
+
+<!-- XIII. HYPERGIANTS -->
+<div class="section" id="hypergiants">
+<div class="section-header"><span class="section-num">XIII</span><span class="section-title">Class 0: Hypergiants</span></div>
+<p>Hypergiants are the most massive and luminous stars in existence. They are <b>extremely unstable</b> and live only a few <b>hundred thousand years</b>.</p>
+<ul class="fancy">
+<li>Begin as <b>Class O (deep blue):</b> &gt;35,000 K, ~25 M☉, ~10 R☉, &gt;100,000 L☉</li>
+<li>Expand into <b>Class B (blue):</b> ~25,000 K, ~200 R☉</li>
+<li>Cycle between blue and <b>Class K (orange) phase:</b> ~4,500 K, &gt;1,000 R☉. Each cycle intensifies and shortens as the star sheds mass.</li>
+<li><b>Hypernova</b> → metal-rich planetary nebula + black hole remnant</li>
+</ul>
+<div class="note"><b>Stars &gt;40 M☉:</b> Stellar winds are so powerful they blow away the outer layers entirely, preventing the red hypergiant transition. At even higher masses the star sheds its entire hydrogen envelope and transitions directly from a main-sequence O-star to a Wolf-Rayet star.</div>
+<div class="reject"><b>Eliminated:</b> Lifespan of a few hundred thousand years is orders of magnitude too short for complex life. Also produces lethal radiation environments.</div>
+</div>
+
+<!-- XIV. SUPERGIANTS -->
+<div class="section" id="supergiants">
+<div class="section-header"><span class="section-num">XIV</span><span class="section-title">Class I: Supergiants</span></div>
+<p>Supergiants are similar to hypergiants but less extreme. Still very short-lived at &lt;1 million years. They start slightly dimmer (&gt;8 M☉, &gt;20,000 K) and follow a similar evolutionary path, cycling between 4,000–10,000 K and 50–400 R☉. Because they have less mass than Class 0, they typically end their lives as <b>neutron stars</b> rather than black holes.</p>
+<div class="reject"><b>Eliminated:</b> Same fundamental problem as hypergiants — lifespan far too short for complex life.</div>
+</div>
+
+<!-- XV-XVI. GIANTS -->
+<div class="section" id="giants">
+<div class="section-header"><span class="section-num">XV–XVI</span><span class="section-title">Class II &amp; III: Giants, and Class IV: Subgiants</span></div>
+<div class="two-col">
+<div>
+<p><b>Class II — Bright Giants:</b> Expand to 50–100× original size and cool to 3,000–4,000 K. Live longer than supergiants but still not long enough.</p>
+<p style="margin-top:.8em"><b>Class III — Giants:</b> Expand to 20–50× original size, cooling to 3,000–4,000 K. Spend roughly 10% of their total lifespan in this phase before contracting to white dwarfs. Never live more than ~1 billion years.</p>
+<p style="margin-top:.8em;color:var(--dim);font-size:.9em"><b>Low-mass exception:</b> M-class stars (0.25–0.4 M☉) could theoretically become red giants but this would take longer than the current age of the universe. None have done it yet.</p>
+</div>
+<div>
+<p><b>Class IV — Subgiants:</b></p>
+<p style="margin-top:.5em"><b>Low mass (0.4–0.9 M☉):</b> Not visually distinct from main sequence, but marked by the formation of a helium core with hydrogen fusion in a shell outside it. Can last hundreds of millions to billions of years.</p>
+<p style="margin-top:.8em"><b>High mass (&gt;0.9 M☉):</b> A brief transitional phase of contraction and brightening after core hydrogen is exhausted, before outer layers trigger full giant expansion. Lasts only a few million years.</p>
+</div>
+</div>
+<div class="reject"><b>All giant and subgiant classes eliminated:</b> Either too short-lived, or undergoing massive changes in luminosity and size on short geological timescales — both incompatible with the stable irradiation required for complex life.</div>
+</div>
+
+<!-- XVII. GIANTS BAD -->
+<div class="section" id="giants-bad">
+<div class="section-header"><span class="section-num">XVII</span><span class="section-title">Giants Are Bad Company</span></div>
+<p>All Classes 0 through IV are eliminated for the same core reason: they are either <b>extremely short-lived</b> or they undergo <b>massive changes in luminosity and size</b> in a short geological timeframe. Complex life needs billions of years of stable stellar output. None of these stars provide it.</p>
+</div>
+
+<!-- XVIII. CLASS V INTRO -->
+<div class="section" id="class-v-intro">
+<div class="section-header"><span class="section-num">XVIII</span><span class="section-title">Introduction to Class V Stars</span></div>
+<p><b>Class V stars</b> — main sequence dwarfs — are extremely diverse and are the progenitors of almost all other Yerkes classes. We use the <b>Harvard spectral classification</b> to subdivide them by temperature and color.</p>
+<p>Harvard classification, hottest to coolest: <b style="color:#aaaaff">O → B → A → F → G → K → M</b>, followed by brown dwarf classes L, T, and Y.</p>
+<p style="color:var(--dim);font-size:.9em">Memory aid: "Oh Be A Fine Girl/Guy, Kiss Me"</p>
+<div class="diagram">
+<svg viewBox="0 0 620 70" style="width:100%;max-width:620px">
+<defs><linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#8899ff"/><stop offset="14%" stop-color="#aabbff"/><stop offset="28%" stop-color="#ddeeff"/><stop offset="40%" stop-color="#ffffee"/><stop offset="54%" stop-color="#ffee99"/><stop offset="68%" stop-color="#ffaa44"/><stop offset="82%" stop-color="#ff6622"/><stop offset="100%" stop-color="#cc2200"/></linearGradient></defs>
+<rect x="20" y="10" width="580" height="26" rx="4" fill="url(#hg)"/>
+<text x="52" y="55" fill="#8899ff" font-size="14" font-weight="bold" font-family="sans-serif" text-anchor="middle">O</text>
+<text x="120" y="55" fill="#aabbff" font-size="14" font-weight="bold" font-family="sans-serif" text-anchor="middle">B</text>
+<text x="188" y="55" fill="#ddeeff" font-size="14" font-weight="bold" font-family="sans-serif" text-anchor="middle">A</text>
+<text x="256" y="55" fill="#ffffdd" font-size="14" font-weight="bold" font-family="sans-serif" text-anchor="middle">F</text>
+<text x="324" y="55" fill="#ffe066" font-size="14" font-weight="bold" font-family="sans-serif" text-anchor="middle">G</text>
+<text x="392" y="55" fill="#E8A838" font-size="15" font-weight="bold" font-family="sans-serif" text-anchor="middle">K ★</text>
+<text x="460" y="55" fill="#ff6633" font-size="14" font-weight="bold" font-family="sans-serif" text-anchor="middle">M</text>
+<text x="545" y="55" fill="#aa3311" font-size="11" font-family="sans-serif" text-anchor="middle">L T Y</text>
+<text x="20" y="68" fill="#444" font-size="8" font-family="sans-serif">← Hot</text>
+<text x="598" y="68" fill="#444" font-size="8" font-family="sans-serif" text-anchor="end">Cool →</text>
+</svg>
+<div class="caption">Harvard spectral sequence. ★ marks Project Granite's chosen type.</div>
+</div>
+</div>
+
+<!-- XIX-XXII OBA -->
+<div class="section" id="oba">
+<div class="section-header"><span class="section-num">XIX–XXII</span><span class="section-title">O, B, and A-Type Stars — Eliminated</span></div>
+<table>
+<thead><tr><th>Type</th><th>Color</th><th>Temperature</th><th>Mass</th><th>Radius</th><th>Luminosity</th><th>Lifespan</th><th>% of V</th></tr></thead>
+<tbody>
+<tr class="reject-row"><td><b style="color:#8899ff">O</b></td><td>Blue</td><td>&gt;32,000 K</td><td>&gt;18 M☉</td><td>&gt;7 R☉</td><td>&gt;45,000 L☉</td><td>&lt;10 Myr</td><td>0.00003% (0.1% in SFRs)</td></tr>
+<tr class="reject-row"><td><b style="color:#aabbff">B</b></td><td>Blue-white</td><td>&gt;10,000 K</td><td>&gt;2.2 M☉</td><td>&gt;2.2 R☉</td><td>&gt;40 L☉</td><td>&lt;1 Gyr</td><td>0.13% (2% in SFRs)</td></tr>
+<tr class="reject-row"><td><b style="color:#ddeeff">A</b></td><td>White/cyan</td><td>&gt;7,300 K</td><td>&gt;1.7 M☉</td><td>&gt;1.7 R☉</td><td>&gt;8 L☉</td><td>&lt;3 Gyr</td><td>0.6% (1.2% in SFRs)</td></tr>
+</tbody>
+</table>
+<p>All three types eliminated. They emit massive amounts of UV radiation due to extreme temperatures, and their lifespans are far too short for complex life (Earth required ~4 billion years).</p>
+<div class="note"><b>Internal structure note:</b> Unlike cooler stars, in high-mass O/B/A stars the outer layer is where radiation transport dominates, while the inner layer convects — the inverse of our Sun. This results in different stellar activity patterns.</div>
+</div>
+
+<!-- XXIII-XXVII FGKM -->
+<div class="section" id="fgkm">
+<div class="section-header"><span class="section-num">XXIV–XXVII</span><span class="section-title">F, G, K, and M-Type Stars</span></div>
+<p>These are the viable candidates for hosting complex life. All are long-lived main sequence stars with manageable radiation environments.</p>
+
+<div class="star-entry">
+<div class="star-dot" style="background:#ffffee;opacity:.8"></div>
+<div class="star-data">
+<h3 style="color:#ffffdd">F-Type Stars — White</h3>
+<div class="stats"><span>Temperature: <b>&gt;6,000 K</b></span><span>Mass: <b>&gt;1.1 M☉</b></span><span>Radius: <b>&gt;1.15 R☉</b></span><span>Luminosity: <b>&gt;1.5 L☉</b></span><span>Lifespan: <b>&lt;8 Gyr</b></span><span>% of V: <b>3%</b></span></div>
+<p>Viable but marginal. Slightly more UV than the Sun. 8 billion years may be insufficient for complex life given how long it took on Earth. Some F stars could work if life gets lucky.</p>
+</div>
+</div>
+
+<div class="star-entry">
+<div class="star-dot" style="background:#ffe066;opacity:.85"></div>
+<div class="star-data">
+<h3 style="color:#ffe066">G-Type Stars — Cream / Yellow</h3>
+<div class="stats"><span>Temperature: <b>&gt;5,300 K</b></span><span>Mass: <b>&gt;0.9 M☉</b></span><span>Radius: <b>&gt;0.83 R☉</b></span><span>Luminosity: <b>&gt;0.5 L☉</b></span><span>Lifespan: <b>&lt;16 Gyr</b></span><span>% of V: <b>8%</b></span></div>
+<p>The gold standard — proven to host complex life. Our Sun is G2V. Comfortable UV levels, long lifespan, stable output. The obvious safe choice.</p>
+</div>
+</div>
+
+<div class="star-entry picked-star">
+<div class="star-dot" style="background:#ffaa44;opacity:.9"></div>
+<div class="star-data">
+<h3 style="color:#E8A838">K-Type Stars — Orange ★ Our Choice</h3>
+<div class="stats"><span>Temperature: <b>&gt;3,900 K</b></span><span>Mass: <b>&gt;0.58 M☉</b></span><span>Radius: <b>&gt;0.6 R☉</b></span><span>Luminosity: <b>&gt;0.075 L☉</b></span><span>Lifespan: <b>&lt;80 Gyr</b></span><span>% of V: <b>12%</b></span></div>
+<p>Sometimes called "Goldilocks stars." Extremely long-lived, less flare-prone than M stars, and still warm enough for active planetary geology. The habitable zone is close enough that planets will be tidally locked — which is the focus of Project Granite.</p>
+</div>
+</div>
+
+<div class="star-entry">
+<div class="star-dot" style="background:#ff5522;opacity:.7"></div>
+<div class="star-data">
+<h3 style="color:#ff6633">M-Type Stars — Red Dwarfs</h3>
+<div class="stats"><span>Temperature: <b>&gt;2,300 K</b></span><span>Mass: <b>&gt;0.08 M☉</b></span><span>Radius: <b>&gt;0.1 R☉</b></span><span>Luminosity: <b>&gt;0.0003 L☉</b></span><span>Lifespan: <b>&lt;10 trillion years</b></span><span>% of V: <b>76%</b></span></div>
+<p>Most common star type. Immensely long-lived. However, M and some K stars are prone to intense stellar flares that can briefly double their brightness. Below 0.3 M☉ (M3 and smaller): fully convective, no radiative zone, no Red Giant phase — they transition directly to white dwarfs.</p>
+</div>
+</div>
+</div>
+
+<!-- XXVIII. TIDAL LOCKING -->
+<div class="section" id="tidal">
+<div class="section-header"><span class="section-num">XXVIII</span><span class="section-title">Habitability and Tidal Locking</span></div>
+<p>Because planets must orbit very close to K and M stars to remain in the habitable zone, they are usually <b>tidally locked</b> — one face permanently toward the star, one permanently facing away.</p>
+<p>This was historically considered a dealbreaker for life. Modern modelling has changed that view:</p>
+<div class="two-col">
+<div class="card"><h3>1. Cloud Formation</h3><p>Thick clouds form at the <b>substellar point</b> (the hot, wet day side), reflecting sunlight back to space. This increases the planet's albedo and significantly cools the day side, reducing the temperature gradient between hemispheres.</p></div>
+<div class="card"><h3>2. Heat Transport</h3><p>The atmosphere doesn't need to be massive. A surface pressure of just <b>0.1 atm</b> is sufficient to carry enough heat to the night side to prevent CO₂ from freezing out and the atmosphere from collapsing — even in the complete absence of a magnetic field deflecting the solar wind.</p></div>
+</div>
+<div class="diagram">
+<svg viewBox="0 0 400 220" style="width:100%;max-width:400px">
+<rect width="400" height="220" fill="#000"/>
+<circle cx="58" cy="110" r="38" fill="#ffaa44" opacity=".8"/>
+<text x="58" y="165" fill="#ffaa44" font-size="10" text-anchor="middle" font-family="sans-serif">K star</text>
+<circle cx="260" cy="110" r="52" fill="#224488"/>
+<line x1="260" y1="58" x2="260" y2="162" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="4"/>
+<clipPath id="tlc"><rect x="208" y="58" width="52" height="104"/></clipPath>
+<circle cx="260" cy="110" r="52" fill="#ffcc44" opacity=".15" clip-path="url(#tlc)"/>
+<text x="238" y="96" fill="#ffaa66" font-size="9" text-anchor="middle" font-family="sans-serif">Burning</text>
+<text x="238" y="108" fill="#ffaa66" font-size="9" text-anchor="middle" font-family="sans-serif">hot / wet</text>
+<text x="238" y="130" fill="#88aaff" font-size="9" text-anchor="middle" font-family="sans-serif">Very hot</text>
+<text x="290" y="96" fill="#aaccff" font-size="9" text-anchor="middle" font-family="sans-serif">dry</text>
+<text x="296" y="118" fill="#336699" font-size="9" text-anchor="middle" font-family="sans-serif">Freezing</text>
+<text x="296" y="130" fill="#336699" font-size="9" text-anchor="middle" font-family="sans-serif">cold</text>
+<text x="260" y="200" fill="#666" font-size="9" text-anchor="middle" font-family="sans-serif">One face always toward the star</text>
+</svg>
+<div class="caption">Schematic of a tidally locked planet's temperature distribution.</div>
+</div>
+<div class="pick"><b>Project Granite is specifically interested in the effects of tidal locking on complex life development.</b> The K6V star's habitable zone ensures tidal locking while the star itself remains calm enough not to strip the atmosphere.</div>
+</div>
+
+<!-- XXIX. INTERNAL STRUCTURE -->
+<div class="section" id="structure">
+<div class="section-header"><span class="section-num">XXIX</span><span class="section-title">Internal Structure and Evolution</span></div>
+<p>F, G, K, and some M stars share a similar internal structure: a <b>radiative zone in the core</b> (energy transported outward by photons) surrounded by a <b>convective zone near the surface</b> (energy transported by bulk movement of plasma). This is the <b>inverse</b> of O/B/A stars.</p>
+<ul class="fancy">
+<li><b>M and some K stars</b> are prone to intense flares that can briefly double their brightness — a significant challenge for atmospheric retention and surface life.</li>
+<li><b>Below 0.3 M☉ (M3 and smaller):</b> fully convective throughout with no radiative zone. As a consequence, they have no Red Giant phase — they transition directly from the main sequence to white dwarfs.</li>
+<li><b>Above 0.3 M☉:</b> both zones present; will undergo Red Giant expansion before becoming white dwarfs.</li>
+</ul>
+</div>
+
+<!-- XXX. T-TAURI -->
+<div class="section" id="ttauri">
+<div class="section-header"><span class="section-num">XXX</span><span class="section-title">Youthful Stages: T-Tauri and Herbig Ae/Be</span></div>
+<div class="two-col">
+<div>
+<p><b>T-Tauri stars</b> are the young pre-main-sequence phase of F through M stars. They are <b>larger and more active</b> than their mature counterparts — strong stellar winds, intense flaring, significant X-ray and UV output.</p>
+<p style="margin-top:.8em">This phase lasts approximately <b>10 million years</b> before nuclear fusion stabilizes. During this period the intense radiation sculpts and photoevaporates the protoplanetary disk, strongly affecting what planets can form and where.</p>
+</div>
+<div>
+<p><b>Herbig Ae/Be stars</b> are the corresponding young phase for A and B-type stars — slightly more massive and hotter.</p>
+<p style="margin-top:.8em">O-type stars evolve so rapidly that <b>by the time they become visible they have already reached the main sequence</b> — no observable pre-main-sequence phase exists for them.</p>
+<p style="margin-top:.8em;color:var(--dim)">Our K6V star passed through a T-Tauri phase early in its history before settling into the stable state we're working with.</p>
+</div>
+</div>
+</div>
+
+
+<!-- XXXI. OUR STAR -->
+<div class="section" id="our-star">
+<div class="section-header"><span class="section-num">XXXI</span><span class="section-title">Orange Origin — Our Star: K6V</span></div>
+<div class="pick" style="font-size:1.05em;line-height:1.8">I chose a <b>K6V</b> star because I am specifically interested in the <b>effects of tidal locking on the development of complex life.</b></div>
+<div class="diagram" style="float:right;margin:0 0 1em 2em;max-width:260px">
+<svg viewBox="0 0 260 200" style="width:260px">
+<rect width="260" height="200" fill="#000"/>
+<circle cx="95" cy="95" r="52" fill="#cc7722" opacity=".28"/>
+<circle cx="95" cy="95" r="42" fill="#dd8833" opacity=".5"/>
+<circle cx="95" cy="95" r="36" fill="#ee9944" opacity=".8"/>
+<text x="95" y="99" fill="#fff" font-size="12" text-anchor="middle" font-family="sans-serif" font-weight="bold">K6V</text>
+<text x="95" y="160" fill="#E8A838" font-size="10" text-anchor="middle" font-family="sans-serif">0.67 R☉</text>
+<circle cx="195" cy="110" r="22" fill="#ffe066" opacity=".65"/>
+<text x="195" y="114" fill="#fff" font-size="9" text-anchor="middle" font-family="sans-serif">G2V</text>
+<text x="195" y="160" fill="#888" font-size="9" text-anchor="middle" font-family="sans-serif">1.0 R☉ (Sun)</text>
+</svg>
+<div class="caption">K6V vs the Sun, roughly to scale.</div>
+</div>
+<table style="max-width:480px">
+<thead><tr><th colspan="2">K6V Specifications</th></tr></thead>
+<tbody>
+<tr><td>Spectral Type</td><td><b style="color:#E8A838">K6V</b></td></tr>
+<tr><td>Temperature</td><td>4,300 K (~4,100°C)</td></tr>
+<tr><td>Mass</td><td>0.69 M☉ = 1.37 × 10³⁰ kg = 1.37 × 10³³ g</td></tr>
+<tr><td>Radius</td><td>0.67 R☉ = 470,000 km = 4.7 × 10⁸ m = 4.7 × 10¹⁰ cm</td></tr>
+<tr><td>Luminosity</td><td>0.14 L☉ = 5.4 × 10²⁵ W = 5.4 × 10³² erg/s</td></tr>
+</tbody>
+</table>
+<div style="clear:both"></div>
+<div class="note" style="margin-top:1em">In stellar classification within each spectral class, <b>0 is the hottest/brightest and 9 is the coolest/dimmest.</b> K6V sits toward the cooler end of the K-dwarf range.</div>
+</div>
+
+<!-- XXXII. SUBDWARFS -->
+<div class="section" id="subdwarfs">
+<div class="section-header"><span class="section-num">XXXII</span><span class="section-title">Subdwarfs — Yerkes Class VI</span></div>
+<div class="two-col">
+<div>
+<p><b>Cool Subdwarfs (G to M):</b> Smaller and less bright than Population I stars of the same temperature. The reason is <b>lower metallicity</b>, which decreases opacity in the stellar atmosphere.</p>
+<p style="margin-top:.7em">Lower opacity → less radiation pressure → the star contracts → approximately <b>2× dimmer</b> than a main sequence star of the same temperature. They are also relatively brighter in UV.</p>
+<div class="reject" style="margin-top:.8em"><b>Eliminated:</b> Too little metallicity for rocky planet formation. (Slightly less of a dealbreaker for a captured planet, but that scenario is too unlikely to build a series around.)</div>
+</div>
+<div>
+<p><b>Hot Subdwarfs (O and B):</b> Form through different channels.</p>
+<p style="margin-top:.7em"><b>sdB stars:</b> A binary partner strips off the outer hydrogen layer before enough helium accumulates for helium fusion to begin. These stars skip the giant phase entirely and go straight to white dwarfs.</p>
+<p style="margin-top:.7em"><b>sdO stars:</b> Also often binary in origin, but more commonly form through the <b>merger of two white dwarfs</b>. Interior: C/O core surrounded by a helium layer with hydrogen at the surface.</p>
+<div class="reject" style="margin-top:.8em"><b>Eliminated:</b> Unusual evolutionary history, low metallicity, no stable planetary formation environment.</div>
+</div>
+</div>
+</div>
+
+<!-- XXXIII. BROWN DWARFS -->
+<div class="section" id="brown-dwarfs">
+<div class="section-header"><span class="section-num">XXXIII</span><span class="section-title">Brown Dwarfs — Classes L, T, and Y</span></div>
+<p>Brown dwarfs occupy the space between the most massive gas giant planets and the least massive stars. They never achieve sustained hydrogen fusion and continuously cool throughout their lives.</p>
+<table>
+<thead><tr><th>Property</th><th>L-type</th><th>T-type</th><th>Y-type</th></tr></thead>
+<tbody>
+<tr><td>Temperature</td><td>2,200–1,300 K</td><td>1,300–500 K</td><td>&lt;500 K</td></tr>
+<tr><td>Color</td><td>Deep Red</td><td>Magenta with bands</td><td>Dark Purple with bands</td></tr>
+<tr><td>Radius (R☉)</td><td colspan="3">0.072–0.144 (roughly constant across all three; determined by electron degeneracy)</td></tr>
+<tr><td>Clouds (low→high)</td><td>Perovskite (CaTiO₃), Corundum (Al₂O₃), Liquid Iron (Fe), Forsterite (Mg₂SiO₄), Enstatite (MgSiO₃); CO throughout</td><td>All previous + Sodium Sulfide (Na₂S), Lithium Sulfide (Li₂S), Lithium Fluoride (LiF), Potassium Chloride (KCl); CO near bottom, CH₄ near top</td><td>All previous + Rubidium Chloride (RbCl), Cesium Chloride (CsCl), Water (H₂O), Ammonium Hydrosulfide (NH₄HS), Ammonia (NH₃); CO near bottom, CH₄ near top</td></tr>
+</tbody>
+</table>
+<div class="reject" style="margin-top:1em"><b>Eliminated:</b> Cool too quickly to maintain a stable habitable zone; would exert enormous tidal forces on any closely orbiting planets. No sustained fusion means no reliable long-term luminosity for life to adapt to.</div>
+</div>
+
+<!-- XXXIV. WHITE DWARFS -->
+<div class="section" id="white-dwarfs">
+<div class="section-header"><span class="section-num">XXXIV</span><span class="section-title">White Dwarfs — Yerkes Class VII</span></div>
+<table>
+<thead><tr><th>Property</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Temperature</td><td>150,000 K (newly formed) → 4,000 K (after ~10¹⁰ years)</td></tr>
+<tr><td>Luminosity</td><td>0.0001–0.01 L☉</td></tr>
+<tr><td>Lifespan</td><td>Trillions of years (cools and eventually crystallizes to a black dwarf)</td></tr>
+<tr><td>Prevalence</td><td>10% of stellar mass objects currently; 97% of all stars will eventually become white dwarfs</td></tr>
+</tbody>
+</table>
+<p style="margin-top:1em"><b>Mass types by origin:</b></p>
+<ul class="fancy">
+<li>0.17–0.75 M☉: partner stripped hydrogen off a medium star</li>
+<li>&lt;0.5 M☉: helium white dwarf from a &lt;0.5 M☉ star (takes longer than the current age of the universe; theoretical)</li>
+<li>0.5–1.05 M☉: C-O white dwarf from a 0.5–8 M☉ star</li>
+<li>1.05–1.44 M☉: O-Ne-Mg white dwarf from an 8–10 M☉ star</li>
+</ul>
+<p style="margin-top:.8em">When a white dwarf accretes matter, the accreted layer fuses and produces a bright flash called a <b>nova</b>. If the white dwarf accumulates enough mass to exceed <b>1.44 M☉</b> (the Chandrasekhar limit), carbon ignites throughout the entire star — causing a <b>Type Ia Supernova</b> that destroys it completely.</p>
+<div class="reject"><b>Eliminated:</b> Cool too quickly; would exert massive tidal forces on any habitable-zone planets; the habitable zone migrates rapidly inward, leaving no time for life to adapt.</div>
+</div>
+
+<!-- XXXV. REMNANTS -->
+<div class="section" id="remnants">
+<div class="section-header"><span class="section-num">XXXV</span><span class="section-title">High-Mass Remnants: Neutron Stars &amp; Black Holes</span></div>
+<div class="two-col">
+<div>
+<p><b>Neutron Stars</b> form when a stellar remnant between 1.44 and 3 solar masses collapses. Gravity overcomes electron degeneracy pressure, forcing protons and electrons to merge into neutrons and releasing an enormous burst of neutrinos.</p>
+<ul class="fancy" style="margin-top:.8em">
+<li><b>Radius:</b> ~10 km</li>
+<li><b>Density:</b> a teaspoon weighs approximately 10 million tonnes</li>
+<li><b>Pulsars:</b> rapidly spinning neutron stars emitting radiation from their magnetic poles — observed as regular pulses from Earth</li>
+</ul>
+</div>
+<div>
+<p><b>Black Holes</b> form when the remnant exceeds 3 solar masses. Gravity overcomes all forces holding matter apart — neutrons, then quarks — resulting in complete collapse. Radius scales linearly with mass (minimum ~9 km).</p>
+<ul class="fancy" style="margin-top:.8em">
+<li><b>Ergosphere:</b> dragged by rotation; impossible to remain stationary</li>
+<li><b>Event horizon:</b> point of no return — light cannot escape</li>
+<li><b>Ring singularity:</b> matter at a mathematical point (in rotating black holes)</li>
+<li><b>Accretion disk:</b> hot infalling matter that can be immensely luminous</li>
+</ul>
+</div>
+</div>
+<div class="reject"><b>Both eliminated:</b> Extreme X-ray and gamma radiation. No stable habitable planetary orbits at any distance compatible with receiving useful warmth.</div>
+</div>
+
+<!-- XXXVI. SUPERNOVAE -->
+<div class="section" id="supernovae">
+<div class="section-header"><span class="section-num">XXXVI</span><span class="section-title">Supernova Types Summary</span></div>
+<p>The type of supernova (or lack thereof) depends on the initial mass of the star and the metallicity of the region, which determines how much mass was lost to stellar winds during the star's life.</p>
+<table>
+<thead><tr><th>Type</th><th>Condition / Mechanism</th><th>Remnant</th></tr></thead>
+<tbody>
+<tr><td style="color:#aaaaff"><b>No Supernova (Blue)</b></td><td>Low/medium mass stars — gentle shedding of layers forming a planetary nebula</td><td>White dwarf</td></tr>
+<tr><td style="color:#ff9800"><b>SN II-P (Orange)</b></td><td>H envelope survives; gets ionized by the shock wave and becomes temporarily opaque → characteristic plateau in the light curve</td><td>Neutron star</td></tr>
+<tr><td style="color:#4caf50"><b>SN II-L (Green)</b></td><td>Little H remains when the star explodes → no light plateau</td><td>Neutron star</td></tr>
+<tr><td style="color:#bb88ff"><b>SN Ib (Purple)</b></td><td>No H remains; some-to-little He due to sheer stellar mass; core collapse</td><td>Neutron star or black hole</td></tr>
+<tr><td style="color:#666"><b>Direct Collapse (Black)</b></td><td>Very massive star — collapses silently into a black hole; no supernova explosion observed</td><td>Black hole</td></tr>
+<tr><td style="color:#f44336"><b>Pair Instability (Red)</b></td><td>Extremely massive star at very low metallicity — gamma rays create electron-positron pairs, triggering total disruption</td><td>Nothing — complete destruction</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- XXXVII. REJECTS -->
+<div class="section" id="rejects">
+<div class="section-header"><span class="section-num">XXXVII</span><span class="section-title">The Rejects</span></div>
+<p>Summary of everything eliminated and why:</p>
+<div class="reject"><b>Brown Dwarfs (L, T, Y):</b> Cool too quickly; exert enormous tidal forces on any orbiting planets; no stable luminosity.</div>
+<div class="reject"><b>White Dwarfs:</b> Cool too quickly; enormous tidal forces; rapidly migrating habitable zone leaves no time for life.</div>
+<div class="reject"><b>Subdwarfs:</b> Too little metallicity for rocky planet formation. (Captured planets are a marginal exception, but too unlikely.)</div>
+<div class="reject"><b>Neutron Stars &amp; Black Holes:</b> Extreme radiation (X-ray, gamma). No stable habitable orbits possible.</div>
+<div class="reject"><b>O, B, A-type stars:</b> Too short-lived; extreme UV output.</div>
+<div class="pick" style="margin-top:1.2em"><b>Remaining viable candidates:</b> F, G, K, and (with caveats) M-type main sequence stars. Project Granite chose K6V specifically to explore tidal locking.</div>
+</div>
+
+<!-- XXXVIII. METALLICITY -->
+<div class="section" id="metallicity">
+<div class="section-header"><span class="section-num">XXXVIII</span><span class="section-title">What is Stellar Metallicity?</span></div>
+<p><b>Stellar metallicity</b> is the proportion of a star's mass that is neither hydrogen nor helium — i.e., everything heavier (collectively called "metals" in astrophysics, regardless of whether they're chemically metallic).</p>
+<div class="two-col">
+<div>
+<p><b>Why it matters for planets:</b> Metals are the raw material for rocky planet and asteroid formation. Higher metallicity → more material available → higher probability of terrestrial planets.</p>
+<p style="margin-top:.8em"><b>Why it matters for the star:</b> Metals increase opacity inside the star. More opacity → radiation pressure builds → the star expands slightly and its surface cools. This affects luminosity, temperature, mass loss rate, and ultimately lifespan.</p>
+<p style="margin-top:.8em"><b>Why it's an age indicator:</b> Only hydrogen, helium, and trace lithium were produced in the Big Bang. Every other element was made inside stars and distributed by supernovae. More metals in a star → it formed from enriched material → it's younger.</p>
+</div>
+<div class="diagram">
+<svg viewBox="0 0 260 240" style="width:100%;max-width:260px">
+<rect width="260" height="240" fill="#000"/>
+<g transform="translate(130,110)">
+<path d="M0,0 L0,-90 A90,90 0,1,1 -90,0 Z" fill="#4A90D9" opacity=".7"/>
+<path d="M0,0 L-90,0 A90,90 0,0,1 -27,-86 Z" fill="#aaaaaa" opacity=".5"/>
+<path d="M0,0 L-27,-86 A90,90 0,0,1 0,-90 Z" fill="#E8A838" opacity=".9"/>
+</g>
+<text x="178" y="88" fill="#4A90D9" font-size="11" font-family="sans-serif" font-weight="bold">H — 74%</text>
+<text x="48" y="152" fill="#aaaaaa" font-size="11" font-family="sans-serif">He — 24%</text>
+<text x="116" y="38" fill="#E8A838" font-size="10" font-family="sans-serif">Metals 2%</text>
+<text x="130" y="222" fill="#555" font-size="9" text-anchor="middle" font-family="sans-serif">Milky Way baryonic mass %</text>
+</svg>
+</div>
+</div>
+</div>
+
+<!-- XXXIX. NUCLEOSYNTHESIS -->
+<div class="section" id="nucleosynthesis">
+<div class="section-header"><span class="section-num">XXXIX</span><span class="section-title">Nucleosynthetic Origins</span></div>
+<p>Every element heavier than helium was made somewhere specific. Understanding this helps explain why certain elements are rare or common in stellar systems of different ages and metallicities.</p>
+<table>
+<thead><tr><th>Source</th><th>Elements produced</th></tr></thead>
+<tbody>
+<tr><td style="color:#4A90D9"><b>Big Bang Nucleosynthesis</b></td><td>H (73.97%), He (24.02%) principally; trace Li</td></tr>
+<tr><td style="color:#cc6633"><b>Dying Low-Mass Stars (Red Giants)</b></td><td>Li, C, N; s-process elements in periods 5 and 6 (e.g. Ba, Sr, Pb)</td></tr>
+<tr><td style="color:#cc4444"><b>Supernovae (massive stars)</b></td><td>Most Period 3 elements; O, F, Ne; some Period 4 elements</td></tr>
+<tr><td style="color:#aaaaaa"><b>Exploding White Dwarfs (Type Ia SN)</b></td><td>Iron-peak elements (Fe, Ni, Co — Period 4); Si, S, Ar</td></tr>
+<tr><td style="color:#44aacc"><b>Cosmic Ray Spallation</b></td><td>Be, B — created when cosmic rays collide with heavier nuclei and shatter them (fission)</td></tr>
+<tr><td style="color:#ddaa44"><b>Merging Neutron Stars (r-process)</b></td><td>Periods 5, 6, and practically all of Period 7: gold, platinum, uranium, and other heavy elements</td></tr>
+</tbody>
+</table>
+<div class="note" style="margin-top:1em"><b>Top 10 elements by universal mass %:</b> H (73.97%) · He (24.02%) · O (1.04%) · C (0.46%) · Ne (0.134%) · Fe (0.109%) · N (0.096%) · Si (0.065%) · Mg (0.058%) · S (0.044%)<br>General trend: abundance decreases with atomic number, with even-numbered elements more abundant (the alpha ladder). Li, Be, and B are anomalously rare because they're bypassed in both Big Bang and stellar fusion pathways.</div>
+</div>
+
+<!-- XL. DEX -->
+<div class="section" id="dex">
+<div class="section-header"><span class="section-num">XL</span><span class="section-title">Measuring Metallicity in Dex</span></div>
+<p>Metallicity is expressed in <b>dex</b> — the log₁₀ of the metallicity ratio relative to the Sun:</p>
+<div class="formula">[Fe/H] = log₁₀(Z / Z☉)</div>
+<div class="two-col" style="margin-top:1em">
+<div>
+<p><b>Examples:</b></p>
+<ul class="fancy">
+<li>Mu Arae: 0.3 dex because log₁₀(2.4/1.2) = 0.3 (double solar metallicity)</li>
+<li>C-19 globular cluster: −3.4 dex because log₁₀(0.000478/1.2) = −3.4</li>
+</ul>
+<p style="margin-top:1em"><b>Metallicity approximation for the inner thin disc:</b></p>
+<div class="formula">[Fe/H] ≈ 0.5 × ln((t − 0.75) / 12)</div>
+<p style="font-size:.88em;color:var(--dim)">where t = time since Big Bang in billions of years. Varies ±0.4 dex within the same region.</p>
+<p style="margin-top:.8em;font-size:.88em;color:var(--dim)"><b>Note on [Fe/H] vs [M/H]:</b> [Fe/H] measures iron specifically. [M/H] measures total metals. At high metallicity, slowly-burning low-mass stars are more common, relatively enriching C and N. At low metallicity, massive short-lived stars dominated, enriching alpha-process elements (O, Ne, Mg, Si, S).</p>
+</div>
+<div>
+<table>
+<thead><tr><th>[Fe/H] (dex)</th><th>Metal mass fraction</th></tr></thead>
+<tbody>
+<tr><td>+1.0</td><td>~12%</td></tr>
+<tr><td>0.0 (Solar)</td><td>~1.2%</td></tr>
+<tr class="pick-row"><td><b>−0.30 ← Project Granite</b></td><td>~0.6%</td></tr>
+<tr><td>−1.0</td><td>~0.12%</td></tr>
+<tr><td>−2.0</td><td>~0.012%</td></tr>
+<tr><td>−3.0</td><td>~0.0012%</td></tr>
+<tr><td>−4.0</td><td>~0.00012%</td></tr>
+<tr><td>−5.0</td><td>~0.000012%</td></tr>
+<tr><td>−6.0</td><td>~0.0000012%</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<!-- XLI. GALACTIC GEO -->
+<div class="section" id="galactic-geo">
+<div class="section-header"><span class="section-num">XLI</span><span class="section-title">Galactic Geography &amp; Stellar Populations</span></div>
+<p>Metallicity is also determined by <b>location within the galaxy</b> — different regions have different chemical histories.</p>
+<div class="two-col">
+<div>
+<table>
+<thead><tr><th>Region</th><th>Metallicity (dex)</th></tr></thead>
+<tbody>
+<tr><td>Thin disc (new stars)</td><td>−1.0 to +0.5 (avg +0.3)</td></tr>
+<tr><td>Thick disc (overall)</td><td>+0.3 to −0.7</td></tr>
+<tr><td>Bulge/bar</td><td>−0.4 to −1.0</td></tr>
+<tr><td>Inner halo</td><td>−1.0 to −2.2</td></tr>
+<tr><td>Outer halo</td><td>−2.0 to −4.5</td></tr>
+</tbody>
+</table>
+<div class="note" style="margin-top:.8em">Elliptical galaxies have more uniform gradients (+0.2 to −0.8 dex) and contain approximately twice as much magnesium as spiral galaxies. Smaller galaxies have lower overall metallicity. Neutron star mergers and quasars can locally enrich regions.</div>
+</div>
+<div>
+<div class="cards">
+<div class="card"><h3 style="color:#4A90D9">Population I</h3><p>Thin and thick disc. Age &lt;9 Gyr. Near-circular orbits within the galactic plane. Metal-rich. Our Sun and Project Granite's star are Population I.</p></div>
+<div class="card"><h3 style="color:#888">Population II</h3><p>Galactic halo. Age 10–13 Gyr. Erratic, highly elliptical orbits. Metal-poor. Formed from the first generation of enriched material.</p></div>
+<div class="card"><h3 style="color:var(--faint)">Population III</h3><p>Hypothetical first stars. Pure H and He — no metals at all. Very massive, died fast. None observed; all likely gone billions of years ago.</p></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- XLII. EVOLUTION EFFECTS -->
+<div class="section" id="evolution-effects">
+<div class="section-header"><span class="section-num">XLII</span><span class="section-title">Effects of Metallicity on Stellar Evolution</span></div>
+<p>Stellar metallicity significantly affects a star's <b>lifetime, luminosity, radius, mass loss, and temperature</b>. The primary mechanism is <b>opacity</b>:</p>
+<div class="two-col-3">
+<div class="card"><h3>Radius</h3><p>More metals → more opaque → radiation pressure increases → star expands. Higher metallicity stars are physically larger at the same mass.</p></div>
+<div class="card"><h3>Temperature &amp; Luminosity</h3><p>Opacity traps heat → surface cools and dims. Higher metallicity → lower surface temperature and luminosity at the same mass.<br><br><span style="font-family:monospace;font-size:.9em;color:#adf">L ∝ Z^(−1/6)</span></p></div>
+<div class="card"><h3>Lifetime &amp; Mass Loss</h3><p>Lower luminosity → fuel burns slower → longer lifespan. Also increased mass loss during late evolution as the larger, more diffuse envelope is more easily shed.<br><br><span style="font-family:monospace;font-size:.9em;color:#adf">τ ∝ Z^(+1/6)</span></p></div>
+</div>
+</div>
+
+<!-- XLIII. FINAL DERIVATION -->
+<div class="section" id="final">
+<div class="section-header"><span class="section-num">XLIII</span><span class="section-title">Final Derivation for Project Granite</span></div>
+<p><b>Step 1:</b> Current metallicity in the solar neighborhood:</p>
+<div class="formula">0.5 × ln((13.75 − 0.75) / 12) = +0.04 dex</div>
+<p style="margin-top:.8em"><b>Step 2:</b> Our system is closer to the galactic center and on the thin/thick disc boundary. This region has about +0.05 dex higher metallicity than the solar neighborhood for stars of the same age — but our star is also older than the Sun, which counteracts this. Net correction applied: <b>−0.05 dex</b>.</p>
+<p style="margin-top:.8em"><b>Step 3:</b> System is ~6 billion years old (the universe was ~8 Gyr old when it formed):</p>
+<div class="formula">0.5 × ln((8 − 0.75) / 12) − 0.05 = <b>−0.30 dex</b></div>
+<div class="pick" style="margin-top:1em;font-size:1.05em"><b>Final metallicity: −0.30 dex</b><br>Iron abundance: approximately <b>0.5× solar</b> (50% of the Sun's iron abundance)</div>
+<p style="margin-top:1.2em"><b>Final elemental composition by mass % (based on solar system abundances scaled to −0.30 dex):</b></p>
+<table style="max-width:360px">
+<thead><tr><th>Element</th><th>Mass %</th></tr></thead>
+<tbody>
+<tr><td>Hydrogen</td><td>71.1310%</td></tr>
+<tr><td>Helium</td><td>27.7294%</td></tr>
+<tr><td>Oxygen</td><td>0.5241%</td></tr>
+<tr><td>Carbon</td><td>0.1679%</td></tr>
+<tr><td>Neon</td><td>0.16228%</td></tr>
+<tr><td>Iron</td><td>0.0745%</td></tr>
+<tr><td>Silicon</td><td>0.0567%</td></tr>
+<tr><td>Nitrogen</td><td>0.0526%</td></tr>
+<tr><td>Magnesium</td><td>0.0514%</td></tr>
+<tr><td>Sulfur</td><td>0.0276%</td></tr>
+<tr><td>Other</td><td>0.0224%</td></tr>
+</tbody>
+</table>
+<div class="note" style="margin-top:1em">Note: these counts are based on solar system abundances and may differ from actual stellar spectroscopy. The true ratios depend on precise stellar modeling.</div>
+
+<div style="margin-top:3em;padding:1.5em;background:#04101e;border:1px solid var(--gold);border-radius:8px">
+<div style="font-size:.8em;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:1em">Season 1 Complete — Project Granite Choices</div>
+<ul class="fancy">
+<li><b>Cosmic location:</b> Filament of the cosmic web</li>
+<li><b>Galaxy:</b> Medium barred spiral — ~1 trillion M☉ total, ~50 billion M☉ in stars</li>
+<li><b>Galactic position:</b> Thin/thick disc boundary, closer to center than the Sun</li>
+<li><b>Star system:</b> Unary</li>
+<li><b>Star:</b> K6V orange dwarf — 4,300 K, 0.69 M☉, 0.67 R☉, 0.14 L☉</li>
+<li><b>Metallicity:</b> −0.30 dex (~50% solar iron abundance)</li>
+<li><b>Key implication:</b> Habitable zone planet will be tidally locked</li>
+</ul>
+<p style="color:var(--accent);margin-top:1.2em;font-style:italic">Season 2: The Planet →</p>
+</div>
+</div>
+
+</div><!-- end main -->
+
+<script>
+// Active sidebar link tracking
+const sections = document.querySelectorAll('.section');
+const links = document.querySelectorAll('#nav a');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      links.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`#nav a[href="#${e.target.id}"]`);
+      if(active) active.classList.add('active');
+    }
+  });
+}, {threshold: 0.15});
+sections.forEach(s => obs.observe(s));
+</script>
 </body>
 </html>
